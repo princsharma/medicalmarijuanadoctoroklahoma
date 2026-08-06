@@ -33,6 +33,7 @@ export function SiteFooter() {
             width={200}
             height={50}
             className="h-11 w-auto brightness-0 invert"
+            style={{ width: "auto" }}
           />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/80">
             Oklahoma&apos;s most trusted platform for medical marijuana card approvals. Licensed
