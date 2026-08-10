@@ -44,7 +44,6 @@ export function SiteFooter() {
               width={200}
               height={50}
               className="h-11 w-auto brightness-0 invert"
-              style={{ width: "auto" }}
             />
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/80">
@@ -91,12 +90,9 @@ export function SiteFooter() {
             </li>
             <li className="flex items-start gap-2.5">
               <Mail className="mt-0.5 size-5 shrink-0 text-[#B8E89A]" aria-hidden="true" />
-              <a
-                href="mailto:contact@medicalmarijuanadoctoroklahoma.com"
-                className="transition-colors hover:text-white"
-              >
-                contact@medicalmarijuanadoctoroklahoma.com
-              </a>
+              <Link href="/contact-us/" className="transition-colors hover:text-white">
+                Email Us
+              </Link>
             </li>
             <li className="flex items-start gap-2.5">
               <MapPin className="mt-0.5 size-5 shrink-0 text-[#B8E89A]" aria-hidden="true" />
