@@ -24,13 +24,13 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
         <div>
           <h1 className="font-heading text-4xl leading-[1.1] font-medium tracking-tight text-[#0E3B2E] sm:text-5xl">
-            Get Approved by an Oklahoma Medical Marijuana Doctor and Receive Your{" "}
-            <span className="italic text-[#2F7A18]">Digital Card in Minutes!</span>
+            Apply for an Oklahoma Medical Marijuana Card Online with a Licensed{" "}
+            <span className="italic text-[#2F7A18]">MMJ Doctor</span>
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-[#0E3B2E]/85">
-            Easy online application, instant approval, and same-day access to legal cannabis in
-            Oklahoma.
+            Easy online application, physician evaluation, and clear OMMA steps — with same-day
+            access to legal medical marijuana in Oklahoma.
           </p>
 
           <div className="mt-9 flex flex-nowrap items-center gap-3 sm:gap-4">
@@ -65,7 +65,7 @@ export function Hero() {
           <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#0E3B2E]/15">
             <Image
               src="/hero-section.jpg"
-              alt="Patient meeting with a physician over telemedicine video call"
+              alt="Oklahoma medical marijuana doctor telehealth visit for an online MMJ card evaluation"
               width={800}
               height={560}
               priority

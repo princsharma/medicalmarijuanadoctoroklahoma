@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Inter, Fraunces } from "next/font/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -9,7 +10,11 @@ import {
   SITE_URL,
   organizationSchema,
   pages,
+  websiteSchema,
 } from "@/lib/seo";
+
+const GTM_ID = "GTM-5MP4Q35";
+const GA_MEASUREMENT_ID = "G-580S6PQZ8K";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -78,6 +83,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  verification: {
+    google: "fVbtcYhbhtfufdSVaP5v9gtp1kJoYVYBNBQlxxUTJ6I",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -114,8 +122,18 @@ export default function RootLayout({
         fraunces.variable
       )}
     >
+      <GoogleTagManager gtmId={GTM_ID} />
       <body className="flex min-h-full flex-col">
-        <JsonLd data={organizationSchema()} />
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            className="hidden"
+            title="Google Tag Manager"
+          />
+        </noscript>
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-[#0E3B2E] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
@@ -124,6 +142,7 @@ export default function RootLayout({
         </a>
         {children}
       </body>
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }

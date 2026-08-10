@@ -9,6 +9,13 @@ export const DEFAULT_OG_IMAGE = "/hero-section.jpg";
 export const ABOUT_OG_IMAGE = "/aboutus-hero-section.webp";
 export const CONTACT_OG_IMAGE = "/contact-us-hero-section.webp";
 
+export const SOCIAL_LINKS = {
+  facebook: "https://www.facebook.com/mmjdoctoroklahoma/",
+  googleMaps: "https://maps.app.goo.gl/93bMfCu8LaZ78Eb8A",
+  instagram: "https://www.instagram.com/mmjdoctorsoklahoma/",
+  linkedin: "https://www.linkedin.com/company/107855441",
+} as const;
+
 export type PageSeo = {
   path: string;
   title: string;
@@ -40,11 +47,11 @@ export function withTrailingSlash(path: string) {
 export const pages = {
   home: {
     path: "/",
-    title: "Medical Marijuana Doctor Oklahoma | MMJ Card",
+    title: "How to Apply for an Oklahoma Medical Marijuana Card Online",
     description:
-      "Oklahoma telehealth for medical marijuana evaluations. Licensed OK doctors, fast online visits, and clear OMMA card guidance for patients.",
+      "See how Oklahoma residents can apply for a medical marijuana card, including eligibility, physician evaluation, and OMMA steps.",
     datePublished: "2024-01-01",
-    dateModified: "2026-08-05",
+    dateModified: "2026-08-10",
     changeFrequency: "weekly",
     priority: 1,
   },
@@ -217,7 +224,7 @@ export function absoluteUrl(path: string) {
   return new URL(normalized, SITE_URL).toString();
 }
 
-export function clampMetaTitle(title: string, max = 55) {
+export function clampMetaTitle(title: string, max = 60) {
   if (title.length <= max) return title;
   const cut = title.slice(0, max);
   const at = cut.lastIndexOf(" ");
@@ -334,8 +341,10 @@ export function doctorMetadata(input: {
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["MedicalBusiness", "Organization"],
+    "@type": ["MedicalBusiness", "LocalBusiness", "Organization"],
+    "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
+    alternateName: "MMJ Doctor Oklahoma",
     url: SITE_URL,
     logo: absoluteUrl("/logo.png"),
     image: absoluteUrl(DEFAULT_OG_IMAGE),
@@ -343,6 +352,8 @@ export function organizationSchema() {
       "Technology platform connecting Oklahoma patients with licensed physicians for medical marijuana evaluations.",
     email: "contact@medicalmarijuanadoctoroklahoma.com",
     telephone: "+1-405-445-1637",
+    priceRange: "$$",
+    hasMap: SOCIAL_LINKS.googleMaps,
     address: {
       "@type": "PostalAddress",
       streetAddress: "1036 W I-240 Service Road",
@@ -374,7 +385,28 @@ export function organizationSchema() {
       "@type": "State",
       name: "Oklahoma",
     },
-    sameAs: [],
+    sameAs: [
+      SOCIAL_LINKS.facebook,
+      SOCIAL_LINKS.instagram,
+      SOCIAL_LINKS.linkedin,
+      SOCIAL_LINKS.googleMaps,
+    ],
+  };
+}
+
+/** Site-level identity / publisher schema for GEO and Knowledge Graph signals. */
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: SITE_NAME,
+    description: pages.home.description,
+    inLanguage: "en-US",
+    publisher: {
+      "@id": `${SITE_URL}/#organization`,
+    },
   };
 }
 
