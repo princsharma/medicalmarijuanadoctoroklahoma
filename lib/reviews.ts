@@ -142,5 +142,5 @@ export const REVIEWS_SUMMARY = {
   label: "Excellent",
   average: 4.9,
   count: reviews.length,
-  googleMapsUrl: "https://maps.app.goo.gl/8HTa3Scrh8eU3Wfi7",
+  googleMapsUrl: "https://maps.app.goo.gl/93bMfCu8LaZ78Eb8A",
 } as const;

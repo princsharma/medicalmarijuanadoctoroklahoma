@@ -9,6 +9,13 @@ export const DEFAULT_OG_IMAGE = "/hero-section.jpg";
 export const ABOUT_OG_IMAGE = "/aboutus-hero-section.webp";
 export const CONTACT_OG_IMAGE = "/contact-us-hero-section.webp";
 
+export const SOCIAL_LINKS = {
+  facebook: "https://www.facebook.com/mmjdoctoroklahoma/",
+  googleMaps: "https://maps.app.goo.gl/93bMfCu8LaZ78Eb8A",
+  instagram: "https://www.instagram.com/mmjdoctorsoklahoma/",
+  linkedin: "https://www.linkedin.com/company/107855441",
+} as const;
+
 export type PageSeo = {
   path: string;
   title: string;
@@ -40,11 +47,11 @@ export function withTrailingSlash(path: string) {
 export const pages = {
   home: {
     path: "/",
-    title: "Medical Marijuana Doctor Oklahoma | MMJ Card",
+    title: "How to Apply for an Oklahoma Medical Marijuana Card Online",
     description:
-      "Oklahoma telehealth for medical marijuana evaluations. Licensed OK doctors, fast online visits, and clear OMMA card guidance for patients.",
+      "See how Oklahoma residents can apply for a medical marijuana card, including eligibility, physician evaluation, and OMMA steps.",
     datePublished: "2024-01-01",
-    dateModified: "2026-08-05",
+    dateModified: "2026-08-10",
     changeFrequency: "weekly",
     priority: 1,
   },
@@ -374,7 +381,12 @@ export function organizationSchema() {
       "@type": "State",
       name: "Oklahoma",
     },
-    sameAs: [],
+    sameAs: [
+      SOCIAL_LINKS.facebook,
+      SOCIAL_LINKS.instagram,
+      SOCIAL_LINKS.linkedin,
+      SOCIAL_LINKS.googleMaps,
+    ],
   };
 }
 

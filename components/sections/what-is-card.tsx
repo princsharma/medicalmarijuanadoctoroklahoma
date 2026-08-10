@@ -31,7 +31,7 @@ export function WhatIsCard() {
         <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-stretch">
           <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] shadow-xl shadow-[#0E3B2E]/10 lg:col-span-5 lg:min-h-0">
             <Image
-              src="/homepage-what-is-section.webp"
+              src="/homepage-whatis-section.webp"
               alt="Patient purchasing cannabis products at a licensed Oklahoma dispensary"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
