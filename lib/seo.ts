@@ -341,15 +341,16 @@ export function doctorMetadata(input: {
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["MedicalBusiness", "LocalBusiness", "Organization"],
+    "@type": ["MedicalOrganization", "MedicalBusiness", "LocalBusiness"],
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
     alternateName: "MMJ Doctor Oklahoma",
-    url: SITE_URL,
-    logo: absoluteUrl("/logo.png"),
-    image: absoluteUrl(DEFAULT_OG_IMAGE),
+    url: `${SITE_URL}/`,
+    logo: { "@id": `${SITE_URL}/#logo` },
+    image: { "@id": `${SITE_URL}/#logo` },
     description:
-      "Technology platform connecting Oklahoma patients with licensed physicians for medical marijuana evaluations.",
+      "Medical Marijuana Doctor Oklahoma is a telehealth platform connecting Oklahoma patients with licensed physicians for OMMA-compliant medical marijuana evaluations via secure, HIPAA-compliant video consultations.",
+    knowsAbout: ["Cannabis Medicine", "Telemedicine"],
     email: "contact@medicalmarijuanadoctoroklahoma.com",
     telephone: "+1-405-445-1637",
     priceRange: "$$",
@@ -381,6 +382,22 @@ export function organizationSchema() {
       opens: "09:00",
       closes: "22:00",
     },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+1-405-445-1637",
+        contactType: "customer service",
+        areaServed: "US-OK",
+        availableLanguage: ["English"],
+      },
+      {
+        "@type": "ContactPoint",
+        email: "contact@medicalmarijuanadoctoroklahoma.com",
+        contactType: "customer support",
+        areaServed: "US-OK",
+        availableLanguage: ["English"],
+      },
+    ],
     areaServed: {
       "@type": "State",
       name: "Oklahoma",
@@ -391,6 +408,18 @@ export function organizationSchema() {
       SOCIAL_LINKS.linkedin,
       SOCIAL_LINKS.googleMaps,
     ],
+    publishingPrinciples: absoluteUrl(pages.editorial.path),
+  };
+}
+
+export function logoSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": `${SITE_URL}/#logo`,
+    url: absoluteUrl("/logo.png"),
+    contentUrl: absoluteUrl("/logo.png"),
+    caption: "Medical Marijuana Doctor Oklahoma logo",
   };
 }
 

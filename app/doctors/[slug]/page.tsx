@@ -66,16 +66,22 @@ export default async function DoctorProfilePage({ params }: Props) {
 
   const lastName = doctor.name.split(" ").slice(-1)[0];
   const profilePath = withTrailingSlash(`/doctors/${doctor.slug}`);
+  const profileUrl = absoluteUrl(profilePath);
+  const physicianId = `${profileUrl}#physician`;
   const physicianSchema = {
     "@context": "https://schema.org",
-    "@type": "Physician",
+    "@type": ["Physician", "Person"],
+    "@id": physicianId,
     name: `Dr. ${doctor.name}, ${doctor.credentials}`,
+    honorificPrefix: "Dr.",
+    honorificSuffix: doctor.credentials,
     description: doctor.bio,
     image: absoluteUrl(doctor.image),
-    url: absoluteUrl(profilePath),
+    url: profileUrl,
     medicalSpecialty: doctor.category,
     worksFor: {
       "@type": "MedicalBusiness",
+      "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
     },
@@ -84,10 +90,25 @@ export default async function DoctorProfilePage({ params }: Props) {
       name: "Oklahoma",
     },
   };
+  const profilePageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${profileUrl}#profilepage`,
+    url: profileUrl,
+    name: `Dr. ${doctor.name}, ${doctor.credentials} — Oklahoma Medical Marijuana Doctor`,
+    mainEntity: { "@id": physicianId },
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  };
 
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
       <JsonLd data={physicianSchema} />
+      <JsonLd data={profilePageSchema} />
       <SiteHeader />
       <PageBreadcrumb
         page={doctor.name}

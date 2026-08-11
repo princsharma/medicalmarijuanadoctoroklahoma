@@ -8,6 +8,7 @@ import {
   DEFAULT_OG_IMAGE,
   SITE_NAME,
   SITE_URL,
+  logoSchema,
   organizationSchema,
   pages,
   websiteSchema,
@@ -133,7 +134,7 @@ export default function RootLayout({
             title="Google Tag Manager"
           />
         </noscript>
-        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <JsonLd data={[organizationSchema(), logoSchema(), websiteSchema()]} />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-[#0E3B2E] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"

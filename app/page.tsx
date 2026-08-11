@@ -10,14 +10,22 @@ import { DontSeeCondition } from "@/components/sections/dont-see-condition";
 import { BenefitsOfCannabis } from "@/components/sections/benefits-of-cannabis";
 import { Testimonials } from "@/components/sections/testimonials";
 import { JsonLd } from "@/components/seo/json-ld";
-import { buildMetadata, pages, webPageSchema } from "@/lib/seo";
+import { homePageSchemas } from "@/lib/home-schema";
+import { buildMetadata, pages } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata(pages.home);
 
 export default function Home() {
+  const schemas = homePageSchemas();
+
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd data={webPageSchema(pages.home)} />
+      {schemas.map((schema) => (
+        <JsonLd
+          key={String(schema["@id"] ?? schema["@type"])}
+          data={schema}
+        />
+      ))}
       <SiteHeader />
       <main id="main-content">
         <Hero />
