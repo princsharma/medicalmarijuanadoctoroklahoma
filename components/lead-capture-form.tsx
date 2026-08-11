@@ -53,6 +53,7 @@ type LeadErrors = {
   email?: string;
   phone?: string;
   termsAccepted?: string;
+  
 };
 
 const fieldClassName =
