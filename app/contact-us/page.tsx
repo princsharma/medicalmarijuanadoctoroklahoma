@@ -8,16 +8,21 @@ import { ContactAfterReachOut } from "@/components/sections/contact/contact-afte
 import { ContactPrivacyNote } from "@/components/sections/contact/contact-privacy-note";
 import { ContactFaq } from "@/components/sections/contact/contact-faq";
 import { JsonLd } from "@/components/seo/json-ld";
-import { buildMetadata, pages, webPageSchema } from "@/lib/seo";
+import { contactPageSchema } from "@/lib/contact-schema";
+import { buildMetadata, pages } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata(pages.contact);
 
 export default function ContactUsPage() {
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd data={webPageSchema(pages.contact)} />
+      <JsonLd data={contactPageSchema()} />
       <SiteHeader />
-      <PageBreadcrumb page="Contact Us" currentPath={pages.contact.path} />
+      <PageBreadcrumb
+        page="Contact Us"
+        currentPath={pages.contact.path}
+        includeSchema={false}
+      />
       <main id="main-content">
         <ContactHero />
         <ContactDetails />

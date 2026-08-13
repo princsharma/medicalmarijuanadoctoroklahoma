@@ -3,15 +3,12 @@ import { Geist_Mono, Inter, Fraunces } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { JsonLd } from "@/components/seo/json-ld";
+import { SiteJsonLd } from "@/components/seo/site-json-ld";
 import {
   DEFAULT_OG_IMAGE,
   SITE_NAME,
   SITE_URL,
-  logoSchema,
-  organizationSchema,
   pages,
-  websiteSchema,
 } from "@/lib/seo";
 
 const GTM_ID = "GTM-5MP4Q35";
@@ -134,7 +131,7 @@ export default function RootLayout({
             title="Google Tag Manager"
           />
         </noscript>
-        <JsonLd data={[organizationSchema(), logoSchema(), websiteSchema()]} />
+        <SiteJsonLd />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-[#0E3B2E] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"

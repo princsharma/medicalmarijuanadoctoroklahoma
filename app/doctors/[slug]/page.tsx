@@ -22,14 +22,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { doctors, getDoctorBySlug } from "@/lib/doctors";
+import { doctorProfileSchema } from "@/lib/doctor-profile-schema";
 import { JsonLd } from "@/components/seo/json-ld";
-import {
-  SITE_NAME,
-  SITE_URL,
-  absoluteUrl,
-  doctorMetadata,
-  withTrailingSlash,
-} from "@/lib/seo";
+import { doctorMetadata, withTrailingSlash } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -66,54 +61,16 @@ export default async function DoctorProfilePage({ params }: Props) {
 
   const lastName = doctor.name.split(" ").slice(-1)[0];
   const profilePath = withTrailingSlash(`/doctors/${doctor.slug}`);
-  const profileUrl = absoluteUrl(profilePath);
-  const physicianId = `${profileUrl}#physician`;
-  const physicianSchema = {
-    "@context": "https://schema.org",
-    "@type": ["Physician", "Person"],
-    "@id": physicianId,
-    name: `Dr. ${doctor.name}, ${doctor.credentials}`,
-    honorificPrefix: "Dr.",
-    honorificSuffix: doctor.credentials,
-    description: doctor.bio,
-    image: absoluteUrl(doctor.image),
-    url: profileUrl,
-    medicalSpecialty: doctor.category,
-    worksFor: {
-      "@type": "MedicalBusiness",
-      "@id": `${SITE_URL}/#organization`,
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    areaServed: {
-      "@type": "State",
-      name: "Oklahoma",
-    },
-  };
-  const profilePageSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "@id": `${profileUrl}#profilepage`,
-    url: profileUrl,
-    name: `Dr. ${doctor.name}, ${doctor.credentials} — Oklahoma Medical Marijuana Doctor`,
-    mainEntity: { "@id": physicianId },
-    isPartOf: {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-  };
 
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd data={physicianSchema} />
-      <JsonLd data={profilePageSchema} />
+      <JsonLd data={doctorProfileSchema(doctor)} />
       <SiteHeader />
       <PageBreadcrumb
         page={doctor.name}
         currentPath={profilePath}
         items={[{ label: "Our Doctors", href: "/doctors/" }]}
+        includeSchema={false}
       />
       <main id="main-content">
         <section className="px-6 pt-14 pb-16 sm:pt-20">

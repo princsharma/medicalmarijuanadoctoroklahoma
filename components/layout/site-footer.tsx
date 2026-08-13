@@ -90,9 +90,12 @@ export function SiteFooter() {
             </li>
             <li className="flex items-start gap-2.5">
               <Mail className="mt-0.5 size-5 shrink-0 text-[#B8E89A]" aria-hidden="true" />
-              <Link href="/contact-us/" className="transition-colors hover:text-white">
-                Email Us
-              </Link>
+              <a
+                href="mailto:contact@medicalmarijuanadoctoroklahoma.com"
+                className="break-all transition-colors hover:text-white"
+              >
+                contact@medicalmarijuanadoctoroklahoma.com
+              </a>
             </li>
             <li className="flex items-start gap-2.5">
               <MapPin className="mt-0.5 size-5 shrink-0 text-[#B8E89A]" aria-hidden="true" />
