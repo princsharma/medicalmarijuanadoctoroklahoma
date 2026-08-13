@@ -7,16 +7,21 @@ import { PageBreadcrumb } from "@/components/layout/page-breadcrumb";
 import { ContributorPortrait } from "@/components/sections/contributors/contributor-portrait";
 import { JsonLd } from "@/components/seo/json-ld";
 import { contributors } from "@/lib/contributors";
-import { buildMetadata, pages, webPageSchema, withTrailingSlash } from "@/lib/seo";
+import { contributorsPageSchema } from "@/lib/contributors-schema";
+import { buildMetadata, pages, withTrailingSlash } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata(pages.contributors);
 
 export default function ContributorsPage() {
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd data={webPageSchema(pages.contributors)} />
+      <JsonLd data={contributorsPageSchema()} />
       <SiteHeader />
-      <PageBreadcrumb page="Contributors" currentPath={pages.contributors.path} />
+      <PageBreadcrumb
+        page="Contributors"
+        currentPath={pages.contributors.path}
+        includeSchema={false}
+      />
       <main id="main-content">
         <section className="px-6 pt-16 pb-10 sm:pt-20 sm:pb-12">
           <div className="mx-auto max-w-3xl text-center">

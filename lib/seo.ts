@@ -72,7 +72,7 @@ export const pages = {
     description:
       "Questions about your Oklahoma MMJ card? Contact us by phone, email, or office visit. Real staff respond quickly to help you.",
     datePublished: "2024-01-01",
-    dateModified: "2026-08-05",
+    dateModified: "2026-08-11",
     changeFrequency: "monthly",
     priority: 0.8,
     ogImage: CONTACT_OG_IMAGE,
@@ -91,9 +91,9 @@ export const pages = {
     path: "/faq/",
     title: "FAQ | Medical Marijuana Doctor Oklahoma",
     description:
-      "Answers about Oklahoma medical marijuana cards, telehealth evaluations, eligibility, OMMA applications, and renewals.",
+      "Answers to common questions asked by Oklahoma patients about getting and maintaining a Medical Marijuana Card.",
     datePublished: "2024-01-01",
-    dateModified: "2026-08-05",
+    dateModified: "2026-08-13",
     changeFrequency: "monthly",
     priority: 0.7,
   },
@@ -338,22 +338,22 @@ export function doctorMetadata(input: {
   );
 }
 
+const LOGO_ID = `${SITE_URL}/logo.png`;
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["MedicalBusiness", "LocalBusiness", "Organization"],
+    "@type": ["MedicalOrganization", "MedicalBusiness"],
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
-    alternateName: "MMJ Doctor Oklahoma",
-    url: SITE_URL,
-    logo: absoluteUrl("/logo.png"),
-    image: absoluteUrl(DEFAULT_OG_IMAGE),
+    url: `${SITE_URL}/`,
+    logo: { "@id": LOGO_ID },
+    image: { "@id": LOGO_ID },
     description:
-      "Technology platform connecting Oklahoma patients with licensed physicians for medical marijuana evaluations.",
+      "Medical Marijuana Doctor Oklahoma is a telehealth platform connecting Oklahoma patients with licensed physicians for OMMA-compliant medical marijuana evaluations via secure, HIPAA-compliant video consultations.",
+    knowsAbout: ["Cannabis Medicine", "Telemedicine"],
     email: "contact@medicalmarijuanadoctoroklahoma.com",
     telephone: "+1-405-445-1637",
-    priceRange: "$$",
-    hasMap: SOCIAL_LINKS.googleMaps,
     address: {
       "@type": "PostalAddress",
       streetAddress: "1036 W I-240 Service Road",
@@ -361,11 +361,6 @@ export function organizationSchema() {
       addressRegion: "OK",
       postalCode: "73139",
       addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 35.3907522,
-      longitude: -97.5349792,
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -381,16 +376,39 @@ export function organizationSchema() {
       opens: "09:00",
       closes: "22:00",
     },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+1-405-445-1637",
+        contactType: "customer service",
+        areaServed: "US-OK",
+        availableLanguage: ["English"],
+      },
+      {
+        "@type": "ContactPoint",
+        email: "contact@medicalmarijuanadoctoroklahoma.com",
+        contactType: "customer support",
+        areaServed: "US-OK",
+        availableLanguage: ["English"],
+      },
+    ],
     areaServed: {
       "@type": "State",
       name: "Oklahoma",
     },
-    sameAs: [
-      SOCIAL_LINKS.facebook,
-      SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.linkedin,
-      SOCIAL_LINKS.googleMaps,
-    ],
+    sameAs: ["https://maps.app.goo.gl/8HTa3Scrh8eU3Wfi7"],
+    publishingPrinciples: absoluteUrl(pages.editorial.path),
+  };
+}
+
+export function logoSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": LOGO_ID,
+    url: LOGO_ID,
+    contentUrl: LOGO_ID,
+    caption: "Medical Marijuana Doctor Oklahoma logo",
   };
 }
 
