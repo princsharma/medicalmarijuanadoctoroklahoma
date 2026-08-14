@@ -64,7 +64,7 @@ export function Hero() {
         <div className="relative">
           <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#0E3B2E]/15">
             <Image
-              src="/hero-section.jpg"
+              src="/hero-section.webp"
               alt="Oklahoma medical marijuana doctor telehealth visit for an online MMJ card evaluation"
               width={800}
               height={560}

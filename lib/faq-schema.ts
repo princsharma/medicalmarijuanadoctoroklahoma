@@ -15,8 +15,8 @@ export function faqPageSchema() {
         logo: {
           "@type": "ImageObject",
           "@id": "https://medicalmarijuanadoctoroklahoma.com/#logo",
-          url: "https://medicalmarijuanadoctoroklahoma.com/logo.png",
-          contentUrl: "https://medicalmarijuanadoctoroklahoma.com/logo.png",
+          url: "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
+          contentUrl: "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
           caption: "Medical Marijuana Doctor Oklahoma",
         },
         image: { "@id": "https://medicalmarijuanadoctoroklahoma.com/#logo" },

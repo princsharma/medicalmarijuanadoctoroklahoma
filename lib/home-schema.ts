@@ -1,7 +1,7 @@
 /**
  * Oklahoma homepage JSON-LD.
  * Host verified: www → https://medicalmarijuanadoctoroklahoma.com/ (307).
- * Logo verified: https://medicalmarijuanadoctoroklahoma.com/logo.png (200).
+ * Logo verified: https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp (200).
  */
 export function homePageSchema() {
   return {
@@ -13,10 +13,10 @@ export function homePageSchema() {
         name: "Medical Marijuana Doctor Oklahoma",
         url: "https://medicalmarijuanadoctoroklahoma.com/",
         logo: {
-          "@id": "https://medicalmarijuanadoctoroklahoma.com/logo.png",
+          "@id": "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
         },
         image: {
-          "@id": "https://medicalmarijuanadoctoroklahoma.com/logo.png",
+          "@id": "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
         },
         description:
           "Medical Marijuana Doctor Oklahoma is a telehealth platform connecting Oklahoma patients with licensed physicians for OMMA-compliant medical marijuana evaluations via secure, HIPAA-compliant video consultations.",
@@ -71,9 +71,9 @@ export function homePageSchema() {
       },
       {
         "@type": "ImageObject",
-        "@id": "https://medicalmarijuanadoctoroklahoma.com/logo.png",
-        url: "https://medicalmarijuanadoctoroklahoma.com/logo.png",
-        contentUrl: "https://medicalmarijuanadoctoroklahoma.com/logo.png",
+        "@id": "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
+        url: "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
+        contentUrl: "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
         caption: "Medical Marijuana Doctor Oklahoma logo",
       },
       {
