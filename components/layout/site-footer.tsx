@@ -39,7 +39,7 @@ export function SiteFooter() {
             aria-label="Medical Marijuana Doctor Oklahoma home"
           >
             <Image
-              src="/logo.png"
+              src="/oklahoma-logo.webp"
               alt="Medical Marijuana Doctor Oklahoma"
               width={200}
               height={50}

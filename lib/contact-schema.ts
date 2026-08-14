@@ -12,10 +12,10 @@ export function contactPageSchema() {
         name: "Medical Marijuana Doctor Oklahoma",
         url: "https://medicalmarijuanadoctoroklahoma.com/",
         logo: {
-          "@id": "https://medicalmarijuanadoctoroklahoma.com/logo.png",
+          "@id": "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
         },
         image: {
-          "@id": "https://medicalmarijuanadoctoroklahoma.com/logo.png",
+          "@id": "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
         },
         description:
           "Medical Marijuana Doctor Oklahoma is a telehealth platform connecting Oklahoma patients with licensed physicians for OMMA-compliant medical marijuana evaluations via secure, HIPAA-compliant video consultations.",
@@ -67,7 +67,7 @@ export function contactPageSchema() {
           "@id": "https://medicalmarijuanadoctoroklahoma.com/#organization",
         },
         primaryImageOfPage: {
-          "@id": "https://medicalmarijuanadoctoroklahoma.com/logo.png",
+          "@id": "https://medicalmarijuanadoctoroklahoma.com/oklahoma-logo.webp",
         },
         breadcrumb: {
           "@id": "https://medicalmarijuanadoctoroklahoma.com/contact-us/#breadcrumb",

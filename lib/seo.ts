@@ -5,7 +5,7 @@ export const SITE_URL = "https://medicalmarijuanadoctoroklahoma.com";
 export const SITE_HOST = `${SITE_URL}/`;
 export const SITE_NAME = "Medical Marijuana Doctor Oklahoma";
 export const SITE_TAGLINE = "Get Your Medical Marijuana Card Online in Oklahoma";
-export const DEFAULT_OG_IMAGE = "/hero-section.jpg";
+export const DEFAULT_OG_IMAGE = "/hero-section.webp";
 export const ABOUT_OG_IMAGE = "/aboutus-hero-section.webp";
 export const CONTACT_OG_IMAGE = "/contact-us-hero-section.webp";
 
@@ -338,7 +338,7 @@ export function doctorMetadata(input: {
   );
 }
 
-const LOGO_ID = `${SITE_URL}/logo.png`;
+const LOGO_ID = `${SITE_URL}/oklahoma-logo.webp`;
 
 export function organizationSchema() {
   return {
