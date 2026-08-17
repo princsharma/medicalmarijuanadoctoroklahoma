@@ -90,7 +90,7 @@ export default function RefundPolicyPage() {
       <PageBreadcrumb
         page="Refund Policy"
         currentPath={pages.refund.path}
-        items={[{ label: "Legal Policies", href: pages.legal.path }]}
+        items={[{ label: "Legal Policies", href: pages.policy.path }]}
       />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">
@@ -167,7 +167,7 @@ export default function RefundPolicyPage() {
 
             <div className="mt-4">
               <Link
-                href="/terms-of-use/"
+                href="/policy/terms/"
                 className="flex items-center justify-between rounded-2xl border border-black/5 bg-white p-6 transition-colors hover:bg-black/[0.02]"
               >
                 <div>

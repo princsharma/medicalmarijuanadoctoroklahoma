@@ -67,7 +67,7 @@ export function homePageSchema() {
         ],
         sameAs: ["https://maps.app.goo.gl/8HTa3Scrh8eU3Wfi7"],
         publishingPrinciples:
-          "https://medicalmarijuanadoctoroklahoma.com/editorial-policy/",
+          "https://medicalmarijuanadoctoroklahoma.com/policy/editorial-policy/",
       },
       {
         "@type": "ImageObject",

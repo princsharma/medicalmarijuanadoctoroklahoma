@@ -84,7 +84,7 @@ const sections: Section[] = [
       "Your use of the website and services is also governed by our Privacy Policy, which describes how we collect, use, disclose, and safeguard your personal information, including information submitted during medical evaluations. All personal health information is collected, transmitted, and stored in compliance with HIPAA privacy and security standards.",
     ],
     note: "By accessing or using the website, you acknowledge that you have read and agree to the terms of our Privacy Policy.",
-    links: [{ text: "Privacy Policy", href: "/privacy-policy/" }],
+    links: [{ text: "Privacy Policy", href: "/policy/privacy-policy/" }],
   },
   {
     heading: "Federal Law and Regulatory Disclosure",
@@ -126,7 +126,7 @@ const sections: Section[] = [
       "Refund eligibility is subject to specific conditions, including but not limited to physician eligibility determinations and service delivery timelines.",
     ],
     note: "Complete details regarding refunds, eligibility criteria, and procedures are set forth in our Refund Policy.",
-    links: [{ text: "Refund Policy", href: "/refund-policy/" }],
+    links: [{ text: "Refund Policy", href: "/policy/refund-policy/" }],
   },
   {
     heading: "Limitation of Liability",
@@ -254,7 +254,7 @@ export default function TermsOfUsePage() {
       <PageBreadcrumb
         page="Terms of Use"
         currentPath={pages.terms.path}
-        items={[{ label: "Legal Policies", href: pages.legal.path }]}
+        items={[{ label: "Legal Policies", href: pages.policy.path }]}
       />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">
@@ -341,7 +341,7 @@ export default function TermsOfUsePage() {
 
             <div className="mt-4">
               <Link
-                href="/privacy-policy/"
+                href="/policy/privacy-policy/"
                 className="flex items-center justify-between rounded-2xl border border-black/5 bg-white p-6 transition-colors hover:bg-black/[0.02]"
               >
                 <div>

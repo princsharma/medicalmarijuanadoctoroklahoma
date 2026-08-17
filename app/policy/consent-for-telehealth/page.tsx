@@ -32,7 +32,7 @@ const sections: Section[] = [
       "Digital transmission of medical information and records",
     ],
     note: "Medical Marijuana Doctor Oklahoma operates a technology platform that helps connect patients with independent, Oklahoma-licensed physicians for medical marijuana evaluations, where permitted by state law. Additional information about the platform and our services can be found in our Terms of Use.",
-    links: [{ text: "Terms of Use", href: "/terms-of-use/" }],
+    links: [{ text: "Terms of Use", href: "/policy/terms/" }],
   },
   {
     heading: "Nature of Telehealth Consultations",
@@ -88,7 +88,7 @@ const sections: Section[] = [
       "While reasonable safeguards are used to protect your information, electronic communications may carry inherent risks, including technical failures and unauthorized access.",
     ],
     note: "Information about how your personal data is handled can be found in our Privacy Policy.",
-    links: [{ text: "Privacy Policy", href: "/privacy-policy/" }],
+    links: [{ text: "Privacy Policy", href: "/policy/privacy-policy/" }],
   },
   {
     heading: "Privacy and Compliance",
@@ -96,7 +96,7 @@ const sections: Section[] = [
       "Medical Marijuana Doctor Oklahoma is committed to protecting the privacy and security of patient health information. Telehealth consultations and related medical communications are handled in accordance with healthcare privacy standards, including the Health Insurance Portability and Accountability Act (HIPAA).",
     ],
     note: "For more information about how we protect patient health information, please review our HIPAA Compliance Policy.",
-    links: [{ text: "HIPAA Compliance Policy", href: "/hipaa-compliance/" }],
+    links: [{ text: "HIPAA Compliance Policy", href: "/policy/hipaa-compliance/" }],
   },
   {
     heading: "Voluntary Consent",
@@ -128,7 +128,7 @@ export default function ConsentForTelehealthPage() {
       <PageBreadcrumb
         page="Consent for Telehealth"
         currentPath={pages.telehealth.path}
-        items={[{ label: "Legal Policies", href: pages.legal.path }]}
+        items={[{ label: "Legal Policies", href: pages.policy.path }]}
       />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">
@@ -206,7 +206,7 @@ export default function ConsentForTelehealthPage() {
 
             <div className="mt-4">
               <Link
-                href="/terms-of-use/"
+                href="/policy/terms/"
                 className="flex items-center justify-between rounded-2xl border border-black/5 bg-white p-6 transition-colors hover:bg-black/[0.02]"
               >
                 <div>

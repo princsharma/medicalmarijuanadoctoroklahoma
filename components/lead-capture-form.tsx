@@ -216,7 +216,7 @@ export function LeadCaptureForm() {
           >
             I accept the{" "}
             <Link
-              href="/terms-of-use/"
+              href="/policy/terms/"
               className="font-medium underline underline-offset-2 decoration-[#0E3B2E]/35 transition hover:decoration-[#0E3B2E]"
               onClick={(e) => e.stopPropagation()}
             >
