@@ -14,7 +14,7 @@ import {
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageBreadcrumb } from "@/components/layout/page-breadcrumb";
-import { Button } from "@/components/ui/button";
+import { BookingButton } from "@/components/booking-dialog";
 import {
   Accordion,
   AccordionContent,
@@ -116,12 +116,9 @@ export default async function DoctorProfilePage({ params }: Props) {
                   {doctor.description ?? doctor.bio}
                 </p>
 
-                <Button
-                  render={<a href="#apply" />}
-                  className="mt-9 h-auto gap-2 rounded-full bg-[#0E3B2E] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#0E3B2E]/20 transition-all hover:-translate-y-0.5 hover:bg-[#0E3B2E]/90"
-                >
+                <BookingButton className="mt-9 h-auto gap-2 rounded-full bg-[#0E3B2E] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#0E3B2E]/20 transition-all hover:-translate-y-0.5 hover:bg-[#0E3B2E]/90">
                   Book a Consultation with Dr. {lastName} <ArrowRight className="size-4" />
-                </Button>
+                </BookingButton>
               </div>
             </div>
 
@@ -331,12 +328,9 @@ export default async function DoctorProfilePage({ params }: Props) {
                 certification if approved.
               </p>
               <div className="mt-1 flex flex-wrap items-center justify-center gap-3">
-                <Button
-                  render={<a href="#apply" />}
-                  className="h-auto gap-2 rounded-full bg-[#0E3B2E] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#0E3B2E]/20 transition-all hover:-translate-y-0.5 hover:bg-[#0E3B2E]/90"
-                >
+                <BookingButton className="h-auto gap-2 rounded-full bg-[#0E3B2E] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#0E3B2E]/20 transition-all hover:-translate-y-0.5 hover:bg-[#0E3B2E]/90">
                   Book a Consultation <ArrowRight className="size-4" />
-                </Button>
+                </BookingButton>
                 <Link
                   href="/doctors/"
                   className="text-sm font-medium text-[#0E3B2E]/70 underline underline-offset-4 hover:text-[#0E3B2E]"
