@@ -78,7 +78,7 @@ export default function EditorialPolicyPage() {
       <PageBreadcrumb
         page="Editorial Policy"
         currentPath={pages.editorial.path}
-        items={[{ label: "Legal Policies", href: pages.legal.path }]}
+        items={[{ label: "Legal Policies", href: pages.policy.path }]}
       />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">

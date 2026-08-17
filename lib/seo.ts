@@ -108,7 +108,7 @@ export const pages = {
     priority: 0.8,
   },
   privacy: {
-    path: "/privacy-policy/",
+    path: "/policy/privacy-policy/",
     title: "Privacy Policy | Medical Marijuana Doctor OK",
     description:
       "See how we collect, use, and protect personal and health information during Oklahoma medical marijuana evaluations.",
@@ -119,7 +119,7 @@ export const pages = {
     ogType: "article",
   },
   terms: {
-    path: "/terms-of-use/",
+    path: "/policy/terms/",
     title: "Terms of Use | Medical Marijuana Doctor Oklahoma",
     description:
       "Read Terms of Use covering eligibility, telehealth consent, physician relationships, liability, and Oklahoma law.",
@@ -130,7 +130,7 @@ export const pages = {
     ogType: "article",
   },
   hipaa: {
-    path: "/hipaa-compliance/",
+    path: "/policy/hipaa-compliance/",
     title: "HIPAA Compliance | Medical Marijuana Doctor OK",
     description:
       "See how we protect patient health information and maintain HIPAA compliance during telehealth MMJ evaluations.",
@@ -141,7 +141,7 @@ export const pages = {
     ogType: "article",
   },
   telehealth: {
-    path: "/consent-for-telehealth/",
+    path: "/policy/consent-for-telehealth/",
     title: "Telehealth Consent | Medical Marijuana Doctor OK",
     description:
       "Read our Consent to Telehealth policy to understand remote evaluations with Oklahoma-licensed physicians.",
@@ -152,7 +152,7 @@ export const pages = {
     ogType: "article",
   },
   refund: {
-    path: "/refund-policy/",
+    path: "/policy/refund-policy/",
     title: "Refund Policy | Medical Marijuana Doctor Oklahoma",
     description:
       "Learn when you qualify for a full refund on your Oklahoma MMJ evaluation, plus missed appointment and request steps.",
@@ -163,7 +163,7 @@ export const pages = {
     ogType: "article",
   },
   accessibility: {
-    path: "/accessibility-statement/",
+    path: "/policy/accessibility-statement/",
     title: "Accessibility | Medical Marijuana Doctor Oklahoma",
     description:
       "We follow WCAG 2.1 accessibility standards so every patient can use our Oklahoma telehealth services with ease.",
@@ -174,7 +174,7 @@ export const pages = {
     ogType: "article",
   },
   editorial: {
-    path: "/editorial-policy/",
+    path: "/policy/editorial-policy/",
     title: "Editorial Policy | Medical Marijuana Doctor OK",
     description:
       "See how we ensure accurate, fact-checked medical marijuana content for Oklahoma patients, caregivers, and readers.",
@@ -185,7 +185,7 @@ export const pages = {
     ogType: "article",
   },
   disclaimer: {
-    path: "/disclaimer/",
+    path: "/policy/disclaimer/",
     title: "Disclaimer | Medical Marijuana Doctor Oklahoma",
     description:
       "Read key disclaimers about our telehealth services, including limits on medical advice and the platform's role.",
@@ -195,8 +195,8 @@ export const pages = {
     priority: 0.3,
     ogType: "article",
   },
-  legal: {
-    path: "/legal/",
+  policy: {
+    path: "/policy/",
     title: "Legal Policies | Medical Marijuana Doctor OK",
     description:
       "Browse privacy, HIPAA, telehealth consent, terms, refunds, accessibility, editorial, and disclaimer policies.",

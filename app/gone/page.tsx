@@ -41,7 +41,7 @@ export default function GonePage() {
             Go Home
           </Link>
           <Link
-            href="/privacy-policy/"
+            href="/policy/privacy-policy/"
             className="inline-flex items-center gap-2 rounded-full border border-[#0E3B2E]/15 bg-white px-6 py-3 text-sm font-semibold text-[#0E3B2E] transition-colors hover:bg-[#0E3B2E]/5"
           >
             View Policies

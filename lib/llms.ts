@@ -135,7 +135,7 @@ ${link(
 )}
 ${link(
   "Legal Policies Hub",
-  pages.legal.path,
+  pages.policy.path,
   "Index of privacy, HIPAA, telehealth consent, terms, refunds, accessibility, editorial, and disclaimer pages."
 )}
 ${link(

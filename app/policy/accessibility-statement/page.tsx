@@ -82,9 +82,9 @@ const sections: Section[] = [
       "Accessibility is part of our broader commitment to protecting patient rights, maintaining transparency, and providing secure telehealth services. To learn more about how we protect your information and govern the use of our platform, please review the following pages:",
     ],
     policyLinks: [
-      { text: "Privacy Policy", href: "/privacy-policy/" },
-      { text: "Terms of Use", href: "/terms-of-use/" },
-      { text: "HIPAA Compliance Policy", href: "/hipaa-compliance/" },
+      { text: "Privacy Policy", href: "/policy/privacy-policy/" },
+      { text: "Terms of Use", href: "/policy/terms/" },
+      { text: "HIPAA Compliance Policy", href: "/policy/hipaa-compliance/" },
     ],
     note: "These policies outline how we handle patient data, maintain secure communications, and ensure responsible use of our telehealth services.",
   },
@@ -108,7 +108,7 @@ export default function AccessibilityStatementPage() {
       <PageBreadcrumb
         page="Accessibility Statement"
         currentPath={pages.accessibility.path}
-        items={[{ label: "Legal Policies", href: pages.legal.path }]}
+        items={[{ label: "Legal Policies", href: pages.policy.path }]}
       />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">

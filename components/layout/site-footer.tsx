@@ -15,7 +15,7 @@ export function SiteFooter() {
     { label: "Reviews", href: "/reviews/" },
     { label: "Contributors", href: "/contributors/" },
     { label: "FAQs", href: "/faq/" },
-    { label: "Legal Policies", href: "/legal/" },
+    { label: "Legal Policies", href: "/policy/" },
   ];
   const trustBadges = [
     "HIPAA Compliant Practice",
@@ -110,7 +110,7 @@ export function SiteFooter() {
 
         <nav aria-label="Legal, compliance, and editorial">
           <p className="whitespace-nowrap text-xs font-semibold tracking-[0.15em] text-[#B8E89A]">
-            <Link href="/legal/" className="transition-colors hover:text-white">
+            <Link href="/policy/" className="transition-colors hover:text-white">
               LEGAL, COMPLIANCE &amp; EDITORIAL
             </Link>
           </p>

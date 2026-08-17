@@ -133,8 +133,8 @@ const sections: Section[] = [
     ],
     note: "This HIPAA Compliance Notice should be read together with our Privacy Policy and Terms of Use, which provide additional information regarding how personal data is collected, used, and disclosed.",
     links: [
-      { text: "Privacy Policy", href: "/privacy-policy/" },
-      { text: "Terms of Use", href: "/terms-of-use/" },
+      { text: "Privacy Policy", href: "/policy/privacy-policy/" },
+      { text: "Terms of Use", href: "/policy/terms/" },
     ],
   },
   {
@@ -204,7 +204,7 @@ export default function HipaaCompliancePage() {
       <PageBreadcrumb
         page="HIPAA Compliance"
         currentPath={pages.hipaa.path}
-        items={[{ label: "Legal Policies", href: pages.legal.path }]}
+        items={[{ label: "Legal Policies", href: pages.policy.path }]}
       />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">
@@ -285,7 +285,7 @@ export default function HipaaCompliancePage() {
 
             <div className="mt-4">
               <Link
-                href="/consent-for-telehealth/"
+                href="/policy/consent-for-telehealth/"
                 className="flex items-center justify-between rounded-2xl border border-black/5 bg-white p-6 transition-colors hover:bg-black/[0.02]"
               >
                 <div>
