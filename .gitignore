@@ -45,3 +45,5 @@ next-env.d.ts
 /lh-score-report/
 lh-*.json
 scratch-*.json
+
+/lh_logs/
