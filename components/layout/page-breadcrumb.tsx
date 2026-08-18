@@ -90,7 +90,7 @@ export function PageBreadcrumb({
                     )}
                   </BreadcrumbItem>
                   {isLast ? null : (
-                    <BreadcrumbSeparator className="text-[#0E3B2E]/35 [&>svg]:size-3.5" />
+                    <BreadcrumbSeparator className="text-[#0E3B2E]/80 [&>svg]:size-3.5" />
                   )}
                 </Fragment>
               );

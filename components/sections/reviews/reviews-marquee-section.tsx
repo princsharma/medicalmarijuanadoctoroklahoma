@@ -52,7 +52,7 @@ function ReviewCard({ review, i }: { review: Review; i: number }) {
         {review.text}
       </p>
 
-      <span className="relative mt-3 block text-[10px] text-[#0E3B2E]/45">Posted on Google</span>
+      <span className="relative mt-3 block text-[10px] text-[#0E3B2E]/80">Posted on Google</span>
     </Card>
   );
 }
@@ -107,11 +107,11 @@ export function ReviewsMarqueeSection({
     <section className="relative overflow-hidden px-6 pb-16">
       <div
         aria-hidden
-        className="pointer-events-none absolute top-0 -right-24 size-72 rounded-full bg-[#8FD66B]/20 blur-3xl"
+        className="pointer-events-none absolute top-0 -right-24 size-72 rounded-full bg-[radial-gradient(circle,rgba(143,214,107,0.2)_0%,transparent_70%)]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 -left-24 size-80 rounded-full bg-[#0E3B2E]/5 blur-3xl"
+        className="pointer-events-none absolute bottom-0 -left-24 size-80 rounded-full bg-[radial-gradient(circle,rgba(14,59,46,0.05)_0%,transparent_70%)]"
       />
 
       <div className="relative mx-auto max-w-6xl">
@@ -138,7 +138,7 @@ export function ReviewsMarqueeSection({
         </div>
 
         <div className={`${showHeading ? "mt-14" : "mt-2"} flex flex-col gap-4 sm:hidden`}>
-          {displayReviews.map((review, i) => (
+          {displayReviews.slice(0, 4).map((review, i) => (
             <ReviewCard key={review.name} review={review} i={i} />
           ))}
         </div>
@@ -153,7 +153,7 @@ export function ReviewsMarqueeSection({
           >
             Read More Reviews
           </a>
-          <p className="text-xs text-[#0E3B2E]/60">
+          <p className="text-xs text-[#0E3B2E]/80">
             Every patient&rsquo;s review helps us improve.
           </p>
         </div>

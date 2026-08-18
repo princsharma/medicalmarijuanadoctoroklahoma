@@ -2,6 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  compress: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
+  },
+  experimental: {
+    optimizePackageImports: ["lucide-react", "@base-ui/react", "embla-carousel-react"],
+  },
   async redirects() {
     return [
       { source: "/legal", destination: "/policy/", permanent: true },

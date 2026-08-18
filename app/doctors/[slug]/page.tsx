@@ -89,7 +89,8 @@ export default async function DoctorProfilePage({ params }: Props) {
                   src={doctor.image}
                   alt={`${doctor.name}, ${doctor.credentials}`}
                   fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  sizes="(min-width: 1024px) 420px, 90vw"
+                  quality={75}
                   className="object-cover object-top"
                   priority
                 />
@@ -139,13 +140,13 @@ export default async function DoctorProfilePage({ params }: Props) {
                 </p>
                 <div className="mt-6 grid gap-3 sm:grid-cols-3">
                   <div className="rounded-xl bg-[#F6F5F0] px-4 py-3.5">
-                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/50">
+                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/80">
                       NPI NUMBER
                     </p>
                     <p className="mt-1 text-sm font-semibold text-[#0E3B2E]">{doctor.npi}</p>
                   </div>
                   <div className="rounded-xl bg-[#F6F5F0] px-4 py-3.5">
-                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/50">
+                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/80">
                       STATUS
                     </p>
                     <p className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-[#2F7A18]">
@@ -153,7 +154,7 @@ export default async function DoctorProfilePage({ params }: Props) {
                     </p>
                   </div>
                   <div className="rounded-xl bg-[#F6F5F0] px-4 py-3.5">
-                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/50">
+                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/80">
                       LICENSED STATE
                     </p>
                     <p className="mt-1 text-sm font-semibold text-[#0E3B2E]">Oklahoma</p>
@@ -184,7 +185,7 @@ export default async function DoctorProfilePage({ params }: Props) {
                       className="rounded-xl border border-black/5 bg-white p-4 transition-shadow hover:shadow-md"
                     >
                       <p className="text-sm font-semibold text-[#0E3B2E]">{entry.institution}</p>
-                      <p className="mt-0.5 text-sm text-[#0E3B2E]/65">{entry.detail}</p>
+                      <p className="mt-0.5 text-sm text-[#0E3B2E]/80">{entry.detail}</p>
                     </div>
                   ))}
                 </div>
@@ -282,7 +283,7 @@ export default async function DoctorProfilePage({ params }: Props) {
                     <p className="text-sm text-white/80">{doctor.trust.platformText}</p>
                   </div>
                 </div>
-                <p className="mt-5 text-xs text-white/50">{doctor.trust.lastVerified}</p>
+                <p className="mt-5 text-xs text-white/70">{doctor.trust.lastVerified}</p>
               </div>
             ) : null}
 
@@ -292,7 +293,7 @@ export default async function DoctorProfilePage({ params }: Props) {
                 <h2 className="font-heading text-xl font-medium text-[#0E3B2E]">
                   Frequently Asked Questions
                 </h2>
-                <p className="mt-2 text-sm text-[#0E3B2E]/60">
+                <p className="mt-2 text-sm text-[#0E3B2E]/80">
                   Specific to consultations with Dr. {lastName}. For general questions, see our
                   main FAQ.
                 </p>

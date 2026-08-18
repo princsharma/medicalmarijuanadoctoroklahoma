@@ -7,7 +7,7 @@ export function AboutHero() {
     <section className="relative overflow-hidden px-6 pt-14 pb-16 sm:pt-20">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-[#BFE7B0] opacity-40 blur-3xl"
+        className="pointer-events-none absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgba(191,231,176,0.4)_0%,transparent_70%)]"
       />
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
         <div>
@@ -39,6 +39,8 @@ export function AboutHero() {
             width={800}
             height={640}
             priority
+            quality={70}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 550px"
             className="h-[420px] w-full object-cover sm:h-[480px]"
           />
         </div>
