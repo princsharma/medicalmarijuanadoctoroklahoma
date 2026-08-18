@@ -71,7 +71,11 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-3">
             {resources.map((link) => (
               <li key={link.label}>
-                <Link href={link.href} className="text-sm text-white/80 transition-colors hover:text-white">
+                <Link
+                  href={link.href}
+                  prefetch={false}
+                  className="text-sm text-white/80 transition-colors hover:text-white"
+                >
                   {link.label}
                 </Link>
               </li>
@@ -110,7 +114,7 @@ export function SiteFooter() {
 
         <nav aria-label="Legal, compliance, and editorial">
           <p className="whitespace-nowrap text-xs font-semibold tracking-[0.15em] text-[#B8E89A]">
-            <Link href="/policy/" className="transition-colors hover:text-white">
+            <Link href="/policy/" prefetch={false} className="transition-colors hover:text-white">
               LEGAL, COMPLIANCE &amp; EDITORIAL
             </Link>
           </p>
@@ -119,6 +123,7 @@ export function SiteFooter() {
               <li key={label}>
                 <Link
                   href={href}
+                  prefetch={false}
                   className="flex items-center gap-2.5 text-sm text-white/80 transition-colors hover:text-white"
                 >
                   <Icon className="size-5 shrink-0 text-[#B8E89A]" aria-hidden="true" />

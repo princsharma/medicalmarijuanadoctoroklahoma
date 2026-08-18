@@ -58,7 +58,8 @@ export function DoctorsTeam() {
                     src={doctor.image}
                     alt={`${doctor.name}, ${doctor.credentials}`}
                     fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
+                    quality={75}
                     className="object-cover object-top"
                   />
                 </div>

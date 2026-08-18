@@ -157,7 +157,7 @@ export function ContributorBio({ person }: { person: Contributor }) {
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-[#0E3B2E]/8 bg-white p-6">
               <h3 className="text-base font-semibold text-[#0E3B2E]">Direct Contact</h3>
-              <p className="mt-1 text-xs text-[#0E3B2E]/65">
+              <p className="mt-1 text-xs text-[#0E3B2E]/80">
                 Domain-based email and professional inquiry channels.
               </p>
               <ul className="mt-5 space-y-4 text-sm text-[#0E3B2E]/85">
@@ -199,7 +199,7 @@ export function ContributorBio({ person }: { person: Contributor }) {
               <p className="mt-4 text-sm leading-relaxed text-[#0E3B2E]/80">
                 {person.verifiedProfiles.join(" • ")}
               </p>
-              <p className="mt-3 text-xs text-[#0E3B2E]/65">
+              <p className="mt-3 text-xs text-[#0E3B2E]/80">
                 Profile last verified {person.verifiedDate}
               </p>
             </div>

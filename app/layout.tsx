@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Inter, Fraunces } from "next/font/google";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SiteJsonLd } from "@/components/seo/site-json-ld";
+import { AnalyticsLoader } from "@/components/analytics-loader";
 import {
   DEFAULT_OG_IMAGE,
   SITE_NAME,
@@ -14,17 +14,20 @@ import {
 const GTM_ID = "GTM-5MP4Q35";
 const GA_MEASUREMENT_ID = "G-580S6PQZ8K";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans",
+  display: "swap",
+  preload: true,
+});
 
 const fraunces = Fraunces({
   subsets: ["latin"],
+  weight: ["500"],
   variable: "--font-display",
-  axes: ["opsz", "SOFT"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -114,13 +117,11 @@ export default function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
-        geistMono.variable,
         "font-sans",
         inter.variable,
         fraunces.variable
       )}
     >
-      <GoogleTagManager gtmId={GTM_ID} />
       <body className="flex min-h-full flex-col">
         <noscript>
           <iframe
@@ -139,8 +140,8 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <AnalyticsLoader gtmId={GTM_ID} gaId={GA_MEASUREMENT_ID} />
       </body>
-      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }

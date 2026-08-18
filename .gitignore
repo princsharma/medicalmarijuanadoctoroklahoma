@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Lighthouse audit reports & test result files (local benchmarking only)
+/lh-results/
+/lh-score-report/
+lh-*.json
+scratch-*.json
