@@ -182,10 +182,6 @@ export const blogPosts: BlogPost[] = [
           "Oklahoma is unusual because it does not have a state-defined list of qualifying medical conditions. State law says there are no qualifying conditions and requires the recommendation to follow accepted standards of medical practice.",
           "But that does not mean approval is automatic. A physician must determine that recommending medical marijuana is appropriate for the patient. For Oklahoma residents, an approved [medical marijuana card Oklahoma](https://medicalmarijuanadoctoroklahoma.com/) allows the patient to legally buy, use, and grow medical marijuana under state rules.",
         ],
-        quote: {
-          text: "Under Oklahoma SQ 788, there are no qualifying condition lists. Certified physicians evaluate each patient individually according to accepted medical standards to determine if cannabis provides therapeutic benefit.",
-          author: "Dr. Lewis Jassey, M.D. - Board-Certified Medical Cannabis Specialist",
-        },
       },
       {
         id: "can-i-grow-marijuana-in-oklahoma",
