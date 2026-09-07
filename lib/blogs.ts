@@ -169,7 +169,7 @@ export const blogPosts: BlogPost[] = [
         id: "what-type-of-marijuana-is-legal-in-oklahoma",
         title: "What Type of Marijuana Is Legal in Oklahoma?",
         content: [
-          "Oklahoma has a medical-use cannabis program, rather than a statewide adult-use program. [State Question 788](https://ballotpedia.org/Oklahoma_State_Question_788,_Medical_Marijuana_Legalization_Initiative_(June_2018)), approved by voters on June 26, 2018, legalized medical marijuana in the state.",
+          "Oklahoma has a medical-use cannabis program, rather than a statewide adult-use program. [State Question 788](https://ballotpedia.org/Oklahoma_State_Question_788,_Medical_Marijuana_Legalization_Initiative_%28June_2018%29), approved by voters on June 26, 2018, legalized medical marijuana in the state.",
           "The measure created the legal framework allowing licensed patients to purchase medical marijuana from licensed dispensaries.",
           "Recreational marijuana has never been legalized statewide. Oklahoma voters considered State Question 820, a proposal to legalize and regulate adult-use marijuana, on March 7, 2023. The measure did not establish an adult-use market.",
           "Therefore, in 2026, Oklahoma remains a medical-marijuana state, not a recreational-marijuana state. The Oklahoma Medical Marijuana Authority (OMMA) is the state agency responsible for regulating Oklahoma's medical marijuana program. It processes patient and business licenses, administers rules, and handles enforcement within the medical program.",
