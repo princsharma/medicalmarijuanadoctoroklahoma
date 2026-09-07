@@ -269,11 +269,9 @@ export const blogPosts: BlogPost[] = [
       {
         id: "oklahoma-marijuana-laws-at-a-glance",
         title: "Oklahoma Marijuana Laws at a Glance",
-        content: [
-          "Here is a quick reference guide to cannabis legality and patient allowances across Oklahoma in 2026:",
-        ],
+        content: [],
         table: {
-          title: "Legal Status of Cannabis Activities in Oklahoma (2026)",
+          title: "Oklahoma Marijuana Laws at a Glance",
           headers: ["Activity", "Legal in Oklahoma in 2026?"],
           rows: [
             {
@@ -281,7 +279,7 @@ export const blogPosts: BlogPost[] = [
               status: "Yes",
             },
             {
-              activity: "Recreational / adult-use marijuana",
+              activity: "Recreational/adult-use marijuana",
               status: "No statewide legalization",
             },
             {
@@ -289,24 +287,24 @@ export const blogPosts: BlogPost[] = [
               status: "Yes, for authorized patients",
             },
             {
-              activity: "Home cultivation (6 mature + 6 seedlings)",
+              activity: "Home cultivation",
               status: "Yes, subject to patient limits and rules",
             },
             {
               activity: "Possessing marijuana without authorization",
-              status: "Generally unlawful, subject to statutory exceptions",
+              status: "Generally unlawful, subject to limited statutory exceptions",
             },
             {
               activity: "Driving while impaired by marijuana",
-              status: "No (Strictly Prohibited)",
+              status: "No",
             },
             {
-              activity: "Public smoking / vaping in non-designated areas",
-              status: "Restricted under Clean Indoor Air rules",
+              activity: "Public smoking/vaping",
+              status: "Restricted under applicable state and local rules",
             },
             {
               activity: "Sharing medical marijuana with another person",
-              status: "No (Prohibited by OMMA)",
+              status: "No",
             },
           ],
         },
