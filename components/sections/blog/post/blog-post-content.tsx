@@ -68,15 +68,13 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
         {/* Lead Intro Paragraphs with Drop Cap */}
         <div className="space-y-4 text-base leading-relaxed sm:text-lg sm:leading-8 font-normal text-[#475467]">
           {post.intro.map((para, i) => {
-            if (i === 0 && para.length > 0) {
-              const firstLetter = para.charAt(0);
-              const remainingText = para.slice(1);
+            if (i === 0) {
               return (
-                <p key={i} className="leading-relaxed sm:leading-8">
-                  <span className="float-left font-heading text-[46px] sm:text-[54px] font-bold text-[#0E3B2E] leading-[0.8] pr-2.5 pt-1 select-none">
-                    {firstLetter}
-                  </span>
-                  {renderFormattedText(remainingText)}
+                <p
+                  key={i}
+                  className="leading-relaxed sm:leading-8 first-letter:float-left first-letter:font-heading first-letter:text-[46px] sm:first-letter:text-[54px] first-letter:font-bold first-letter:text-[#0E3B2E] first-letter:leading-[0.8] first-letter:mr-2.5 first-letter:mt-1.5 first-letter:select-none"
+                >
+                  {renderFormattedText(para)}
                 </p>
               );
             }
