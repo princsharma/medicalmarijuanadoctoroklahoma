@@ -9,12 +9,12 @@ export function BlogPostCtaBanner() {
           className="w-full rounded-[22px] sm:rounded-[28px] px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-11 text-center text-[#FAF7F2] shadow-[0px_6px_24px_rgba(14,59,46,0.15)] relative overflow-hidden"
           style={{ background: "linear-gradient(135deg, #0E3B2E 0%, #164E3D 100%)" }}
         >
-          <div className="max-w-2xl mx-auto space-y-3 sm:space-y-4">
+          <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
             <span className="inline-block rounded-full bg-white/15 px-3.5 py-1 text-xs font-semibold tracking-wider text-[#B8E89A] uppercase">
               Online Telehealth Evaluations
             </span>
 
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#FAF7F2] leading-tight tracking-[-0.005em]">
+            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-bold text-[#FAF7F2] leading-tight tracking-[-0.005em] sm:whitespace-nowrap">
               Need help with your Oklahoma MMJ card?
             </h2>
 
