@@ -223,29 +223,29 @@ export const blogPosts: BlogPost[] = [
         id: "where-is-marijuana-use-restricted",
         title: "Where Is Marijuana Use Restricted?",
         content: [
-          "Having a valid patient license does not mean marijuana can be used anywhere. Oklahoma law maintains clear boundaries for consumption:",
+          "Having a valid patient license does not mean marijuana can be used anywhere.",
         ],
         subsections: [
           {
-            title: "Driving & Impairment",
+            title: "Driving",
             content: [
               "Medical authorization does not make driving while impaired legal. [Oklahoma's Highway Safety Office](https://oklahoma.gov/highwaysafety/focus-areas/drug-impaired/marijuana.html) warns that marijuana can affect reaction time, coordination, attention, and judgment, and states that drug-impaired driving remains illegal.",
             ],
           },
           {
-            title: "Public Spaces & Smoking Laws",
+            title: "Public Spaces",
             content: [
               "Smoking and vaping medical marijuana are subject to the same state restrictions that apply to tobacco under Oklahoma's Smoking in Public Places and Indoor Workplaces Act. [OMMA](https://oklahoma.gov/omma/patients-caregivers/patient-rights-and-responsibilities.html) specifically states that smoking or vaping medical marijuana outdoors in public, or indoors at a workplace, is subject to these restrictions.",
             ],
           },
           {
-            title: "Workplaces & Employer Rights",
+            title: "Workplaces",
             content: [
               "A patient license does not give someone the right to use or possess marijuana at work. Employers generally do not have to permit marijuana use at the workplace, and special rules can apply to safety-sensitive positions.",
             ],
           },
           {
-            title: "Sharing Marijuana Is Prohibited",
+            title: "Sharing Marijuana",
             content: [
               "A patient cannot simply give their legally purchased Oklahoma cannabis to another person. [OMMA](https://oklahoma.gov/omma/patients-caregivers/patient-rights-and-responsibilities.html) states that licensed patients are prohibited from sharing medical marijuana and medical marijuana products with another individual, whether that person is licensed or not.",
             ],
