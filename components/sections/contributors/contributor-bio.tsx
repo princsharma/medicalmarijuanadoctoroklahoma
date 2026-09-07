@@ -93,7 +93,7 @@ export function ContributorBio({ person }: { person: Contributor }) {
               &ldquo;{person.quote}&rdquo;
             </p>
             <footer className="mt-3 text-sm font-semibold text-[#0E3B2E]/80">
-              — {person.name}, {person.credentials}
+              {person.name}, {person.credentials}
             </footer>
           </blockquote>
         </div>

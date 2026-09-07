@@ -126,7 +126,7 @@ export function homePageSchema() {
         "@id":
           "https://medicalmarijuanadoctoroklahoma.com/doctors/cheryl-bugailiskis/#profilepage",
         url: "https://medicalmarijuanadoctoroklahoma.com/doctors/cheryl-bugailiskis/",
-        name: "Dr. Cheryl Bugailiskis, MD — Oklahoma Medical Marijuana Doctor",
+        name: "Dr. Cheryl Bugailiskis, MD   Oklahoma Medical Marijuana Doctor",
         mainEntity: {
           "@id":
             "https://medicalmarijuanadoctoroklahoma.com/doctors/cheryl-bugailiskis/#physician",
@@ -168,7 +168,7 @@ export function homePageSchema() {
         "@id":
           "https://medicalmarijuanadoctoroklahoma.com/doctors/joel-durinka/#profilepage",
         url: "https://medicalmarijuanadoctoroklahoma.com/doctors/joel-durinka/",
-        name: "Dr. Joel Durinka, MD — Oklahoma Medical Marijuana Doctor",
+        name: "Dr. Joel Durinka, MD   Oklahoma Medical Marijuana Doctor",
         mainEntity: {
           "@id":
             "https://medicalmarijuanadoctoroklahoma.com/doctors/joel-durinka/#physician",
@@ -210,7 +210,7 @@ export function homePageSchema() {
         "@id":
           "https://medicalmarijuanadoctoroklahoma.com/doctors/johnathan-miller/#profilepage",
         url: "https://medicalmarijuanadoctoroklahoma.com/doctors/johnathan-miller/",
-        name: "Dr. Johnathan Miller, MD — Oklahoma Medical Marijuana Doctor",
+        name: "Dr. Johnathan Miller, MD   Oklahoma Medical Marijuana Doctor",
         mainEntity: {
           "@id":
             "https://medicalmarijuanadoctoroklahoma.com/doctors/johnathan-miller/#physician",
@@ -252,7 +252,7 @@ export function homePageSchema() {
         "@id":
           "https://medicalmarijuanadoctoroklahoma.com/doctors/kevin-kargman/#profilepage",
         url: "https://medicalmarijuanadoctoroklahoma.com/doctors/kevin-kargman/",
-        name: "Dr. Kevin Kargman, DO — Oklahoma Medical Marijuana Doctor",
+        name: "Dr. Kevin Kargman, DO   Oklahoma Medical Marijuana Doctor",
         mainEntity: {
           "@id":
             "https://medicalmarijuanadoctoroklahoma.com/doctors/kevin-kargman/#physician",
@@ -301,7 +301,7 @@ export function homePageSchema() {
         "@id":
           "https://medicalmarijuanadoctoroklahoma.com/doctors/lewis-jassey/#profilepage",
         url: "https://medicalmarijuanadoctoroklahoma.com/doctors/lewis-jassey/",
-        name: "Dr. Lewis Jassey, DO — Oklahoma Medical Marijuana Doctor",
+        name: "Dr. Lewis Jassey, DO   Oklahoma Medical Marijuana Doctor",
         mainEntity: {
           "@id":
             "https://medicalmarijuanadoctoroklahoma.com/doctors/lewis-jassey/#physician",

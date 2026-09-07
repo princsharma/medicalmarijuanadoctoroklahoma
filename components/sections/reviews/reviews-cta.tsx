@@ -30,7 +30,7 @@ export function ReviewsCta() {
           Access Your Medical Marijuana Card Today
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-[#0E3B2E]/70">
-          Your trusted Oklahoma partner for medical cannabis care—safe, stress-free MMJ evaluations
+          Your trusted Oklahoma partner for medical cannabis care safe, stress-free MMJ evaluations
           with licensed physicians.
         </p>
         <div className="mt-8 flex justify-center">

@@ -195,7 +195,7 @@ export function LandlordChecklistInfographic() {
       {/* Footer Badge */}
       <div className="bg-[#0E3B2E] px-6 py-3.5 text-center text-xs font-semibold text-white flex items-center justify-center gap-2">
         <ShieldCheck className="size-4 text-[#B8E89A]" />
-        <span>Official State Verification Standard — Oklahoma Medical Marijuana Authority</span>
+        <span>Official State Verification Standard   Oklahoma Medical Marijuana Authority</span>
       </div>
     </div>
   );

@@ -121,7 +121,7 @@ export function ReviewsMarqueeSection({
               What Our <span className="text-[#2F7A18]">Patients</span> Say?
             </h2>
             <p className="mt-4 text-[#0E3B2E]/80">
-              Trusted by Oklahoma patients—real stories of fast, affordable, and stress-free medical
+              Trusted by Oklahoma patients real stories of fast, affordable, and stress-free medical
               marijuana evaluations online.
             </p>
           </div>

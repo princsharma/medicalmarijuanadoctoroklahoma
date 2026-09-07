@@ -30,7 +30,7 @@ export function buildLlmsTxt() {
       link(
         `${person.name}, ${person.credentials}`,
         withTrailingSlash(`/contributors/${person.slug}`),
-        `${person.role} — ${person.shortBio}`
+        `${person.role}   ${person.shortBio}`
       )
     )
     .join("\n");
@@ -50,53 +50,53 @@ export function buildLlmsTxt() {
 ## How It Works
 
 ${link(
-  "How It Works",
-  "/#how-it-works",
-  "Step-by-step patient journey, including online intake, telehealth consultation with a licensed Oklahoma physician, digital recommendation, and OMMA patient license application guidance."
-)}
+    "How It Works",
+    "/#how-it-works",
+    "Step-by-step patient journey, including online intake, telehealth consultation with a licensed Oklahoma physician, digital recommendation, and OMMA patient license application guidance."
+  )}
 ${link(
-  "What Is an Oklahoma MMJ Card?",
-  "/#apply",
-  "Plain-language explanation of Oklahoma medical marijuana patient licenses, physician recommendations, and how the OMMA process works."
-)}
+    "What Is an Oklahoma MMJ Card?",
+    "/#apply",
+    "Plain-language explanation of Oklahoma medical marijuana patient licenses, physician recommendations, and how the OMMA process works."
+  )}
 ${link(
-  "Why Choose Us",
-  "/#about",
-  "Platform benefits including online convenience, OMMA-focused guidance, licensed physicians, and secure HIPAA-compliant care."
-)}
+    "Why Choose Us",
+    "/#about",
+    "Platform benefits including online convenience, OMMA-focused guidance, licensed physicians, and secure HIPAA-compliant care."
+  )}
 
 
 ## Oklahoma Medical Marijuana Evaluations
 
 ${link(
-  "Home",
-  pages.home.path,
-  "Primary landing page for Oklahoma medical marijuana card evaluations, telehealth consultations, and OMMA guidance."
-)}
+    "Home",
+    pages.home.path,
+    "Primary landing page for Oklahoma medical marijuana card evaluations, telehealth consultations, and OMMA guidance."
+  )}
 ${link(
-  "FAQ",
-  pages.faq.path,
-  "Answers about Oklahoma MMJ cards, telehealth evaluations, eligibility, OMMA applications, and renewals."
-)}
+    "FAQ",
+    pages.faq.path,
+    "Answers about Oklahoma MMJ cards, telehealth evaluations, eligibility, OMMA applications, and renewals."
+  )}
 ${link(
-  "Qualifying Conditions",
-  "/#conditions",
-  "Overview of conditions commonly discussed during Oklahoma medical marijuana evaluations (physician determination required)."
-)}
+    "Qualifying Conditions",
+    "/#conditions",
+    "Overview of conditions commonly discussed during Oklahoma medical marijuana evaluations (physician determination required)."
+  )}
 ${link(
-  "Benefits of Cannabis",
-  pages.home.path,
-  "Educational overview of potential patient benefits discussed in the context of medical cannabis care (homepage section)."
-)}
+    "Benefits of Cannabis",
+    pages.home.path,
+    "Educational overview of potential patient benefits discussed in the context of medical cannabis care (homepage section)."
+  )}
 
 
 ## Medical Marijuana Doctors
 
 ${link(
-  "Our Doctors",
-  pages.doctors.path,
-  "Directory of licensed physicians providing Oklahoma medical marijuana evaluations via telehealth."
-)}
+    "Our Doctors",
+    pages.doctors.path,
+    "Directory of licensed physicians providing Oklahoma medical marijuana evaluations via telehealth."
+  )}
 ${doctorLinks}
 
 
@@ -105,79 +105,79 @@ ${doctorLinks}
 Content on the site is written or reviewed by the following contributors:
 
 ${link(
-  "Contributors Hub",
-  pages.contributors.path,
-  "Overview of the medical content team and why writing and medical review are separated."
-)}
+    "Contributors Hub",
+    pages.contributors.path,
+    "Overview of the medical content team and why writing and medical review are separated."
+  )}
 ${contributorLinks}
 
 
 ## Patient Feedback
 
 ${link(
-  "Reviews",
-  pages.reviews.path,
-  "Verified Google patient feedback and testimonials from Oklahoma patients who completed telehealth evaluations."
-)}
+    "Reviews",
+    pages.reviews.path,
+    "Verified Google patient feedback and testimonials from Oklahoma patients who completed telehealth evaluations."
+  )}
 
 
 ## Company & Legal
 
 ${link(
-  "About Us",
-  pages.about.path,
-  "Platform mission, leadership, and how Medical Marijuana Doctor Oklahoma connects patients with licensed physicians."
-)}
+    "About Us",
+    pages.about.path,
+    "Platform mission, leadership, and how Medical Marijuana Doctor Oklahoma connects patients with licensed physicians."
+  )}
 ${link(
-  "Contact Us",
-  pages.contact.path,
-  "Phone, email, Oklahoma City address, hours, and support options."
-)}
+    "Contact Us",
+    pages.contact.path,
+    "Phone, email, Oklahoma City address, hours, and support options."
+  )}
 ${link(
-  "Legal Policies Hub",
-  pages.policy.path,
-  "Index of privacy, HIPAA, telehealth consent, terms, refunds, accessibility, editorial, and disclaimer pages."
-)}
+    "Legal Policies Hub",
+    pages.policy.path,
+    "Index of privacy, HIPAA, telehealth consent, terms, refunds, accessibility, editorial, and disclaimer pages."
+  )}
 ${link(
-  "Privacy Policy",
-  pages.privacy.path,
-  "How personal and health information is collected, used, and protected."
-)}
+    "Privacy Policy",
+    pages.privacy.path,
+    "How personal and health information is collected, used, and protected."
+  )}
 ${link(
-  "Terms of Use",
-  pages.terms.path,
-  "Eligibility, telehealth consent, physician relationships, liability, and Oklahoma law."
-)}
+    "Terms of Use",
+    pages.terms.path,
+    "Eligibility, telehealth consent, physician relationships, liability, and Oklahoma law."
+  )}
 ${link(
-  "Disclaimer",
-  pages.disclaimer.path,
-  "Limits on medical advice and the platform's role as a technology facilitator."
-)}
+    "Disclaimer",
+    pages.disclaimer.path,
+    "Limits on medical advice and the platform's role as a technology facilitator."
+  )}
 ${link(
-  "Refund Policy",
-  pages.refund.path,
-  "When patients qualify for a full refund on an Oklahoma MMJ evaluation."
-)}
+    "Refund Policy",
+    pages.refund.path,
+    "When patients qualify for a full refund on an Oklahoma MMJ evaluation."
+  )}
 ${link(
-  "Editorial Policy",
-  pages.editorial.path,
-  "Standards for accuracy, sourcing, and content review."
-)}
+    "Editorial Policy",
+    pages.editorial.path,
+    "Standards for accuracy, sourcing, and content review."
+  )}
 ${link(
-  "HIPAA Compliance",
-  pages.hipaa.path,
-  "How the platform protects patient health information during telehealth MMJ evaluations."
-)}
+    "HIPAA Compliance",
+    pages.hipaa.path,
+    "How the platform protects patient health information during telehealth MMJ evaluations."
+  )}
 ${link(
-  "Consent for Telehealth",
-  pages.telehealth.path,
-  "Patient acknowledgment of remote evaluation terms and limitations."
-)}
+    "Consent for Telehealth",
+    pages.telehealth.path,
+    "Patient acknowledgment of remote evaluation terms and limitations."
+  )}
 ${link(
-  "Accessibility Statement",
-  pages.accessibility.path,
-  "Commitment to WCAG-oriented accessibility for patients with disabilities."
-)}
+    "Accessibility Statement",
+    pages.accessibility.path,
+    "Commitment to WCAG-oriented accessibility for patients with disabilities."
+  )}
 
 
 ---

@@ -29,7 +29,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-[#0E3B2E]/85">
-            Easy online application, physician evaluation, and clear OMMA steps — with same-day
+            Easy online application, physician evaluation, and clear OMMA steps   with same-day
             access to legal medical marijuana in Oklahoma.
           </p>
 
