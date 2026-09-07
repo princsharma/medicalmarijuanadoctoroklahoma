@@ -65,11 +65,23 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
   return (
     <div className="flex-1 min-w-0 max-w-[960px] xl:max-w-[1020px] px-4 sm:px-8 lg:pl-10 xl:pl-16 lg:pr-8 xl:pr-16 pt-2 sm:pt-4 lg:pt-6 pb-16 sm:pb-20">
       <div className="w-full flex-1 max-w-[870px] space-y-10 lg:space-y-12 text-[#5F6B6F] font-sans">
-        {/* Lead Intro Paragraphs */}
+        {/* Lead Intro Paragraphs with Drop Cap */}
         <div className="space-y-4 text-base leading-relaxed sm:text-lg sm:leading-8 font-normal text-[#475467]">
-          {post.intro.map((para, i) => (
-            <p key={i}>{renderFormattedText(para)}</p>
-          ))}
+          {post.intro.map((para, i) => {
+            if (i === 0 && para.length > 0) {
+              const firstLetter = para.charAt(0);
+              const remainingText = para.slice(1);
+              return (
+                <p key={i} className="leading-relaxed sm:leading-8">
+                  <span className="float-left font-heading text-[46px] sm:text-[54px] font-bold text-[#0E3B2E] leading-[0.8] pr-2.5 pt-1 select-none">
+                    {firstLetter}
+                  </span>
+                  {renderFormattedText(remainingText)}
+                </p>
+              );
+            }
+            return <p key={i}>{renderFormattedText(para)}</p>;
+          })}
         </div>
 
         {/* Key Points Box */}
