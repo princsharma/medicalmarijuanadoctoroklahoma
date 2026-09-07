@@ -166,9 +166,11 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
               <div className="space-y-5 pt-2">
                 {section.subsections.map((sub, sIdx) => (
                   <div key={sIdx} className="space-y-2">
-                    <h3 className="font-heading text-lg sm:text-[20px] font-bold text-[#0E3B2E] leading-[28px]">
-                      {renderFormattedText(sub.title)}
-                    </h3>
+                    {sub.title ? (
+                      <h3 className="font-heading text-lg sm:text-[20px] font-bold text-[#0E3B2E] leading-[28px]">
+                        {renderFormattedText(sub.title)}
+                      </h3>
+                    ) : null}
                     {sub.content.map((p, pIdx) => (
                       <p
                         key={pIdx}

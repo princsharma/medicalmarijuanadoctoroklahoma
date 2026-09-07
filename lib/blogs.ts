@@ -211,7 +211,7 @@ export const blogPosts: BlogPost[] = [
         ],
         subsections: [
           {
-            title: "Cultivation Location & Safety Restrictions",
+            title: "",
             content: [
               "Home-grown marijuana must be cultivated on property owned by the patient or on property where the owner has given the patient written permission. The plants also cannot be visible from an adjacent street to a person with normal 20/20 vision.",
               "Home growers cannot use extraction equipment involving butane, propane, carbon dioxide, or other potentially hazardous materials on residential property.",
