@@ -24,10 +24,6 @@ export function BlogPostToc({ sections }: BlogPostTocProps) {
           }
         }
       }
-      const finalEl = document.getElementById("final-thoughts");
-      if (finalEl && scrollPosition >= finalEl.offsetTop) {
-        setActiveId("final-thoughts");
-      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -72,25 +68,6 @@ export function BlogPostToc({ sections }: BlogPostTocProps) {
                 </li>
               );
             })}
-            <li className="flex items-start gap-2.5">
-              <span
-                className={`text-lg leading-none mt-0.5 transition-colors ${
-                  activeId === "final-thoughts" ? "text-[#B8E89A]" : "text-white/60"
-                }`}
-              >
-                •
-              </span>
-              <a
-                href="#final-thoughts"
-                className={`font-sans text-xs sm:text-[14px] leading-[22px] transition-all ${
-                  activeId === "final-thoughts"
-                    ? "text-[#B8E89A] font-bold"
-                    : "text-[#FAF7F2] font-semibold hover:text-[#B8E89A]"
-                }`}
-              >
-                Final Thoughts
-              </a>
-            </li>
           </ul>
         </nav>
       </div>

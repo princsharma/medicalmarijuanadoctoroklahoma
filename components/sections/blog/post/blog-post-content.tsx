@@ -116,7 +116,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
               <div className="w-full bg-[#EAF1EA] rounded-[15px] flex flex-row items-center overflow-hidden gap-3.5 sm:gap-[16px] pr-4 sm:pr-8 lg:pr-[67px] min-h-[69px] mt-4 border border-[#0E3B2E]/10">
                 <div className="w-[14px] sm:w-[17px] self-stretch bg-[#2F7A18] rounded-l-[10px] shrink-0 min-h-[69px]" />
                 <p className="font-sans font-semibold text-[13px] sm:text-[14px] leading-[22px] sm:leading-[26px] text-[#0E3B2E] py-3 sm:py-3.5">
-                  &ldquo;{section.quote.text}&rdquo; — {section.quote.author}
+                  &ldquo;{section.quote.text}&rdquo;   {section.quote.author}
                 </p>
               </div>
             )}
@@ -234,28 +234,6 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
             </div>
           </div>
         </div>
-
-        {/* Key Takeaways */}
-        {post.keyTakeaways && post.keyTakeaways.length > 0 && (
-          <div className="mt-8 rounded-2xl border border-[#0E3B2E]/15 bg-[#EAF1EA]/40 p-6 sm:p-7 shadow-xs">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="flex size-7 items-center justify-center rounded-full bg-[#0E3B2E] text-white">
-                <CheckCheck className="size-4 stroke-[2.5]" />
-              </span>
-              <h3 className="font-heading text-xl font-bold text-[#0E3B2E]">
-                Key Takeaways
-              </h3>
-            </div>
-            <ul className="space-y-2.5">
-              {post.keyTakeaways.map((takeaway, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-sm sm:text-base leading-relaxed text-[#0E3B2E]/90">
-                  <span className="text-[#2F7A18] font-bold mt-0.5">•</span>
-                  <span>{renderFormattedText(takeaway)}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </div>
   );

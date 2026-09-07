@@ -341,14 +341,29 @@ export const blogPosts: BlogPost[] = [
         ],
       },
     ],
-    keyTakeaways: [
-      "Oklahoma remains strictly a medical marijuana state in 2026; recreational adult-use is illegal.",
-      "Patients must hold an approved OMMA license to purchase from dispensaries or grow at home.",
-      "Licensed patients can cultivate up to 6 mature plants and 6 seedlings on private property.",
-      "Public smoking is regulated under Clean Indoor Air laws, and impaired driving is strictly illegal.",
-      "OMMA permanent rules updated on July 11, 2026, establishing enhanced physician registration.",
+    keyTakeaways: [],
+    faqs: [
+      {
+        question: "What Happens If You Possess Marijuana Without Medical Authorization?",
+        answer:
+          "Possessing marijuana outside the state's authorized medical framework can expose a person to criminal penalties. Oklahoma law generally makes knowing or intentional possession of a controlled dangerous substance unlawful unless it is otherwise authorized.",
+      },
+      {
+        question: "Is weed legal in Oklahoma in 2026?",
+        answer:
+          "Medical marijuana is legal for authorized patients, but Oklahoma has not legalized recreational adult-use marijuana statewide. The state continues to regulate cannabis primarily through its medical marijuana program.",
+      },
+      {
+        question: "Do you need a medical marijuana card in Oklahoma?",
+        answer:
+          "Yes, you generally need an approved OMMA patient license to legally purchase, possess, use, or grow medical marijuana under the state program. However, OMMA may accept your official approval email or MedPortal approval as identification at a dispensary.",
+      },
+      {
+        question: "I am not from Oklahoma. Can I still get a medical marijuana card?",
+        answer:
+          "Non-Oklahoma residents cannot obtain the standard two-year Oklahoma resident patient license simply. However, Oklahoma offers a 30-day out-of-state patient license to people who already hold a valid state-government-issued medical marijuana license from another state.",
+      },
     ],
-    faqs: [],
     relatedSlugs: [],
   },
 ];
