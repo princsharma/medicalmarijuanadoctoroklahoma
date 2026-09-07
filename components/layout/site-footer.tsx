@@ -11,6 +11,8 @@ import { SOCIAL_LINKS } from "@/lib/seo";
 export function SiteFooter() {
   const resources = [
     { label: "About Us", href: "/about-us/" },
+    { label: "Our Doctors", href: "/doctors/" },
+    { label: "Blog", href: "/blog/" },
     { label: "Contact Us", href: "/contact-us/" },
     { label: "Reviews", href: "/reviews/" },
     { label: "Contributors", href: "/contributors/" },
@@ -43,6 +45,7 @@ export function SiteFooter() {
               alt="Medical Marijuana Doctor Oklahoma"
               width={200}
               height={50}
+              style={{ width: "auto" }}
               className="h-11 w-auto brightness-0 invert"
             />
           </Link>
