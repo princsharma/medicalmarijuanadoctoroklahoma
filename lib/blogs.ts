@@ -239,30 +239,31 @@ export const blogPosts: BlogPost[] = [
         id: "what-changed-in-oklahoma-marijuana-law-in-2026",
         title: "What Changed in Oklahoma Marijuana Law in 2026?",
         content: [
-          "Several important regulatory developments make 2026 an essential year for Oklahoma's medical cannabis program:",
+          "Several developments make 2026 important for the medical program:",
         ],
-        checklists: [
+        subsections: [
           {
-            title: "Key 2026 Oklahoma Regulatory Updates",
-            items: [
-              {
-                heading: "New Physician Requirements (Effective Jan 1, 2026)",
-                text: "Physicians recommending medical marijuana must complete mandatory education and maintain active registration with OMMA. Applications with unregistered doctors will be rejected.",
-              },
-              {
-                heading: "OMMA Permanent Rules (Effective July 11, 2026)",
-                text: "Incorporate recent legislative measures regarding physician registration, product packaging, testing compliance, and patient identification.",
-              },
-              {
-                heading: "HB 3143 Commercial Moratorium Extended",
-                text: "Extends the moratorium on new medical marijuana dispensary, grower, and processor business licenses through August 1, 2028.",
-              },
-              {
-                heading: "Federal Policy Changes",
-                text: "[Federal marijuana policy](https://oklahoma.gov/omma/about/news/2026/update-federal-reclassification-of-marijuana.html) rescheduling developments took place in 2026, but recreational cannabis remains unapproved for adult-use without an OMMA medical license in Oklahoma.",
-              },
+            title: "New physician requirements took effect January 1, 2026",
+            content: [
+              "Physicians recommending medical marijuana must complete the required education and register with OMMA. Applications containing recommendations from physicians who are not properly registered can be rejected.",
             ],
           },
+          {
+            title: "OMMA's new permanent rules became effective July 11, 2026",
+            content: [
+              "They incorporate legislative changes from the 2025 session, including measures concerning physician registration, labeling, patient-license identification, and other medical-marijuana regulations.",
+            ],
+          },
+          {
+            title: "HB 3143 was signed into law in 2026",
+            content: [
+              "Among other provisions, it extended the moratorium on new medical marijuana dispensary, grower, and processor licenses through August 1, 2028, unless OMMA's executive director determines that pending reviews, inspections, or investigations have been completed.",
+            ],
+          },
+        ],
+        trailingContent: [
+          "[Federal marijuana policy](https://oklahoma.gov/omma/about/news/2026/update-federal-reclassification-of-marijuana.html) also changed in 2026, but that did not turn recreational cannabis into legal adult-use marijuana in Oklahoma.",
+          "So, the key point is that 2026 brought regulatory changes to Oklahoma's medical program, not statewide recreational legalization.",
         ],
       },
       {

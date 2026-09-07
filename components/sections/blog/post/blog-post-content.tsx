@@ -132,56 +132,6 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                 </ul>
               )}
 
-              {/* Trailing content paragraphs if present */}
-              {section.trailingContent && section.trailingContent.map((para, idx) => (
-                <p
-                  key={idx}
-                  className="text-sm sm:text-base leading-[26px] sm:leading-[28px] font-medium"
-                >
-                  {renderFormattedText(para)}
-                </p>
-              ))}
-
-              {/* Pullquote with Project Theme Color */}
-              {section.quote && (
-                <div className="w-full bg-[#EAF1EA] rounded-[15px] flex flex-row items-center overflow-hidden gap-3.5 sm:gap-[16px] pr-4 sm:pr-8 lg:pr-[67px] min-h-[69px] mt-4 border border-[#0E3B2E]/10">
-                  <div className="w-[14px] sm:w-[17px] self-stretch bg-[#2F7A18] rounded-l-[10px] shrink-0 min-h-[69px]" />
-                  <p className="font-sans font-semibold text-[13px] sm:text-[14px] leading-[22px] sm:leading-[26px] text-[#0E3B2E] py-3 sm:py-3.5">
-                    &ldquo;{section.quote.text}&rdquo; — {section.quote.author}
-                  </p>
-                </div>
-              )}
-
-              {/* Checklists / Features */}
-              {section.checklists && (
-                <div className="space-y-4 pt-2">
-                  {section.checklists.map((list, cIdx) => (
-                    <div key={cIdx} className="space-y-3">
-                      <div className="grid gap-3 sm:grid-cols-1">
-                        {list.items.map((item, itemIdx) => (
-                          <div
-                            key={itemIdx}
-                            className="flex items-start gap-3.5 rounded-xl border border-black/5 bg-white p-4 shadow-xs"
-                          >
-                            <div className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#0E3B2E] text-white mt-0.5">
-                              <Check className="size-3.5 stroke-[3]" />
-                            </div>
-                            <div>
-                              <h4 className="font-heading text-base font-bold text-[#0E3B2E]">
-                                {renderFormattedText(item.heading)}
-                              </h4>
-                              <p className="mt-1 text-sm leading-relaxed text-[#5F6B6F]">
-                                {renderFormattedText(item.text)}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
               {/* Subsections */}
               {section.subsections && (
                 <div className="space-y-5 pt-2">
@@ -204,6 +154,16 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                   ))}
                 </div>
               )}
+
+              {/* Trailing content paragraphs if present */}
+              {section.trailingContent && section.trailingContent.map((para, idx) => (
+                <p
+                  key={idx}
+                  className="text-sm sm:text-base leading-[26px] sm:leading-[28px] font-medium"
+                >
+                  {renderFormattedText(para)}
+                </p>
+              ))}
 
               {/* Table (e.g. Oklahoma Marijuana Laws at a Glance) */}
               {section.table && (
