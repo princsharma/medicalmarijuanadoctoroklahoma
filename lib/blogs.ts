@@ -340,6 +340,37 @@ export const blogPosts: BlogPost[] = [
           "If you are considering applying, renewing, or using a [medical marijuana card Oklahoma](https://medicalmarijuanadoctoroklahoma.com/) patients can obtain, check OMMA's current rules before relying on older online information.",
         ],
       },
+      {
+        id: "frequently-asked-questions",
+        title: "Frequently Asked Questions",
+        content: [],
+        subsections: [
+          {
+            title: "1. What Happens If You Possess Marijuana Without Medical Authorization?",
+            content: [
+              "Possessing marijuana outside the state's authorized medical framework can expose a person to criminal penalties. Oklahoma law generally makes knowing or intentional possession of a controlled dangerous substance unlawful unless it is otherwise authorized.",
+            ],
+          },
+          {
+            title: "2. Is weed legal in Oklahoma in 2026?",
+            content: [
+              "Medical marijuana is legal for authorized patients, but Oklahoma has not legalized recreational adult-use marijuana statewide. The state continues to regulate cannabis primarily through its medical marijuana program.",
+            ],
+          },
+          {
+            title: "3. Do you need a medical marijuana card in Oklahoma?",
+            content: [
+              "Yes, you generally need an approved OMMA patient license to legally purchase, possess, use, or grow medical marijuana under the state program. However, OMMA may accept your official approval email or MedPortal approval as identification at a dispensary.",
+            ],
+          },
+          {
+            title: "4. I am not from Oklahoma. Can I still get a medical marijuana card?",
+            content: [
+              "Non-Oklahoma residents cannot obtain the standard two-year Oklahoma resident patient license simply. However, Oklahoma offers a 30-day out-of-state patient license to people who already hold a valid state-government-issued medical marijuana license from another state.",
+            ],
+          },
+        ],
+      },
     ],
     keyTakeaways: [],
     faqs: [

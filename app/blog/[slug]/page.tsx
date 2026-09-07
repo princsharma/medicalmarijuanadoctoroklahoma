@@ -8,7 +8,6 @@ import { BlogPostToc } from "@/components/sections/blog/post/blog-post-toc";
 import { BlogPostContent } from "@/components/sections/blog/post/blog-post-content";
 import { BlogPostAuthor } from "@/components/sections/blog/post/blog-post-author";
 import { BlogPostRelated } from "@/components/sections/blog/post/blog-post-related";
-import { BlogPostFaq } from "@/components/sections/blog/post/blog-post-faq";
 import { BlogPostGoogleBadge } from "@/components/sections/blog/post/blog-post-google-badge";
 import { BlogPostCtaBanner } from "@/components/sections/blog/post/blog-post-cta-banner";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -109,9 +108,6 @@ export default async function BlogPostPage({ params }: Props) {
           <BlogPostToc sections={post.sections} />
           <BlogPostContent post={post} />
         </div>
-
-        {/* FAQs from Google Doc */}
-        <BlogPostFaq faqs={post.faqs} />
 
         {/* About the Author */}
         <BlogPostAuthor author={post.author} />
