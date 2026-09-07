@@ -3,6 +3,59 @@
 import { BlogPost } from "@/lib/blogs";
 import { BookingButton } from "@/components/booking-dialog";
 import { ArrowRight, Check, CheckCheck } from "lucide-react";
+import Link from "next/link";
+import React from "react";
+
+function renderFormattedText(text: string): React.ReactNode {
+  if (!text) return text;
+  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+
+    const anchor = match[1];
+    const rawUrl = match[2];
+    const key = `link-${match.index}-${rawUrl}`;
+
+    if (rawUrl.startsWith("/") || rawUrl.includes("medicalmarijuanadoctoroklahoma.com")) {
+      const internalHref = rawUrl.replace(/^https?:\/\/(www\.)?medicalmarijuanadoctoroklahoma\.com/, "") || "/";
+      parts.push(
+        <Link
+          key={key}
+          href={internalHref}
+          className="font-medium text-[#2F7A18] underline underline-offset-4 decoration-[#2F7A18]/40 hover:decoration-[#2F7A18] hover:text-[#0E3B2E] transition-colors"
+        >
+          {anchor}
+        </Link>
+      );
+    } else {
+      parts.push(
+        <a
+          key={key}
+          href={rawUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-[#2F7A18] underline underline-offset-4 decoration-[#2F7A18]/40 hover:decoration-[#2F7A18] hover:text-[#0E3B2E] transition-colors"
+        >
+          {anchor}
+        </a>
+      );
+    }
+
+    lastIndex = linkRegex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? <>{parts}</> : text;
+}
 
 interface BlogPostContentProps {
   post: BlogPost;
@@ -15,7 +68,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
         {/* Lead Intro Paragraphs */}
         <div className="space-y-4 text-base leading-relaxed sm:text-lg sm:leading-8 font-normal text-[#475467]">
           {post.intro.map((para, i) => (
-            <p key={i}>{para}</p>
+            <p key={i}>{renderFormattedText(para)}</p>
           ))}
         </div>
 
@@ -31,7 +84,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                   <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#0E3B2E] text-white mt-0.5 text-xs">
                     <Check className="size-3 stroke-[3]" />
                   </span>
-                  <span>{point}</span>
+                  <span>{renderFormattedText(point)}</span>
                 </li>
               ))}
             </ul>
@@ -54,7 +107,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                 key={idx}
                 className="text-sm sm:text-base leading-[26px] sm:leading-[28px] font-medium"
               >
-                {para}
+                {renderFormattedText(para)}
               </p>
             ))}
 
@@ -84,10 +137,10 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                           </div>
                           <div>
                             <h4 className="font-heading text-base font-bold text-[#0E3B2E]">
-                              {item.heading}
+                              {renderFormattedText(item.heading)}
                             </h4>
                             <p className="mt-1 text-sm leading-relaxed text-[#5F6B6F]">
-                              {item.text}
+                              {renderFormattedText(item.text)}
                             </p>
                           </div>
                         </div>
@@ -104,14 +157,14 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                 {section.subsections.map((sub, sIdx) => (
                   <div key={sIdx} className="space-y-2">
                     <h3 className="font-heading text-lg sm:text-[20px] font-bold text-[#0E3B2E] leading-[28px]">
-                      {sub.title}
+                      {renderFormattedText(sub.title)}
                     </h3>
                     {sub.content.map((p, pIdx) => (
                       <p
                         key={pIdx}
                         className="text-sm sm:text-base leading-[26px] font-medium text-[#5F6B6F]"
                       >
-                        {p}
+                        {renderFormattedText(p)}
                       </p>
                     ))}
                   </div>
@@ -197,7 +250,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
               {post.keyTakeaways.map((takeaway, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-sm sm:text-base leading-relaxed text-[#0E3B2E]/90">
                   <span className="text-[#2F7A18] font-bold mt-0.5">•</span>
-                  <span>{takeaway}</span>
+                  <span>{renderFormattedText(takeaway)}</span>
                 </li>
               ))}
             </ul>

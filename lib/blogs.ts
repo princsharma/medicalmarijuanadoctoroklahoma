@@ -167,11 +167,11 @@ export const blogPosts: BlogPost[] = [
         id: "what-type-of-marijuana-is-legal-in-oklahoma",
         title: "What Type of Marijuana Is Legal in Oklahoma?",
         content: [
-          "Oklahoma has a medical-use cannabis program, rather than a statewide adult-use program. State Question 788, approved by voters on June 26, 2018, legalized medical marijuana in the state.",
+          "Oklahoma has a medical-use cannabis program, rather than a statewide adult-use program. [State Question 788](https://ballotpedia.org/Oklahoma_State_Question_788,_Medical_Marijuana_Legalization_Initiative_(June_2018)), approved by voters on June 26, 2018, legalized medical marijuana in the state.",
           "The measure created the legal framework allowing licensed patients to purchase medical marijuana from licensed dispensaries.",
           "Recreational marijuana has never been legalized statewide. Oklahoma voters considered State Question 820, a proposal to legalize and regulate adult-use marijuana, on March 7, 2023. The measure did not establish an adult-use market.",
           "Therefore, in 2026, Oklahoma remains a medical-marijuana state, not a recreational-marijuana state. The Oklahoma Medical Marijuana Authority (OMMA) is the state agency responsible for regulating Oklahoma's medical marijuana program. It processes patient and business licenses, administers rules, and handles enforcement within the medical program.",
-          "OMMA's current permanent rules took effect July 11, 2026, replacing the previous rules.",
+          "[OMMA's current permanent rules](https://oklahoma.gov/omma/rules-and-legislation/rules.html) took effect July 11, 2026, replacing the previous rules.",
         ],
       },
       {
@@ -180,7 +180,7 @@ export const blogPosts: BlogPost[] = [
         content: [
           "No. A person must qualify for and obtain the appropriate OMMA patient authorization before legally purchasing medical marijuana through the state's medical program. An adult Oklahoma resident generally needs a physician recommendation, proof of identity, and proof of Oklahoma residency to apply.",
           "Oklahoma is unusual because it does not have a state-defined list of qualifying medical conditions. State law says there are no qualifying conditions and requires the recommendation to follow accepted standards of medical practice.",
-          "But that does not mean approval is automatic. A physician must determine that recommending medical marijuana is appropriate for the patient. For Oklahoma residents, an approved Medical marijuana card allows the patient to legally buy, use, and grow medical marijuana under state rules.",
+          "But that does not mean approval is automatic. A physician must determine that recommending medical marijuana is appropriate for the patient. For Oklahoma residents, an approved [medical marijuana card Oklahoma](https://medicalmarijuanadoctoroklahoma.com/) allows the patient to legally buy, use, and grow medical marijuana under state rules.",
         ],
         quote: {
           text: "Under Oklahoma SQ 788, there are no qualifying condition lists. Certified physicians evaluate each patient individually according to accepted medical standards to determine if cannabis provides therapeutic benefit.",
@@ -192,7 +192,7 @@ export const blogPosts: BlogPost[] = [
         title: "Can I Grow Marijuana in Oklahoma?",
         content: [
           "Yes. A licensed medical marijuana patient can grow marijuana for personal medical use, subject to state requirements.",
-          "OMMA's current patient rules allow a licensed patient to possess:",
+          "[OMMA's current patient rules](https://oklahoma.gov/omma/patients-caregivers/patient-rights-and-responsibilities.html) allow a licensed patient to possess:",
         ],
         checklists: [
           {
@@ -233,13 +233,13 @@ export const blogPosts: BlogPost[] = [
           {
             title: "Driving & Impairment",
             content: [
-              "Medical authorization does not make driving while impaired legal. Oklahoma's Highway Safety Office warns that marijuana can affect reaction time, coordination, attention, and judgment, and states that drug-impaired driving remains illegal.",
+              "Medical authorization does not make driving while impaired legal. [Oklahoma's Highway Safety Office](https://oklahoma.gov/highwaysafety/focus-areas/drug-impaired/marijuana.html) warns that marijuana can affect reaction time, coordination, attention, and judgment, and states that drug-impaired driving remains illegal.",
             ],
           },
           {
             title: "Public Spaces & Smoking Laws",
             content: [
-              "Smoking and vaping medical marijuana are subject to the same state restrictions that apply to tobacco under Oklahoma's Smoking in Public Places and Indoor Workplaces Act. OMMA specifically states that smoking or vaping medical marijuana outdoors in public, or indoors at a workplace, is subject to these restrictions.",
+              "Smoking and vaping medical marijuana are subject to the same state restrictions that apply to tobacco under Oklahoma's Smoking in Public Places and Indoor Workplaces Act. [OMMA](https://oklahoma.gov/omma/patients-caregivers/patient-rights-and-responsibilities.html) specifically states that smoking or vaping medical marijuana outdoors in public, or indoors at a workplace, is subject to these restrictions.",
             ],
           },
           {
@@ -251,7 +251,7 @@ export const blogPosts: BlogPost[] = [
           {
             title: "Sharing Marijuana Is Prohibited",
             content: [
-              "A patient cannot simply give their legally purchased Oklahoma cannabis to another person. OMMA states that licensed patients are prohibited from sharing medical marijuana and medical marijuana products with another individual, whether that person is licensed or not.",
+              "A patient cannot simply give their legally purchased Oklahoma cannabis to another person. [OMMA](https://oklahoma.gov/omma/patients-caregivers/patient-rights-and-responsibilities.html) states that licensed patients are prohibited from sharing medical marijuana and medical marijuana products with another individual, whether that person is licensed or not.",
             ],
           },
         ],
@@ -280,7 +280,7 @@ export const blogPosts: BlogPost[] = [
               },
               {
                 heading: "Federal Policy Changes",
-                text: "Federal rescheduling developments took place in 2026, but recreational cannabis remains unapproved for adult-use without an OMMA medical license in Oklahoma.",
+                text: "[Federal marijuana policy](https://oklahoma.gov/omma/about/news/2026/update-federal-reclassification-of-marijuana.html) rescheduling developments took place in 2026, but recreational cannabis remains unapproved for adult-use without an OMMA medical license in Oklahoma.",
               },
             ],
           },
@@ -337,7 +337,7 @@ export const blogPosts: BlogPost[] = [
         content: [
           "Oklahoma's cannabis laws in 2026 are best understood as medical legalization, not recreational legalization. Qualified patients can legally purchase, possess, use, and grow marijuana within the limits established by state law and OMMA rules.",
           "The state does not use a fixed list of qualifying conditions, but patients still need an appropriate recommendation from a registered physician. At the same time, rules around public use, driving, cultivation, possession, purchasing, and transportation still apply.",
-          "If you are considering applying, renewing, or using a medical marijuana card Oklahoma patients can obtain, check OMMA's current rules before relying on older online information.",
+          "If you are considering applying, renewing, or using a [medical marijuana card Oklahoma](https://medicalmarijuanadoctoroklahoma.com/) patients can obtain, check OMMA's current rules before relying on older online information.",
         ],
       },
     ],
