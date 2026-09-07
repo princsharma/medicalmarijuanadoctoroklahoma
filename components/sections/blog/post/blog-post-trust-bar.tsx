@@ -29,7 +29,7 @@ export function BlogPostTrustBar({ post }: BlogPostTrustBarProps) {
               </span>
               <Link
                 href={`/contributors/${post.author.slug}/`}
-                className="font-sans font-bold text-xs sm:text-sm md:text-[13px] lg:text-[14px] xl:text-[15px] text-transparent bg-clip-text bg-gradient-to-r from-[#0E3B2E] to-[#1A5944] underline hover:opacity-80 transition-opacity whitespace-nowrap mt-0.5"
+                className="font-sans font-bold text-xs sm:text-sm md:text-[13px] lg:text-[14px] xl:text-[15px] text-[#0E3B2E] hover:text-[#2F7A18] transition-colors whitespace-nowrap mt-0.5"
               >
                 {post.author.name}
               </Link>
@@ -56,7 +56,7 @@ export function BlogPostTrustBar({ post }: BlogPostTrustBarProps) {
               <span className="font-sans font-semibold text-xs sm:text-sm md:text-[13px] lg:text-[15px] xl:text-[16px] text-[#0E3B2E] leading-tight">
                 Published
               </span>
-              <span className="font-sans font-bold text-xs sm:text-sm md:text-[13px] lg:text-[14px] xl:text-[15px] text-transparent bg-clip-text bg-gradient-to-r from-[#0E3B2E] to-[#1A5944] whitespace-nowrap mt-0.5">
+              <span className="font-sans font-bold text-xs sm:text-sm md:text-[13px] lg:text-[14px] xl:text-[15px] text-[#0E3B2E] whitespace-nowrap mt-0.5">
                 {formatDisplayDate(post.datePublished)}
               </span>
               <span className="font-sans font-medium text-[11px] sm:text-xs md:text-[10px] lg:text-[11px] xl:text-[12px] text-[#5F6B6F] leading-tight whitespace-nowrap mt-0.5">
@@ -85,7 +85,7 @@ export function BlogPostTrustBar({ post }: BlogPostTrustBarProps) {
               </span>
               <Link
                 href={`/doctors/${post.reviewer.slug}/`}
-                className="font-sans font-bold text-xs sm:text-sm md:text-[13px] lg:text-[14px] xl:text-[15px] text-transparent bg-clip-text bg-gradient-to-r from-[#0E3B2E] to-[#1A5944] underline whitespace-nowrap mt-0.5"
+                className="font-sans font-bold text-xs sm:text-sm md:text-[13px] lg:text-[14px] xl:text-[15px] text-[#0E3B2E] hover:text-[#2F7A18] transition-colors whitespace-nowrap mt-0.5"
               >
                 {post.reviewer.name}
               </Link>
