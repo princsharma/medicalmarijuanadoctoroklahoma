@@ -16,6 +16,7 @@ const MobileMenuDrawer = dynamic(
 const navLinks = [
   { href: "/about-us/", label: "About Us" },
   { href: "/doctors/", label: "Our Doctors" },
+  { href: "/blog/", label: "Blog" },
   { href: "/contact-us/", label: "Contact Us" },
   { href: "/faq/", label: "FAQ" },
 ];
@@ -37,6 +38,7 @@ export function SiteHeader() {
             alt="Medical Marijuana Doctor Oklahoma"
             width={220}
             height={56}
+            style={{ width: "auto" }}
             className="h-11 w-auto sm:h-12 xl:h-14"
             priority
           />

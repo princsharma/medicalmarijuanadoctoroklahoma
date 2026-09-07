@@ -97,6 +97,16 @@ export const pages = {
     changeFrequency: "monthly",
     priority: 0.7,
   },
+  blog: {
+    path: "/blog/",
+    title: "Oklahoma Medical Marijuana Guides & Articles | MMJ Doctor OK",
+    description:
+      "Explore expert medical marijuana guides, OMMA compliance rules, qualifying conditions, and state cannabis regulations for Oklahoma patients.",
+    datePublished: "2024-06-01",
+    dateModified: "2026-08-15",
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
   reviews: {
     path: "/reviews/",
     title: "Patient Reviews | MMJ Doctor Oklahoma",
