@@ -115,8 +115,8 @@ export default async function BlogPostPage({ params }: Props) {
         {/* More Resources / Related Guides */}
         <BlogPostRelated relatedPosts={relatedPosts} />
 
-        {/* Google Highlight Badge */}
-        <BlogPostGoogleBadge />
+        {/* Google Highlight Badge (Hidden for now) */}
+        {/* <BlogPostGoogleBadge /> */}
 
         {/* Pre-Footer CTA Banner */}
         <BlogPostCtaBanner />

@@ -47,13 +47,6 @@ export function BlogPostHero({ post }: BlogPostHeroProps) {
               <ArrowRight className="size-4" />
             </span>
           </BookingButton>
-
-          <a
-            href="#toc"
-            className="inline-flex h-[50px] items-center gap-2 rounded-full border border-[#0E3B2E]/15 bg-white px-6 text-base font-semibold text-[#0E3B2E] shadow-xs transition-colors hover:bg-[#F6F5F0]"
-          >
-            Table of Contents
-          </a>
         </div>
       </div>
     </section>
