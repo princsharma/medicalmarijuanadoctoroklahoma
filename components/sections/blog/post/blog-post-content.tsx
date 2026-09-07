@@ -121,6 +121,27 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                 </p>
               ))}
 
+              {/* Bullet list if present */}
+              {section.bullets && section.bullets.length > 0 && (
+                <ul className="space-y-2 pl-6 list-disc list-outside text-sm sm:text-base leading-[26px] sm:leading-[28px] font-medium text-[#5F6B6F] my-3">
+                  {section.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx}>
+                      {renderFormattedText(bullet)}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Trailing content paragraphs if present */}
+              {section.trailingContent && section.trailingContent.map((para, idx) => (
+                <p
+                  key={idx}
+                  className="text-sm sm:text-base leading-[26px] sm:leading-[28px] font-medium"
+                >
+                  {renderFormattedText(para)}
+                </p>
+              ))}
+
               {/* Pullquote with Project Theme Color */}
               {section.quote && (
                 <div className="w-full bg-[#EAF1EA] rounded-[15px] flex flex-row items-center overflow-hidden gap-3.5 sm:gap-[16px] pr-4 sm:pr-8 lg:pr-[67px] min-h-[69px] mt-4 border border-[#0E3B2E]/10">

@@ -41,6 +41,8 @@ export type BlogSection = {
   id: string;
   title: string;
   content: string[];
+  bullets?: string[];
+  trailingContent?: string[];
   quote?: {
     text: string;
     author: string;
@@ -185,38 +187,19 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: "can-i-grow-marijuana-in-oklahoma",
-        title: "Can I Grow Marijuana in Oklahoma?",
+        title: "Can I grow marijuana in Oklahoma?",
         content: [
           "Yes. A licensed medical marijuana patient can grow marijuana for personal medical use, subject to state requirements.",
           "[OMMA's current patient rules](https://oklahoma.gov/omma/patients-caregivers/patient-rights-and-responsibilities.html) allow a licensed patient to possess:",
         ],
-        checklists: [
-          {
-            title: "Patient Home Cultivation Rights",
-            items: [
-              {
-                heading: "6 Mature Marijuana Plants",
-                text: "Licensed patients may cultivate up to 6 mature flowering cannabis plants on private residential property.",
-              },
-              {
-                heading: "6 Seedling Plants",
-                text: "Patients can concurrently maintain up to 6 vegetative seedling cannabis plants.",
-              },
-              {
-                heading: "Harvested Marijuana Storage",
-                text: "Patients can legally possess the harvested marijuana yielded directly from those cultivated plants at their residence.",
-              },
-            ],
-          },
+        bullets: [
+          "6 mature marijuana plants",
+          "6 seedling plants",
+          "The harvested marijuana from those plants",
         ],
-        subsections: [
-          {
-            title: "",
-            content: [
-              "Home-grown marijuana must be cultivated on property owned by the patient or on property where the owner has given the patient written permission. The plants also cannot be visible from an adjacent street to a person with normal 20/20 vision.",
-              "Home growers cannot use extraction equipment involving butane, propane, carbon dioxide, or other potentially hazardous materials on residential property.",
-            ],
-          },
+        trailingContent: [
+          "Home-grown marijuana must be cultivated on property owned by the patient or on property where the owner has given the patient written permission. The plants also cannot be visible from an adjacent street to a person with normal 20/20 vision.",
+          "Home growers cannot use extraction equipment involving butane, propane, carbon dioxide, or other potentially hazardous materials on residential property.",
         ],
       },
       {
