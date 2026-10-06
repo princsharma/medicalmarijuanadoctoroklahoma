@@ -1,4 +1,5 @@
 import { contributors } from "@/lib/contributors";
+import { blogPosts } from "@/lib/blog";
 import { doctors } from "@/lib/doctors";
 import { absoluteUrl, pages, withTrailingSlash } from "@/lib/seo";
 
@@ -43,7 +44,14 @@ export function getSitemapEntries(): SitemapEntry[] {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...doctorEntries, ...contributorEntries];
+  const blogEntries: SitemapEntry[] = blogPosts.map((post) => ({
+    url: absoluteUrl(post.path),
+    lastModified: toIsoDate(post.updatedAt),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...doctorEntries, ...contributorEntries, ...blogEntries];
 }
 
 function escapeXml(value: string) {

@@ -15,6 +15,7 @@ import {
 const navLinks = [
   { href: "/about-us/", label: "About Us" },
   { href: "/doctors/", label: "Our Doctors" },
+  { href: "/blog/", label: "Blog" },
   { href: "/contact-us/", label: "Contact Us" },
   { href: "/faq/", label: "FAQ" },
 ];
