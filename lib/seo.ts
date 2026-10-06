@@ -8,6 +8,7 @@ export const SITE_TAGLINE = "Get Your Medical Marijuana Card Online in Oklahoma"
 export const DEFAULT_OG_IMAGE = "/hero-section.jpg";
 export const ABOUT_OG_IMAGE = "/aboutus-hero-section.webp";
 export const CONTACT_OG_IMAGE = "/contact-us-hero-section.webp";
+export const BLOG_OG_IMAGE = "/oklahoma-cannabis-laws.png";
 
 export type PageSeo = {
   path: string;
@@ -208,6 +209,17 @@ export const pages = {
     changeFrequency: "monthly",
     priority: 0.7,
   },
+  blog: {
+    path: "/blog/",
+    title: "Oklahoma Medical Marijuana Blog | Guides & Updates",
+    description:
+      "Explore clear, practical guides to Oklahoma medical marijuana laws, OMMA rules, patient eligibility, card applications, and cannabis use.",
+    datePublished: "2026-08-15",
+    dateModified: "2026-08-15",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    ogImage: BLOG_OG_IMAGE,
+  },
 } as const satisfies Record<string, PageSeo>;
 
 export type PageKey = keyof typeof pages;
@@ -235,6 +247,7 @@ const OG_IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   [DEFAULT_OG_IMAGE]: { width: 800, height: 550 },
   [ABOUT_OG_IMAGE]: { width: 600, height: 550 },
   [CONTACT_OG_IMAGE]: { width: 500, height: 400 },
+  [BLOG_OG_IMAGE]: { width: 1200, height: 800 },
 };
 
 export function buildMetadata(page: PageSeo, extras?: Metadata): Metadata {

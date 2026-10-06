@@ -9,6 +9,7 @@ import { legalPages } from "@/lib/legal-pages";
 
 export function SiteFooter() {
   const resources = [
+    { label: "Blog & Guides", href: "/blog/" },
     { label: "About Us", href: "/about-us/" },
     { label: "Contact Us", href: "/contact-us/" },
     { label: "Reviews", href: "/reviews/" },
