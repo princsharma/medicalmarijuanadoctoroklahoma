@@ -64,7 +64,7 @@ export function Hero() {
         <div className="relative">
           <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#0E3B2E]/15">
             <Image
-              src="/hero-section.jpg"
+              src="/media/hero-section.webp"
               alt="Patient meeting with a physician over telemedicine video call"
               width={800}
               height={560}

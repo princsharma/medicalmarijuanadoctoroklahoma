@@ -6,7 +6,7 @@ export function AboutValues() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div className="relative min-h-[280px] overflow-hidden rounded-[2rem] shadow-xl shadow-black/20 lg:min-h-[380px]">
           <Image
-            src="/about-section-one.png"
+            src="/media/about-section-one.webp"
             alt="Doctor reviewing a patient's medical marijuana recommendation"
             fill
             sizes="(min-width: 1024px) 45vw, 100vw"

@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "Is this a walk-in clinic?",
     answer:
-      "Not exactly. We do evaluations by telehealth, so the Oklahoma City address is really our office for staff and paperwork. You're welcome to stop by if you'd rather talk to someone in person first, but the actual visit with a physician happens over video.",
+      "No. We are not a walk-in clinic. All medical marijuana evaluations are completed through secure telehealth with an Oklahoma-licensed physician. The Oklahoma City address on this page is for staff and administrative correspondence only.",
   },
   {
     question: "How soon can I get an appointment?",
@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "What are your hours?",
     answer:
-      "9:00 AM to 10:00 PM daily by phone or in person. Anything sent outside those hours gets answered the next business day.",
+      "9:00 AM to 10:00 PM daily by phone. Emails and contact form messages received outside those hours are answered the next business day.",
   },
 ];
 

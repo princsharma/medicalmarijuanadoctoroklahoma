@@ -29,7 +29,7 @@ export function ContactHero() {
 
         <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#0E3B2E]/15">
           <Image
-            src="/contact-us-hero-section.webp"
+            src="/media/contact-us-hero-section.webp"
             alt="Doctor reviewing a patient's medical marijuana recommendation"
             width={800}
             height={640}

@@ -6,17 +6,56 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { PageBreadcrumb } from "@/components/layout/page-breadcrumb";
 import { ContributorPortrait } from "@/components/sections/contributors/contributor-portrait";
 import { JsonLd } from "@/components/seo/json-ld";
-import { contributors } from "@/lib/contributors";
-import { buildMetadata, pages, webPageSchema, withTrailingSlash } from "@/lib/seo";
+import { contributorsListingGraphSchema } from "@/lib/contributors-listing-schema";
+import { contributorSocialOgImage, contributors } from "@/lib/contributors";
+import {
+  absoluteOgImageUrl,
+  buildMetadata,
+  pages,
+  withTrailingSlash,
+} from "@/lib/seo";
 
-export const metadata: Metadata = buildMetadata(pages.contributors);
+const contributorsOgImages = contributors.map((person) => {
+  const path = contributorSocialOgImage(person);
+  const url = absoluteOgImageUrl(path);
+  return {
+    url,
+    secureUrl: url,
+    width: 800,
+    height: 800,
+    alt: `${person.name}, ${person.credentials}`,
+    type: "image/webp" as const,
+  };
+});
+
+const contributorsMetadataBase = buildMetadata(pages.contributors);
+
+export const metadata: Metadata = {
+  ...contributorsMetadataBase,
+  openGraph: contributorsMetadataBase.openGraph
+    ? { ...contributorsMetadataBase.openGraph, images: contributorsOgImages }
+    : undefined,
+  twitter: contributorsMetadataBase.twitter
+    ? {
+        ...contributorsMetadataBase.twitter,
+        images: contributorsOgImages.map((image) => ({
+          url: image.url,
+          alt: image.alt,
+        })),
+      }
+    : undefined,
+};
 
 export default function ContributorsPage() {
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd data={webPageSchema(pages.contributors)} />
+      <JsonLd data={contributorsListingGraphSchema()} />
       <SiteHeader />
-      <PageBreadcrumb page="Contributors" currentPath={pages.contributors.path} />
+      <PageBreadcrumb
+        page="Contributors"
+        currentPath={pages.contributors.path}
+        includeJsonLd={false}
+      />
       <main id="main-content">
         <section className="px-6 pt-16 pb-10 sm:pt-20 sm:pb-12">
           <div className="mx-auto max-w-3xl text-center">

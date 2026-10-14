@@ -14,7 +14,7 @@ export function AboutLeadership() {
         <div className="flex flex-col items-center rounded-2xl border border-black/5 bg-white p-8 text-center shadow-sm">
           <div className="relative size-48 overflow-hidden rounded-full bg-[#EAF1EA] ring-4 ring-[#EAF1EA]">
             <Image
-              src="/gaurav.webp"
+              src="/media/gaurav.webp"
               alt="Gourav Sharma"
               fill
               sizes="192px"

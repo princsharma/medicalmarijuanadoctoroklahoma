@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_URL, pages } from "@/lib/seo";
 
 function getHeallyUtmSource() {
   const hostname = SITE_URL.replace(/^https?:\/\//, "").replace(/\/$/, "");

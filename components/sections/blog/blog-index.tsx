@@ -18,7 +18,6 @@ const categories = [
 ];
 
 export function BlogIndex() {
-  const featuredPost = blogPosts[0];
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const searchTerm = searchQuery.trim().toLowerCase();
@@ -72,61 +71,7 @@ export function BlogIndex() {
         </div>
       </section>
 
-      {featuredPost ? (
-        <section className="border-y border-[#0E3B2E]/10 bg-white/55 px-6 py-12 sm:py-16">
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-4 text-[11px] font-semibold tracking-[0.18em] text-[#2F7A18] uppercase">
-              Featured guide
-            </p>
-            <article className="grid overflow-hidden rounded-3xl border border-[#0E3B2E]/10 bg-white shadow-[0_16px_45px_-32px_rgba(14,59,46,0.45)] md:grid-cols-[1.05fr_0.95fr]">
-              <Link
-                href={featuredPost.path}
-                aria-label={`Read ${featuredPost.title}`}
-                className="group relative block min-h-64 overflow-hidden sm:min-h-80"
-              >
-                <Image
-                  src={featuredPost.image}
-                  alt={featuredPost.imageAlt}
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                />
-                <span className="absolute top-4 left-4 rounded-full bg-[#0E3B2E] px-3 py-1 text-xs font-semibold text-white shadow-sm">
-                  {featuredPost.category}
-                </span>
-              </Link>
-              <div className="flex flex-col justify-center p-6 sm:p-9">
-                <div className="flex items-center gap-2 text-xs text-[#0E3B2E]/65">
-                  <Clock3 className="size-3.5 text-[#2F7A18]" aria-hidden="true" />
-                  <span>6 min read</span>
-                  <span aria-hidden="true">·</span>
-                  <span>Updated {formatDisplayDate(featuredPost.updatedAt)}</span>
-                </div>
-                <h2 className="mt-4 font-heading text-2xl leading-tight font-medium tracking-tight text-[#0E3B2E] sm:text-3xl">
-                  <Link href={featuredPost.path} className="transition hover:text-[#2F7A18]">
-                    {featuredPost.title}
-                  </Link>
-                </h2>
-                <p className="mt-1 font-heading text-lg text-[#0E3B2E]/85">
-                  {featuredPost.subtitle}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-[#0E3B2E]/70">
-                  {featuredPost.excerpt}
-                </p>
-                <Link
-                  href={featuredPost.path}
-                  className="mt-6 inline-flex h-10 w-fit items-center gap-2 rounded-full bg-[#0E3B2E] px-4 text-sm font-semibold text-white transition hover:bg-[#0E3B2E]/90"
-                >
-                  Read full guide <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-              </div>
-            </article>
-          </div>
-        </section>
-      ) : null}
-
-      <section id="latest-guides" className="scroll-mt-24 px-6 py-14 sm:py-16">
+      <section id="latest-guides" className="scroll-mt-24 border-t border-[#0E3B2E]/10 px-6 py-14 sm:py-16">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="min-w-0">

@@ -34,7 +34,7 @@ export function AboutHero() {
 
         <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#0E3B2E]/15">
           <Image
-            src="/aboutus-hero-section.webp"
+            src="/media/aboutus-hero-section.webp"
             alt="Oklahoma male and female medical professionals"
             width={800}
             height={640}

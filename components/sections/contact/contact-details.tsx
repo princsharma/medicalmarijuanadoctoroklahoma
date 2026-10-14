@@ -6,7 +6,8 @@ export function ContactDetails() {
       icon: MapPin,
       label: "Find Us",
       value: "1036 W I-240 Service Road, Oklahoma City, OK 73139, United States",
-      note: "Good for anyone who wants to ask questions in person or drop off paperwork before their telehealth visit.",
+      note:
+        "Our Oklahoma City address is for administrative mail and correspondence. Physician evaluations are provided through telehealth only.",
       href: "https://maps.google.com/?q=1036+W+I-240+Service+Road,+Oklahoma+City,+OK+73139",
     },
     {
@@ -34,9 +35,9 @@ export function ContactDetails() {
         </h2>
         <p className="mt-4 text-sm leading-relaxed text-[#0E3B2E]/80 sm:text-base">
           Reaching out about anything medical can feel a little awkward, so we try to keep this
-          part easy. Call us, email us, or come by our Oklahoma City office - whatever works for
-          you. A real staff member responds, not an automated system. Here&apos;s a quick rundown
-          of each option and when it makes sense to use it.
+          part easy. Call, email, or send us a message - whatever works for you. A real staff member
+          responds, not an automated system. Here&apos;s a quick rundown of each option and when
+          it makes sense to use it.
         </p>
       </div>
 

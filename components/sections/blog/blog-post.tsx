@@ -7,9 +7,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { BlogParagraphBlock, paragraphKey } from "@/components/sections/blog/blog-paragraph";
 import { BlogCta } from "@/components/sections/blog/blog-cta";
 import { BookingButton } from "@/components/booking-dialog";
 import { JsonLd } from "@/components/seo/json-ld";
+import { blogPostUsesGraphSchema } from "@/lib/blog";
+import { faqAnswerPlainText } from "@/lib/blog/faq-text";
 import type { BlogPost } from "@/lib/blog";
 import { formatDisplayDate } from "@/lib/seo";
 
@@ -40,7 +43,8 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
               name={post.author.name}
               credentials={post.author.credentials}
               description="Health & Medical Content Writer"
-              slug={`/contributors/${post.author.slug}/`}
+              roleLine={post.author.roleLine}
+              slug={`/${post.author.profileKind ?? "contributors"}/${post.author.slug}/`}
               image={post.author.image}
             />
             <div className="flex items-center gap-3 px-4 py-4 sm:justify-center sm:px-5">
@@ -65,7 +69,8 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
               name={post.reviewer.name}
               credentials={post.reviewer.credentials}
               description="Board-Certified Physician"
-              slug={`/doctors/${post.reviewer.slug}/`}
+              roleLine={post.reviewer.roleLine}
+              slug={`/${post.reviewer.profileKind ?? "doctors"}/${post.reviewer.slug}/`}
               image={post.reviewer.image}
             />
           </div>
@@ -95,16 +100,26 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
 
           <div className="min-w-0 lg:px-8 xl:px-14">
             <div className="mx-auto max-w-5xl">
-              <section id="introduction" className="scroll-mt-28">
-                <h2 className="font-heading text-2xl font-medium tracking-tight text-[#0E3B2E] sm:text-[1.75rem]">
-                  Introduction
-                </h2>
-                <div className="mt-4 space-y-4 text-base leading-8 text-[#0E3B2E]/80">
-                {post.introduction.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-                </div>
-              </section>
+              {post.introBeforeKeyPoints?.length ? (
+                <section className="scroll-mt-28">
+                  <div className="space-y-4 text-base leading-8 text-[#0E3B2E]/80">
+                    {post.introBeforeKeyPoints.map((paragraph) => (
+                      <BlogParagraphBlock key={paragraphKey(paragraph)} paragraph={paragraph} />
+                    ))}
+                  </div>
+                </section>
+              ) : (
+                <section id="introduction" className="scroll-mt-28">
+                  <h2 className="font-heading text-2xl font-medium tracking-tight text-[#0E3B2E] sm:text-[1.75rem]">
+                    Introduction
+                  </h2>
+                  <div className="mt-4 space-y-4 text-base leading-8 text-[#0E3B2E]/80">
+                    {post.introduction.map((paragraph) => (
+                      <BlogParagraphBlock key={paragraphKey(paragraph)} paragraph={paragraph} />
+                    ))}
+                  </div>
+                </section>
+              )}
 
               <section
                 aria-labelledby="key-points-heading"
@@ -114,7 +129,7 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
                   id="key-points-heading"
                   className="font-heading text-xl font-semibold text-[#0E3B2E]"
                 >
-                  Key Points
+                  {post.keyPointsHeading ?? "Key Points"}
                 </h2>
                 <ul className="mt-3 space-y-2.5">
                   {post.keyPoints.map((point) => (
@@ -131,6 +146,19 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
                   ))}
                 </ul>
               </section>
+
+              {post.introBeforeKeyPoints?.length ? (
+                <section id="introduction" className="mt-8 scroll-mt-28">
+                  <h2 className="font-heading text-2xl font-medium tracking-tight text-[#0E3B2E] sm:text-[1.75rem]">
+                    Introduction
+                  </h2>
+                  <div className="mt-4 space-y-4 text-base leading-8 text-[#0E3B2E]/80">
+                    {post.introduction.map((paragraph) => (
+                      <BlogParagraphBlock key={paragraphKey(paragraph)} paragraph={paragraph} />
+                    ))}
+                  </div>
+                </section>
+              ) : null}
 
               <div className="mt-10 space-y-10">
                 {post.sections.map((section) => (
@@ -149,7 +177,10 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
                     {section.paragraphs ? (
                       <div className="mt-4 space-y-4 text-base leading-8 text-[#0E3B2E]/80">
                         {section.paragraphs.map((paragraph) => (
-                          <p key={paragraph}>{paragraph}</p>
+                          <BlogParagraphBlock
+                            key={paragraphKey(paragraph)}
+                            paragraph={paragraph}
+                          />
                         ))}
                       </div>
                     ) : null}
@@ -166,6 +197,51 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
                         ))}
                       </ul>
                     ) : null}
+                    {section.followingParagraphs ? (
+                      <div className="mt-4 space-y-4 text-base leading-8 text-[#0E3B2E]/80">
+                        {section.followingParagraphs.map((paragraph) => (
+                          <BlogParagraphBlock
+                            key={paragraphKey(paragraph)}
+                            paragraph={paragraph}
+                          />
+                        ))}
+                      </div>
+                    ) : null}
+                    {section.table ? (
+                      <div className="mt-4 overflow-x-auto rounded-2xl border border-[#0E3B2E]/15 bg-white shadow-sm">
+                        <table className="w-full min-w-[320px] text-left text-sm sm:text-base">
+                          <thead>
+                            <tr className="bg-[#0E3B2E] text-white">
+                              <th
+                                scope="col"
+                                className="px-4 py-3 font-semibold first:rounded-tl-2xl sm:px-5"
+                              >
+                                {section.table.headers[0]}
+                              </th>
+                              <th
+                                scope="col"
+                                className="px-4 py-3 font-semibold last:rounded-tr-2xl sm:px-5"
+                              >
+                                {section.table.headers[1]}
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody className="text-[#0E3B2E]/85">
+                            {section.table.rows.map((row, rowIndex) => (
+                              <tr
+                                key={`${row[0]}-${rowIndex}`}
+                                className="border-t border-[#0E3B2E]/10 even:bg-[#F6F5F0]/60"
+                              >
+                                <td className="px-4 py-3 align-top font-medium text-[#0E3B2E] sm:px-5">
+                                  {row[0]}
+                                </td>
+                                <td className="px-4 py-3 align-top sm:px-5">{row[1]}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    ) : null}
                     {section.subsections?.map((subsection) => (
                       <div key={subsection.title} className="mt-6">
                         <h3 className="font-heading text-xl font-medium text-[#0E3B2E]">
@@ -174,7 +250,10 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
                         {subsection.paragraphs ? (
                           <div className="mt-3 space-y-4 text-base leading-8 text-[#0E3B2E]/80">
                             {subsection.paragraphs.map((paragraph) => (
-                              <p key={paragraph}>{paragraph}</p>
+                              <BlogParagraphBlock
+                                key={paragraphKey(paragraph)}
+                                paragraph={paragraph}
+                              />
                             ))}
                           </div>
                         ) : null}
@@ -193,6 +272,29 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
                         ) : null}
                       </div>
                     ))}
+                    {section.inlineCta ? (
+                      <div
+                        className="mt-8 rounded-2xl border border-[#0E3B2E]/12 bg-gradient-to-br from-[#EAF8F1] to-[#F5FCF8] p-6 sm:p-8"
+                        aria-labelledby={`${section.id}-inline-cta-heading`}
+                      >
+                        <p className="text-xs font-semibold tracking-[0.14em] text-[#2F7A18] uppercase">
+                          Online Evaluations
+                        </p>
+                        <h3
+                          id={`${section.id}-inline-cta-heading`}
+                          className="mt-2 font-heading text-xl font-semibold text-[#0E3B2E] sm:text-2xl"
+                        >
+                          {section.inlineCta.title}
+                        </h3>
+                        <p className="mt-3 text-base leading-relaxed text-[#0E3B2E]/75">
+                          {section.inlineCta.description}
+                        </p>
+                        <BookingButton className="mt-5 inline-flex h-11 items-center gap-2 rounded-full bg-[#0E3B2E] px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0E3B2E]/90">
+                          {section.inlineCta.buttonLabel}{" "}
+                          <ArrowRight className="size-4" aria-hidden="true" />
+                        </BookingButton>
+                      </div>
+                    ) : null}
                   </section>
                 ))}
               </div>
@@ -222,60 +324,17 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
                         {faq.question}
                       </AccordionTrigger>
                       <AccordionContent className="px-6 text-sm leading-relaxed text-[#0E3B2E]/85">
-                        {faq.answer}
+                        <BlogParagraphBlock paragraph={faq.answer} />
                       </AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>
-                <JsonLd data={faqSchema(post)} />
+                {blogPostUsesGraphSchema(post.slug) ? null : (
+                  <JsonLd data={faqSchema(post)} />
+                )}
               </section>
 
               <AboutAuthor author={post.author} />
-
-              {/* <section
-                aria-labelledby="references-heading"
-                className="mt-10 border-t border-[#0E3B2E]/10 pt-7"
-              >
-                <h2
-                  id="references-heading"
-                  className="font-heading text-xl font-medium text-[#0E3B2E]"
-                >
-                  References
-                </h2>
-                <ul className="mt-3 space-y-2 text-sm">
-                  {post.references.map((reference) => (
-                    <li key={reference.href}>
-                      <a
-                        href={reference.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-medium text-[#2F7A18] underline decoration-[#2F7A18]/30 underline-offset-4 transition hover:text-[#0E3B2E]"
-                      >
-                        {reference.label}
-                        <span className="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </section> */}
-
-              {/* <p className="mt-8 rounded-xl bg-[#0E3B2E]/5 p-4 text-sm leading-relaxed text-[#0E3B2E]/70">
-                <strong className="text-[#0E3B2E]">Disclaimer:</strong> {post.disclaimer}
-              </p>
-
-              <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#0E3B2E]/10 pt-6">
-                <Link
-                  href="/blog/"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#2F7A18] transition hover:text-[#0E3B2E]"
-                >
-                  <ArrowRight className="size-4 rotate-180" aria-hidden="true" />
-                  All guides
-                </Link>
-                <span className="inline-flex items-center gap-2 text-xs text-[#0E3B2E]/60">
-                  <Clock3 className="size-3.5 text-[#2F7A18]" aria-hidden="true" />
-                  6 min read
-                </span>
-              </div> */}
             </div>
           </div>
         </div>
@@ -290,6 +349,7 @@ function PersonByline({
   name,
   credentials,
   description,
+  roleLine,
   slug,
   image,
 }: {
@@ -297,6 +357,7 @@ function PersonByline({
   name: string;
   credentials: string;
   description: string;
+  roleLine?: string;
   slug: string;
   image: string;
 }) {
@@ -318,8 +379,12 @@ function PersonByline({
           {name}
         </Link>
         <p className="mt-0.5 text-sm text-[#0E3B2E]/75">
-          {description}
-          {credentials ? <span className="text-[#087F5B]"> · {credentials}</span> : null}
+          {roleLine ?? (
+            <>
+              {description}
+              {credentials ? <span className="text-[#087F5B]"> · {credentials}</span> : null}
+            </>
+          )}
         </p>
       </div>
     </div>
@@ -352,7 +417,7 @@ function AboutAuthor({
             {author.name}
           </h3>
           <p className="mt-2 text-base font-semibold text-[#087F5B]">
-            Health &amp; Medical Content Writer · {author.credentials}
+            {author.aboutRoleLine ?? `Health & Medical Content Writer · ${author.credentials}`}
           </p>
           <p className="mt-4 text-sm leading-7 text-[#0E3B2E]/75 sm:text-base">
             {author.bio}
@@ -434,7 +499,7 @@ function faqSchema(post: BlogPost) {
       name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer,
+        text: faqAnswerPlainText(faq.answer),
       },
     })),
   };

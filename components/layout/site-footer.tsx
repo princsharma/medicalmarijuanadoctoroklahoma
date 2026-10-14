@@ -6,6 +6,7 @@ import { GoogleIcon } from "@/components/icons/google-icon";
 import { InstagramIcon } from "@/components/icons/instagram-icon";
 import { LinkedinIcon } from "@/components/icons/linkedin-icon";
 import { legalPages } from "@/lib/legal-pages";
+import { pages } from "@/lib/seo";
 
 export function SiteFooter() {
   const resources = [
@@ -29,7 +30,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-12 sm:grid-cols-2 lg:grid-cols-[1.1fr_0.85fr_0.95fr_1fr]">
         <div>
           <Image
-            src="/logo.png"
+            src="/media/logo.webp"
             alt="Medical Marijuana Doctor Oklahoma"
             width={200}
             height={50}

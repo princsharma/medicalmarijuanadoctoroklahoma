@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
 
 export const SITE_URL = "https://medicalmarijuanadoctoroklahoma.com";
-/** Canonical host with trailing slash for robots.txt Host / URL normalization. */
-export const SITE_HOST = `${SITE_URL}/`;
 export const SITE_NAME = "Medical Marijuana Doctor Oklahoma";
 export const SITE_TAGLINE = "Get Your Medical Marijuana Card Online in Oklahoma";
-export const DEFAULT_OG_IMAGE = "/hero-section.jpg";
-export const ABOUT_OG_IMAGE = "/aboutus-hero-section.webp";
-export const CONTACT_OG_IMAGE = "/contact-us-hero-section.webp";
-export const BLOG_OG_IMAGE = "/oklahoma-cannabis-laws.png";
+export const DEFAULT_OG_IMAGE = "/media/hero-section.webp";
+export const ABOUT_OG_IMAGE = "/media/aboutus-hero-section.webp";
+export const CONTACT_OG_IMAGE = "/media/contact-us-hero-section.webp";
+export const BLOG_OG_IMAGE = "/media/oklahoma-cannabis-laws.webp";
+export const DOCTORS_OG_IMAGE = "/media/benefits-of-cannabies-section.webp";
+export const FAQ_OG_IMAGE = "/media/what-is-card-section.webp";
+export const CONTRIBUTORS_OG_IMAGE =
+  "/media/profile-image-of-robert-saint-laurent.webp";
+export const CONTRIBUTOR_DAALON_OG_IMAGE =
+  "/media/profile-image-of-daalon-echols.webp";
+export const REVIEWS_OG_IMAGE = DEFAULT_OG_IMAGE;
+export const POLICY_OG_IMAGE = "/media/logo.webp";
 
 export type PageSeo = {
   path: string;
@@ -48,6 +54,7 @@ export const pages = {
     dateModified: "2026-08-05",
     changeFrequency: "weekly",
     priority: 1,
+    ogImage: DEFAULT_OG_IMAGE,
   },
   about: {
     path: "/about-us/",
@@ -80,6 +87,7 @@ export const pages = {
     dateModified: "2026-08-05",
     changeFrequency: "weekly",
     priority: 0.9,
+    ogImage: DOCTORS_OG_IMAGE,
   },
   faq: {
     path: "/faq/",
@@ -90,6 +98,7 @@ export const pages = {
     dateModified: "2026-08-05",
     changeFrequency: "monthly",
     priority: 0.7,
+    ogImage: FAQ_OG_IMAGE,
   },
   reviews: {
     path: "/reviews/",
@@ -100,9 +109,10 @@ export const pages = {
     dateModified: "2026-08-05",
     changeFrequency: "weekly",
     priority: 0.8,
+    ogImage: REVIEWS_OG_IMAGE,
   },
   privacy: {
-    path: "/privacy-policy/",
+    path: "/policy/privacy-policy/",
     title: "Privacy Policy | Medical Marijuana Doctor OK",
     description:
       "See how we collect, use, and protect personal and health information during Oklahoma medical marijuana evaluations.",
@@ -113,7 +123,7 @@ export const pages = {
     ogType: "article",
   },
   terms: {
-    path: "/terms-of-use/",
+    path: "/policy/terms-of-use/",
     title: "Terms of Use | Medical Marijuana Doctor Oklahoma",
     description:
       "Read Terms of Use covering eligibility, telehealth consent, physician relationships, liability, and Oklahoma law.",
@@ -124,7 +134,7 @@ export const pages = {
     ogType: "article",
   },
   hipaa: {
-    path: "/hipaa-compliance/",
+    path: "/policy/hipaa-compliance/",
     title: "HIPAA Compliance | Medical Marijuana Doctor OK",
     description:
       "See how we protect patient health information and maintain HIPAA compliance during telehealth MMJ evaluations.",
@@ -135,7 +145,7 @@ export const pages = {
     ogType: "article",
   },
   telehealth: {
-    path: "/consent-for-telehealth/",
+    path: "/policy/consent-for-telehealth/",
     title: "Telehealth Consent | Medical Marijuana Doctor OK",
     description:
       "Read our Consent to Telehealth policy to understand remote evaluations with Oklahoma-licensed physicians.",
@@ -146,7 +156,7 @@ export const pages = {
     ogType: "article",
   },
   refund: {
-    path: "/refund-policy/",
+    path: "/policy/refund-policy/",
     title: "Refund Policy | Medical Marijuana Doctor Oklahoma",
     description:
       "Learn when you qualify for a full refund on your Oklahoma MMJ evaluation, plus missed appointment and request steps.",
@@ -157,7 +167,7 @@ export const pages = {
     ogType: "article",
   },
   accessibility: {
-    path: "/accessibility-statement/",
+    path: "/policy/accessibility-statement/",
     title: "Accessibility | Medical Marijuana Doctor Oklahoma",
     description:
       "We follow WCAG 2.1 accessibility standards so every patient can use our Oklahoma telehealth services with ease.",
@@ -168,7 +178,7 @@ export const pages = {
     ogType: "article",
   },
   editorial: {
-    path: "/editorial-policy/",
+    path: "/policy/editorial-policy/",
     title: "Editorial Policy | Medical Marijuana Doctor OK",
     description:
       "See how we ensure accurate, fact-checked medical marijuana content for Oklahoma patients, caregivers, and readers.",
@@ -179,7 +189,7 @@ export const pages = {
     ogType: "article",
   },
   disclaimer: {
-    path: "/disclaimer/",
+    path: "/policy/disclaimer/",
     title: "Disclaimer | Medical Marijuana Doctor Oklahoma",
     description:
       "Read key disclaimers about our telehealth services, including limits on medical advice and the platform's role.",
@@ -190,7 +200,7 @@ export const pages = {
     ogType: "article",
   },
   legal: {
-    path: "/legal/",
+    path: "/policy/",
     title: "Legal Policies | Medical Marijuana Doctor OK",
     description:
       "Browse privacy, HIPAA, telehealth consent, terms, refunds, accessibility, editorial, and disclaimer policies.",
@@ -198,6 +208,7 @@ export const pages = {
     dateModified: "2026-08-05",
     changeFrequency: "yearly",
     priority: 0.5,
+    ogImage: POLICY_OG_IMAGE,
   },
   contributors: {
     path: "/contributors/",
@@ -208,6 +219,7 @@ export const pages = {
     dateModified: "2026-08-05",
     changeFrequency: "monthly",
     priority: 0.7,
+    ogImage: CONTRIBUTORS_OG_IMAGE,
   },
   blog: {
     path: "/blog/",
@@ -229,6 +241,20 @@ export function absoluteUrl(path: string) {
   return new URL(normalized, SITE_URL).toString();
 }
 
+function ogImageOrigin() {
+  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (fromEnv) return fromEnv.replace(/\/$/, "");
+  if (process.env.NODE_ENV === "development") return "http://localhost:3000";
+  return SITE_URL;
+}
+
+/** Absolute URL for Open Graph / Twitter images (no trailing slash on file paths). */
+export function absoluteOgImageUrl(path: string) {
+  if (/^https?:\/\//i.test(path)) return path;
+  const pathname = path.startsWith("/") ? path : `/${path}`;
+  return new URL(pathname, ogImageOrigin()).toString();
+}
+
 export function clampMetaTitle(title: string, max = 55) {
   if (title.length <= max) return title;
   const cut = title.slice(0, max);
@@ -248,6 +274,13 @@ const OG_IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   [ABOUT_OG_IMAGE]: { width: 600, height: 550 },
   [CONTACT_OG_IMAGE]: { width: 500, height: 400 },
   [BLOG_OG_IMAGE]: { width: 1200, height: 800 },
+  [DOCTORS_OG_IMAGE]: { width: 1200, height: 800 },
+  [FAQ_OG_IMAGE]: { width: 1200, height: 800 },
+  [CONTRIBUTORS_OG_IMAGE]: { width: 800, height: 800 },
+  [CONTRIBUTOR_DAALON_OG_IMAGE]: { width: 800, height: 800 },
+  [REVIEWS_OG_IMAGE]: { width: 800, height: 550 },
+  [POLICY_OG_IMAGE]: { width: 800, height: 200 },
+  "/media/is-marijuana-legal-in-oklahoma.webp": { width: 1200, height: 800 },
 };
 
 export function buildMetadata(page: PageSeo, extras?: Metadata): Metadata {
@@ -256,7 +289,12 @@ export function buildMetadata(page: PageSeo, extras?: Metadata): Metadata {
   const title = clampMetaTitle(page.title);
   const description = clampMetaDescription(page.description);
   const ogImage = page.ogImage ?? DEFAULT_OG_IMAGE;
-  const size = OG_IMAGE_SIZES[ogImage] ?? { width: 1200, height: 630 };
+  const ogImageUrl = absoluteOgImageUrl(ogImage);
+  const size =
+    OG_IMAGE_SIZES[ogImage] ??
+    (ogImage.includes("/dr-") || ogImage.includes("/doctor-")
+      ? { width: 800, height: 1000 }
+      : { width: 1200, height: 630 });
 
   return {
     title: { absolute: title },
@@ -275,10 +313,12 @@ export function buildMetadata(page: PageSeo, extras?: Metadata): Metadata {
       modifiedTime: page.dateModified,
       images: [
         {
-          url: ogImage,
+          url: ogImageUrl,
+          secureUrl: ogImageUrl,
           width: size.width,
           height: size.height,
-          alt: SITE_NAME,
+          alt: title,
+          type: "image/webp",
         },
       ],
     },
@@ -286,7 +326,12 @@ export function buildMetadata(page: PageSeo, extras?: Metadata): Metadata {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
+      images: [
+        {
+          url: ogImageUrl,
+          alt: title,
+        },
+      ],
     },
     other: {
       "article:published_time": page.datePublished,
@@ -312,36 +357,17 @@ export function doctorMetadata(input: {
   const datePublished = "2024-06-01";
   const dateModified = input.dateModified ?? "2026-08-05";
 
-  return buildMetadata(
-    {
-      path,
-      title,
-      description,
-      datePublished,
-      dateModified,
-      ogType: "article",
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      openGraph: {
-        title,
-        description,
-        url: absoluteUrl(path),
-        siteName: SITE_NAME,
-        locale: "en_US",
-        type: "article",
-        images: [
-          {
-            url: input.image,
-            width: 800,
-            height: 1000,
-            alt: `Dr. ${input.name}, ${input.credentials}`,
-          },
-        ],
-      },
-    }
-  );
+  return buildMetadata({
+    path,
+    title,
+    description,
+    datePublished,
+    dateModified,
+    ogType: "article",
+    changeFrequency: "monthly",
+    priority: 0.7,
+    ogImage: input.image,
+  });
 }
 
 export function organizationSchema() {
@@ -350,7 +376,7 @@ export function organizationSchema() {
     "@type": ["MedicalBusiness", "Organization"],
     name: SITE_NAME,
     url: SITE_URL,
-    logo: absoluteUrl("/logo.png"),
+    logo: absoluteUrl("/media/logo.webp"),
     image: absoluteUrl(DEFAULT_OG_IMAGE),
     description:
       "Technology platform connecting Oklahoma patients with licensed physicians for medical marijuana evaluations.",

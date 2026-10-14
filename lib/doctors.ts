@@ -28,7 +28,7 @@ export const doctors: Doctor[] = [
     credentials: "MD",
     experience: "15 Years",
     category: "Pediatrics",
-    image: "/dr-cheryl-bugailiskis.webp",
+    image: "/media/dr-cheryl-bugailiskis.webp",
     bio: "Board-certified pediatrician providing compliant medical cannabis evaluations for qualifying Oklahoma patients.",
     description:
       "Experienced physician providing professional medical evaluations through secure telehealth consultations. Dedicated to delivering patient-focused care through convenient and confidential online appointments with Oklahoma patients.",
@@ -111,7 +111,7 @@ export const doctors: Doctor[] = [
     credentials: "MD",
     experience: "16 Years",
     category: "Family Medicine",
-    image: "/image-of-joel-durinka.webp",
+    image: "/media/image-of-joel-durinka.webp",
     bio: "Family medicine physician conducting a detailed evaluation of your medical history and qualifying conditions.",
     description:
       "Experienced physician providing professional medical evaluations through secure telehealth consultations. Dedicated to delivering patient-focused care through convenient and confidential online appointments with Oklahoma patients.",
@@ -196,7 +196,7 @@ export const doctors: Doctor[] = [
     credentials: "MD",
     experience: "8 Years",
     category: "General Medicine",
-    image: "/dr-johnathan-c-miller.webp",
+    image: "/media/dr-johnathan-c-miller.webp",
     bio: "General practice physician using a holistic, patient-focused approach to every Oklahoma medical marijuana evaluation.",
     description:
       "Licensed physician providing professional medical evaluations through secure telehealth consultations, dedicated to patient-focused care and compliance with Oklahoma's medical cannabis regulations.",
@@ -278,7 +278,7 @@ export const doctors: Doctor[] = [
     credentials: "DO",
     experience: "19 Years",
     category: "Pediatrics",
-    image: "/doctor-kevin-kargman.webp",
+    image: "/media/doctor-kevin-kargman.webp",
     bio: "Certified pediatrician providing thorough, regulation-compliant medical marijuana evaluations.",
     description:
       "Experienced physician providing professional medical evaluations through secure telehealth consultations. Dedicated to delivering patient-focused care through convenient and confidential online appointments with Oklahoma patients.",
@@ -348,7 +348,7 @@ export const doctors: Doctor[] = [
     credentials: "DO",
     experience: "30+ Years",
     category: "Pediatrics",
-    image: "/dr-lewis-jassey.webp",
+    image: "/media/dr-lewis-jassey.webp",
     bio: "Board-certified pediatrician offering careful, experienced medical marijuana evaluations for Oklahoma patients.",
     description:
       "Experienced, board-certified pediatrician providing professional medical evaluations through secure telehealth consultations. Brings over 30 years of clinical practice and a national reputation in pharmacogenetics and pharmacology to every Oklahoma medical marijuana evaluation.",

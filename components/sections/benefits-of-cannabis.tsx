@@ -55,7 +55,7 @@ export function BenefitsOfCannabis() {
 
           <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] shadow-xl shadow-black/20 lg:col-span-5 lg:min-h-0">
             <Image
-              src="/benefits-of-cannabies-section.webp"
+              src="/media/benefits-of-cannabies-section.webp"
               alt="Doctor consulting a patient about medical cannabis treatment"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"

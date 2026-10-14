@@ -5,13 +5,17 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { PageBreadcrumb } from "@/components/layout/page-breadcrumb";
 import { ContributorBio } from "@/components/sections/contributors/contributor-bio";
 import { JsonLd } from "@/components/seo/json-ld";
-import { contributors, getContributor } from "@/lib/contributors";
+import { contributorProfileGraphSchema } from "@/lib/contributor-schema";
+import {
+  contributorSocialOgImage,
+  contributors,
+  getContributor,
+} from "@/lib/contributors";
 import {
   buildMetadata,
   clampMetaDescription,
   clampMetaTitle,
   pages,
-  webPageSchema,
   withTrailingSlash,
 } from "@/lib/seo";
 
@@ -40,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     changeFrequency: "monthly",
     priority: 0.6,
     ogType: "article",
-    ogImage: person.image,
+    ogImage: contributorSocialOgImage(person),
   });
 }
 
@@ -51,20 +55,13 @@ export default async function ContributorBioPage({ params }: PageProps) {
 
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd
-        data={webPageSchema({
-          path: withTrailingSlash(`/contributors/${person.slug}`),
-          title: `${person.name} | Medical Content Team`,
-          description: person.shortBio,
-          datePublished: "2026-08-05",
-          dateModified: "2026-08-05",
-        })}
-      />
+      <JsonLd data={contributorProfileGraphSchema(person)} />
       <SiteHeader />
       <PageBreadcrumb
         page={person.name}
         currentPath={withTrailingSlash(`/contributors/${person.slug}`)}
         items={[{ label: "Contributors", href: pages.contributors.path }]}
+        includeJsonLd={false}
       />
       <main id="main-content">
         <ContributorBio person={person} />

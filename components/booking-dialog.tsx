@@ -1,6 +1,7 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { useSearchParams } from "next/navigation";
 import type { VariantProps } from "class-variance-authority";
 import { CalendarHeart, ShieldCheck, XIcon } from "lucide-react";
 
@@ -19,11 +20,35 @@ import { LeadCaptureForm } from "@/components/lead-capture-form";
 interface BookingButtonProps extends VariantProps<typeof buttonVariants> {
   className?: string;
   children: ReactNode;
+  defaultOpen?: boolean;
 }
 
-export function BookingButton({ variant, size, className, children }: BookingButtonProps) {
+export function ConsultQueryOpener() {
+  const params = useSearchParams();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (params.get("consult") === "1") setOpen(true);
+  }, [params]);
+
+  if (!open) return null;
+
   return (
-    <Dialog>
+    <BookingButton defaultOpen className="sr-only">
+      Start your MMJ consultation
+    </BookingButton>
+  );
+}
+
+export function BookingButton({
+  variant,
+  size,
+  className,
+  children,
+  defaultOpen,
+}: BookingButtonProps) {
+  return (
+    <Dialog defaultOpen={defaultOpen}>
       <DialogTrigger render={<Button variant={variant} size={size} className={className} />}>
         {children}
       </DialogTrigger>

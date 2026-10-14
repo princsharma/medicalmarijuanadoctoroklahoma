@@ -158,7 +158,9 @@ export function ContributorBio({ person }: { person: Contributor }) {
             <div className="rounded-2xl border border-[#0E3B2E]/8 bg-white p-6">
               <h3 className="text-base font-semibold text-[#0E3B2E]">Direct Contact</h3>
               <p className="mt-1 text-xs text-[#0E3B2E]/65">
-                Domain-based email and professional inquiry channels.
+                {person.email
+                  ? "Domain-based email and professional inquiry channels."
+                  : "Professional inquiry channels."}
               </p>
               <ul className="mt-5 space-y-4 text-sm text-[#0E3B2E]/85">
                 <li className="flex items-start gap-3">
@@ -175,18 +177,20 @@ export function ContributorBio({ person }: { person: Contributor }) {
                     </a>
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
-                  <Mail className="mt-0.5 size-5 shrink-0 text-[#2F7A18]" />
-                  <div>
-                    <p className="font-semibold text-[#0E3B2E]">Email</p>
-                    <a
-                      href={`mailto:${person.email}`}
-                      className="text-[#2F7A18] underline-offset-2 hover:underline"
-                    >
-                      {person.email}
-                    </a>
-                  </div>
-                </li>
+                {person.email ? (
+                  <li className="flex items-start gap-3">
+                    <Mail className="mt-0.5 size-5 shrink-0 text-[#2F7A18]" />
+                    <div>
+                      <p className="font-semibold text-[#0E3B2E]">Email</p>
+                      <a
+                        href={`mailto:${person.email}`}
+                        className="text-[#2F7A18] underline-offset-2 hover:underline"
+                      >
+                        {person.email}
+                      </a>
+                    </div>
+                  </li>
+                ) : null}
               </ul>
             </div>
             <div className="rounded-2xl border border-[#0E3B2E]/8 bg-white p-6">
@@ -197,7 +201,19 @@ export function ContributorBio({ person }: { person: Contributor }) {
                 <h3 className="text-base font-semibold text-[#0E3B2E]">Verified Profiles</h3>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-[#0E3B2E]/80">
-                {person.verifiedProfiles.join(" • ")}
+                {person.verifiedProfiles.map((profile, index) => (
+                  <span key={profile.href}>
+                    {index > 0 ? <span className="text-[#0E3B2E]/50"> • </span> : null}
+                    <a
+                      href={profile.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-[#2F7A18] underline-offset-2 hover:underline"
+                    >
+                      {profile.label}
+                    </a>
+                  </span>
+                ))}
               </p>
               <p className="mt-3 text-xs text-[#0E3B2E]/65">
                 Profile last verified {person.verifiedDate}

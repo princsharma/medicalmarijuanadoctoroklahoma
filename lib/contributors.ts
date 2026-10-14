@@ -4,11 +4,40 @@ export type ContributorStat = {
   detail: string;
 };
 
+export type ContributorVerifiedProfile = {
+  label: string;
+  href: string;
+};
+
+export type ContributorAlumniOf = {
+  name: string;
+  sameAs: string;
+};
+
+export type ContributorCredential = {
+  "@type": "EducationalOccupationalCredential";
+  credentialCategory: string;
+  name: string;
+  recognizedBy: {
+    "@type": "EducationalOrganization";
+    name: string;
+  };
+};
+
 export type Contributor = {
   slug: string;
   name: string;
   credentials: string;
   role: string;
+  /** Profile image URL used in JSON-LD (may differ from on-page portrait). */
+  schemaProfileImage?: string;
+  schemaHeadline?: string;
+  schemaPersonDescription?: string;
+  schemaJobTitle?: string;
+  schemaImageCaption?: string;
+  knowsAbout?: string[];
+  alumniOf?: ContributorAlumniOf | ContributorAlumniOf[];
+  hasCredential?: ContributorCredential[];
   tagline: string;
   shortBio: string;
   intro: string;
@@ -22,14 +51,19 @@ export type Contributor = {
   contactIntro: string;
   linkedinName: string;
   linkedinUrl: string;
-  email: string;
-  verifiedProfiles: string[];
+  email?: string;
+  verifiedProfiles: ContributorVerifiedProfile[];
   verifiedDate: string;
   initials: string;
   accent: string;
   bioCta: string;
   image: string;
 };
+
+/** Image path for Open Graph / Twitter cards (prefers schema profile portrait). */
+export function contributorSocialOgImage(person: Contributor) {
+  return person.schemaProfileImage ?? person.image;
+}
 
 export const contributors: Contributor[] = [
   {
@@ -86,14 +120,49 @@ export const contributors: Contributor[] = [
     contactIntro:
       "Have a question about an article or want to suggest a topic? Reach Robert through the channels below, or explore verified profiles for additional professional context.",
     linkedinName: "Robert D. Saint Laurent",
-    linkedinUrl: "https://www.linkedin.com/",
-    email: "contact@medicalmarijuanadoctoroklahoma.com",
-    verifiedProfiles: ["Responsum Health", "Amazon"],
+    linkedinUrl: "https://www.linkedin.com/in/robert-saint-laurent-36511419",
+    verifiedProfiles: [
+      {
+        label: "Responsum Health",
+        href: "https://responsumhealth.com/team/robert-saint-laurent/",
+      },
+      {
+        label: "Amazon",
+        href: "https://www.amazon.com/stores/Robert-D.-SaintLaurent/author/B001KC4JQI",
+      },
+    ],
     verifiedDate: "May 2026",
     initials: "RS",
     accent: "#0E3B2E",
     bioCta: "View Robert's full bio",
-    image: "/robert-saint-laurent-author-of-my-mmj-doctor.webp",
+    image: "/media/robert-saint-laurent-author-of-my-mmj-doctor.webp",
+    schemaProfileImage: "/media/profile-image-of-robert-saint-laurent.webp",
+    schemaHeadline:
+      "Robert D. Saint Laurent, M.Ed. - Medical Content Writer & Editorial Specialist",
+    schemaPersonDescription:
+      "Robert D. Saint Laurent is an experienced health and medical content writer and editorial specialist with over three decades of professional experience in content development, education, and fitness sciences.",
+    alumniOf: {
+      name: "Bridgewater State University",
+      sameAs: "https://en.wikipedia.org/wiki/Bridgewater_State_University",
+    },
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "degree",
+        name: "Master of Education (M.Ed.)",
+        recognizedBy: {
+          "@type": "EducationalOrganization",
+          name: "Bridgewater State University",
+        },
+      },
+    ],
+    knowsAbout: [
+      "Oklahoma Medical Marijuana Laws",
+      "OMMA Regulations",
+      "Health & Medical Content Development",
+      "Telemedicine Education",
+      "Patient Communication",
+    ],
   },
   {
     slug: "daalon-b-echols",
@@ -150,14 +219,73 @@ export const contributors: Contributor[] = [
     contactIntro:
       "Have a question about one of Dr. Daalon Echols' articles or a healthcare topic you'd like to see covered? Review his credentials and professional information below.",
     linkedinName: "Daalon Echols",
-    linkedinUrl: "https://www.linkedin.com/",
-    email: "contact@medicalmarijuanadoctoroklahoma.com",
-    verifiedProfiles: ["NPIDB", "NPI Registry", "WebMD"],
+    linkedinUrl: "https://www.linkedin.com/in/daalon-echols",
+    verifiedProfiles: [
+      {
+        label: "NPIDB",
+        href:
+          "https://npidb.org/doctors/allopathic_osteopathic_physicians/neurology_2084n0400x/1619089166.aspx",
+      },
+      {
+        label: "NPI Registry",
+        href: "https://npiregistry.cms.hhs.gov/provider-view/1619089166",
+      },
+      {
+        label: "WebMD",
+        href:
+          "https://doctor.webmd.com/doctor/daalon-echols-a5bee825-0168-4f3d-953d-9326130136ce-overview",
+      },
+    ],
     verifiedDate: "June 2026",
     initials: "DE",
     accent: "#2F7A18",
     bioCta: "View Dr. Echols' full bio",
-    image: "/profile-image-of-daalon-echols.webp",
+    image: "/media/profile-image-of-daalon-echols.webp",
+    schemaProfileImage: "/media/profile-image-of-daalon-echols.webp",
+    schemaHeadline:
+      "Dr. Daalon B. Echols, MD - Board-Certified Neurologist & Medical Reviewer",
+    schemaPersonDescription:
+      "Dr. Echols is a board-certified physician with over 21 years of clinical experience in neurology, neurophysiology, and internal medicine. He reviews content for clinical accuracy, patient education, and evidence-based communication.",
+    schemaJobTitle:
+      "Neurologist • Health & Medical Content Writer • Medical Reviewer",
+    schemaImageCaption: "Daalon B. Echols, MD Medical Reviewer",
+    alumniOf: [
+      {
+        name: "Princeton University",
+        sameAs: "https://en.wikipedia.org/wiki/Princeton_University",
+      },
+      {
+        name: "Washington University in St. Louis",
+        sameAs: "https://en.wikipedia.org/wiki/Washington_University_in_St._Louis",
+      },
+    ],
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "degree",
+        name: "Doctor of Medicine (MD)",
+        recognizedBy: {
+          "@type": "EducationalOrganization",
+          name: "Washington University in St. Louis",
+        },
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "degree",
+        name: "Bachelor of Arts (BA)",
+        recognizedBy: {
+          "@type": "EducationalOrganization",
+          name: "Princeton University",
+        },
+      },
+    ],
+    knowsAbout: [
+      "Neurology",
+      "Neurophysiology",
+      "Internal Medicine",
+      "Medical Cannabis Evaluation",
+      "Clinical Quality Review",
+    ],
   },
 ];
 

@@ -1,15 +1,20 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Geist_Mono, Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { ConsultQueryOpener } from "@/components/booking-dialog";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
+  absoluteOgImageUrl,
   DEFAULT_OG_IMAGE,
   SITE_NAME,
   SITE_URL,
   organizationSchema,
   pages,
 } from "@/lib/seo";
+
+const defaultOgImageUrl = absoluteOgImageUrl(DEFAULT_OG_IMAGE);
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -54,10 +59,12 @@ export const metadata: Metadata = {
     description: pages.home.description,
     images: [
       {
-        url: DEFAULT_OG_IMAGE,
+        url: defaultOgImageUrl,
+        secureUrl: defaultOgImageUrl,
         width: 800,
         height: 550,
         alt: SITE_NAME,
+        type: "image/webp",
       },
     ],
   },
@@ -65,7 +72,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: pages.home.title,
     description: pages.home.description,
-    images: [DEFAULT_OG_IMAGE],
+    images: [{ url: defaultOgImageUrl, alt: SITE_NAME }],
   },
   robots: {
     index: true,
@@ -80,11 +87,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/media/favicon.webp", sizes: "any", type: "image/webp" },
+      { url: "/media/favicon-16x16.webp", sizes: "16x16", type: "image/webp" },
+      { url: "/media/favicon-32x32.webp", sizes: "32x32", type: "image/webp" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/media/apple-touch-icon.webp", sizes: "180x180", type: "image/webp" }],
   },
   manifest: "/site.webmanifest",
   category: "health",
@@ -123,6 +130,9 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <Suspense fallback={null}>
+          <ConsultQueryOpener />
+        </Suspense>
       </body>
     </html>
   );
