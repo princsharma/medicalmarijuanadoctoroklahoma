@@ -7,44 +7,10 @@ import { PageBreadcrumb } from "@/components/layout/page-breadcrumb";
 import { ContributorPortrait } from "@/components/sections/contributors/contributor-portrait";
 import { JsonLd } from "@/components/seo/json-ld";
 import { contributorsListingGraphSchema } from "@/lib/contributors-listing-schema";
-import { contributorSocialOgImage, contributors } from "@/lib/contributors";
-import {
-  absoluteOgImageUrl,
-  buildMetadata,
-  pages,
-  withTrailingSlash,
-} from "@/lib/seo";
+import { contributors } from "@/lib/contributors";
+import { buildMetadata, pages, withTrailingSlash } from "@/lib/seo";
 
-const contributorsOgImages = contributors.map((person) => {
-  const path = contributorSocialOgImage(person);
-  const url = absoluteOgImageUrl(path);
-  return {
-    url,
-    secureUrl: url,
-    width: 800,
-    height: 800,
-    alt: `${person.name}, ${person.credentials}`,
-    type: "image/webp" as const,
-  };
-});
-
-const contributorsMetadataBase = buildMetadata(pages.contributors);
-
-export const metadata: Metadata = {
-  ...contributorsMetadataBase,
-  openGraph: contributorsMetadataBase.openGraph
-    ? { ...contributorsMetadataBase.openGraph, images: contributorsOgImages }
-    : undefined,
-  twitter: contributorsMetadataBase.twitter
-    ? {
-        ...contributorsMetadataBase.twitter,
-        images: contributorsOgImages.map((image) => ({
-          url: image.url,
-          alt: image.alt,
-        })),
-      }
-    : undefined,
-};
+export const metadata: Metadata = buildMetadata(pages.contributors);
 
 export default function ContributorsPage() {
   return (

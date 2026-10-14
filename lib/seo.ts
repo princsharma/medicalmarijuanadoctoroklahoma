@@ -6,11 +6,10 @@ export const SITE_TAGLINE = "Get Your Medical Marijuana Card Online in Oklahoma"
 export const DEFAULT_OG_IMAGE = "/media/hero-section.webp";
 export const ABOUT_OG_IMAGE = "/media/aboutus-hero-section.webp";
 export const CONTACT_OG_IMAGE = "/media/contact-us-hero-section.webp";
-export const BLOG_OG_IMAGE = "/media/oklahoma-cannabis-laws.webp";
+export const BLOG_OG_IMAGE = "/media/blog-guides-social-og.webp";
 export const DOCTORS_OG_IMAGE = "/media/benefits-of-cannabies-section.webp";
 export const FAQ_OG_IMAGE = "/media/what-is-card-section.webp";
-export const CONTRIBUTORS_OG_IMAGE =
-  "/media/profile-image-of-robert-saint-laurent.webp";
+export const CONTRIBUTORS_OG_IMAGE = "/media/contributors-team-social-og.webp";
 export const CONTRIBUTOR_DAALON_OG_IMAGE =
   "/media/profile-image-of-daalon-echols.webp";
 export const REVIEWS_OG_IMAGE = DEFAULT_OG_IMAGE;
@@ -273,10 +272,11 @@ const OG_IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   [DEFAULT_OG_IMAGE]: { width: 800, height: 550 },
   [ABOUT_OG_IMAGE]: { width: 600, height: 550 },
   [CONTACT_OG_IMAGE]: { width: 500, height: 400 },
-  [BLOG_OG_IMAGE]: { width: 1200, height: 800 },
+  [BLOG_OG_IMAGE]: { width: 1200, height: 630 },
+  "/media/oklahoma-cannabis-laws.webp": { width: 1200, height: 800 },
   [DOCTORS_OG_IMAGE]: { width: 1200, height: 800 },
   [FAQ_OG_IMAGE]: { width: 1200, height: 800 },
-  [CONTRIBUTORS_OG_IMAGE]: { width: 800, height: 800 },
+  [CONTRIBUTORS_OG_IMAGE]: { width: 1200, height: 630 },
   [CONTRIBUTOR_DAALON_OG_IMAGE]: { width: 800, height: 800 },
   [REVIEWS_OG_IMAGE]: { width: 800, height: 550 },
   [POLICY_OG_IMAGE]: { width: 800, height: 200 },

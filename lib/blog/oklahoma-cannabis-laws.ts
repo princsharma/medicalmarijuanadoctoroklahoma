@@ -1,4 +1,3 @@
-import { BLOG_OG_IMAGE } from "@/lib/seo";
 import {
   IS_MARIJUANA_LEGAL_IN_OKLAHOMA_PATH,
   MEDICAL_MARIJUANA_LEGAL_IN_OKLAHOMA_LOWER,
@@ -25,7 +24,7 @@ export const oklahomaCannabisLaws = {
   metaTitle: "Oklahoma Cannabis Laws 2026: Medical Marijuana Rules",
   metaDescription:
     "Oklahoma cannabis laws explained for 2026, including medical marijuana, possession limits, home cultivation, licenses, and restrictions.",
-  image: BLOG_OG_IMAGE,
+  image: "/media/oklahoma-cannabis-laws.webp",
   imageAlt:
     "Medical marijuana flower and medicine beside a physician reviewing a patient file",
   publishedAt: "2024-06-19",

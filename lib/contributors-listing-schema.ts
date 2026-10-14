@@ -14,7 +14,7 @@ import {
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const LOGO_ID = absoluteOgImageUrl("/oklahoma-logo.webp");
-const HERO_IMAGE_ID = absoluteOgImageUrl("/hero-section.webp");
+const HERO_IMAGE_ID = absoluteOgImageUrl("/media/contributors-team-social-og.webp");
 const CONTRIBUTORS_PATH = pages.contributors.path;
 const PAGE_URL = absoluteUrl(CONTRIBUTORS_PATH);
 const WEBPAGE_ID = `${PAGE_URL}#webpage`;
@@ -127,8 +127,8 @@ function heroImageNode() {
     "@id": HERO_IMAGE_ID,
     url: HERO_IMAGE_ID,
     contentUrl: HERO_IMAGE_ID,
-    width: "800",
-    height: "550",
+    width: "1200",
+    height: "630",
     caption: "Our Medical Content Team | Medical Marijuana Doctor Oklahoma",
   };
 }
