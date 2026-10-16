@@ -3,7 +3,7 @@ import { oklahomaCannabisLawsGraphSchema } from "@/lib/blog/oklahoma-cannabis-la
 import { isMarijuanaLegalInOklahoma } from "@/lib/blog/is-marijuana-legal-in-oklahoma";
 import { oklahomaCannabisLaws } from "@/lib/blog/oklahoma-cannabis-laws";
 import type { BlogParagraph } from "@/lib/blog/paragraphs";
-import { type PageSeo } from "@/lib/seo";
+import { absoluteOgImageUrl, type PageSeo } from "@/lib/seo";
 
 export type BlogSection = {
   id: string;
@@ -122,7 +122,7 @@ export function articleSchema(post: BlogPost) {
     "@type": "Article",
     headline: post.metaTitle,
     description: post.metaDescription,
-    image: [post.image],
+    image: [absoluteOgImageUrl(post.image)],
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     author: {

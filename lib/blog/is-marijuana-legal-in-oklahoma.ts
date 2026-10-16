@@ -25,7 +25,7 @@ export const isMarijuanaLegalInOklahoma = {
   metaTitle: "Is Marijuana Legal in Oklahoma in 2026?",
   metaDescription:
     "Medical marijuana is legal in Oklahoma in 2026, but recreational use remains illegal. Learn key rules, limits, and OMMA changes you must know.",
-  image: "/media/is-marijuana-legal-in-oklahoma.webp",
+  image: "/is-marijuana-legal-in-oklahoma.webp",
   imageAlt:
     "Judge's gavel, cannabis leaf, and flower bud on a wooden table with scales of justice in a sunlit field, representing Oklahoma marijuana law",
   publishedAt: "2024-06-19",

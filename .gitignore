@@ -20,6 +20,14 @@
 # production
 /build
 
+# Copied from public/media at prebuild (scripts/sync-media-root-assets.mjs)
+/public/*.webp
+/public/*.png
+/public/*.jpg
+/public/*.jpeg
+/public/*.gif
+/public/*.ico
+
 # misc
 .DS_Store
 *.pem

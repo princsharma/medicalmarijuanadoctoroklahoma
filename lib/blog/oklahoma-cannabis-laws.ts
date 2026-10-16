@@ -24,7 +24,7 @@ export const oklahomaCannabisLaws = {
   metaTitle: "Oklahoma Cannabis Laws 2026: Medical Marijuana Rules",
   metaDescription:
     "Oklahoma cannabis laws explained for 2026, including medical marijuana, possession limits, home cultivation, licenses, and restrictions.",
-  image: "/media/oklahoma-cannabis-laws.webp",
+  image: "/oklahoma-cannabis-laws.webp",
   imageAlt:
     "Medical marijuana flower and medicine beside a physician reviewing a patient file",
   publishedAt: "2024-06-19",
