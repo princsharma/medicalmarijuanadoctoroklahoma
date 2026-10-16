@@ -22,14 +22,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { doctors, getDoctorBySlug } from "@/lib/doctors";
+import { doctorProfileGraphSchema } from "@/lib/doctors-listing-schema";
 import { JsonLd } from "@/components/seo/json-ld";
-import {
-  SITE_NAME,
-  SITE_URL,
-  absoluteUrl,
-  doctorMetadata,
-  withTrailingSlash,
-} from "@/lib/seo";
+import { doctorMetadata, withTrailingSlash } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -66,33 +61,16 @@ export default async function DoctorProfilePage({ params }: Props) {
 
   const lastName = doctor.name.split(" ").slice(-1)[0];
   const profilePath = withTrailingSlash(`/doctors/${doctor.slug}`);
-  const physicianSchema = {
-    "@context": "https://schema.org",
-    "@type": "Physician",
-    name: `Dr. ${doctor.name}, ${doctor.credentials}`,
-    description: doctor.bio,
-    image: absoluteUrl(doctor.image),
-    url: absoluteUrl(profilePath),
-    medicalSpecialty: doctor.category,
-    worksFor: {
-      "@type": "MedicalBusiness",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    areaServed: {
-      "@type": "State",
-      name: "Oklahoma",
-    },
-  };
 
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd data={physicianSchema} />
+      <JsonLd data={doctorProfileGraphSchema(doctor)} />
       <SiteHeader />
       <PageBreadcrumb
         page={doctor.name}
         currentPath={profilePath}
         items={[{ label: "Our Doctors", href: "/doctors/" }]}
+        includeJsonLd={false}
       />
       <main id="main-content">
         <section className="px-6 pt-14 pb-16 sm:pt-20">

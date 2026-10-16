@@ -9,16 +9,21 @@ import { DoctorsProcess } from "@/components/sections/doctors/doctors-process";
 import { DoctorsFaq } from "@/components/sections/doctors/doctors-faq";
 import { DoctorsSchedule } from "@/components/sections/doctors/doctors-schedule";
 import { JsonLd } from "@/components/seo/json-ld";
-import { buildMetadata, pages, webPageSchema } from "@/lib/seo";
+import { doctorsListingGraphSchema } from "@/lib/doctors-listing-schema";
+import { buildMetadata, pages } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata(pages.doctors);
 
 export default function DoctorsPage() {
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd data={webPageSchema(pages.doctors)} />
+      <JsonLd data={doctorsListingGraphSchema()} />
       <SiteHeader />
-      <PageBreadcrumb page="Our Doctors" currentPath={pages.doctors.path} />
+      <PageBreadcrumb
+        page="Our Doctors"
+        currentPath={pages.doctors.path}
+        includeJsonLd={false}
+      />
       <main id="main-content">
         <DoctorsHero />
         <DoctorsTeam />
