@@ -278,7 +278,6 @@ const OG_IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   [FAQ_OG_IMAGE]: { width: 1200, height: 800 },
   [CONTRIBUTORS_OG_IMAGE]: { width: 1200, height: 630 },
   [CONTRIBUTOR_DAALON_OG_IMAGE]: { width: 800, height: 800 },
-  [REVIEWS_OG_IMAGE]: { width: 800, height: 550 },
   [POLICY_OG_IMAGE]: { width: 800, height: 200 },
   "/media/is-marijuana-legal-in-oklahoma.webp": { width: 1200, height: 800 },
 };
