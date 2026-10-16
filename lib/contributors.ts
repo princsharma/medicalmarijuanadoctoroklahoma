@@ -24,6 +24,17 @@ export type ContributorCredential = {
   };
 };
 
+import {
+  CONTRIBUTOR_DAALON_OG_IMAGE,
+  CONTRIBUTOR_ROBERT_OG_IMAGE,
+  publicOgImagePath,
+} from "@/lib/seo";
+
+const CONTRIBUTOR_OG_IMAGE_BY_SLUG: Record<string, string> = {
+  "robert-d-saint-laurent": CONTRIBUTOR_ROBERT_OG_IMAGE,
+  "daalon-b-echols": CONTRIBUTOR_DAALON_OG_IMAGE,
+};
+
 export type Contributor = {
   slug: string;
   name: string;
@@ -60,9 +71,11 @@ export type Contributor = {
   image: string;
 };
 
-/** Image path for Open Graph / Twitter cards (prefers schema profile portrait). */
+/** Image path for Open Graph / Twitter cards (root URL under `public/`). */
 export function contributorSocialOgImage(person: Contributor) {
-  return person.schemaProfileImage ?? person.image;
+  const dedicated = CONTRIBUTOR_OG_IMAGE_BY_SLUG[person.slug];
+  if (dedicated) return dedicated;
+  return publicOgImagePath(person.schemaProfileImage ?? person.image);
 }
 
 export const contributors: Contributor[] = [
@@ -135,8 +148,8 @@ export const contributors: Contributor[] = [
     initials: "RS",
     accent: "#0E3B2E",
     bioCta: "View Robert's full bio",
-    image: "/media/profile-image-of-robert-saint-laurent.webp",
-    schemaProfileImage: "/media/profile-image-of-robert-saint-laurent.webp",
+    image: "/profile-image-of-robert-saint-laurent.webp",
+    schemaProfileImage: "/profile-image-of-robert-saint-laurent.webp",
     schemaHeadline:
       "Robert D. Saint Laurent, M.Ed. - Medical Content Writer & Editorial Specialist",
     schemaPersonDescription:
@@ -240,8 +253,8 @@ export const contributors: Contributor[] = [
     initials: "DE",
     accent: "#2F7A18",
     bioCta: "View Dr. Echols' full bio",
-    image: "/media/profile-image-of-daalon-echols.webp",
-    schemaProfileImage: "/media/profile-image-of-daalon-echols.webp",
+    image: "/profile-image-of-daalon-echols.webp",
+    schemaProfileImage: "/profile-image-of-daalon-echols.webp",
     schemaHeadline:
       "Dr. Daalon B. Echols, MD - Board-Certified Neurologist & Medical Reviewer",
     schemaPersonDescription:
