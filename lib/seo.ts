@@ -242,11 +242,34 @@ export function absoluteUrl(path: string) {
   return new URL(normalized, SITE_URL).toString();
 }
 
-function ogImageOrigin() {
-  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (fromEnv) return fromEnv.replace(/\/$/, "");
+function normalizeOrigin(origin: string) {
+  const trimmed = origin.trim().replace(/\/$/, "");
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  return `https://${trimmed}`;
+}
+
+/**
+ * Origin for the deployment that produced this build (preview `.vercel.app` vs production domain).
+ * Open Graph images must be absolute URLs on this host so crawlers can fetch them.
+ */
+export function deploymentOrigin() {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (explicit) return normalizeOrigin(explicit);
+
+  if (process.env.VERCEL_ENV === "production") {
+    const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+    if (productionHost) return normalizeOrigin(productionHost);
+  }
+
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl) return normalizeOrigin(vercelUrl);
+
   if (process.env.NODE_ENV === "development") return "http://localhost:3000";
   return SITE_URL;
+}
+
+function ogImageOrigin() {
+  return deploymentOrigin();
 }
 
 /**

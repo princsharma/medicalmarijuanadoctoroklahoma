@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import {
   absoluteOgImageUrl,
   DEFAULT_OG_IMAGE,
+  deploymentOrigin,
   SITE_NAME,
   SITE_URL,
   organizationSchema,
@@ -30,7 +31,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(deploymentOrigin()),
   title: {
     default: pages.home.title,
     absolute: pages.home.title,
