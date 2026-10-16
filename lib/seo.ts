@@ -8,7 +8,8 @@ export const DEFAULT_OG_IMAGE = "/hero-section.webp";
 export const ABOUT_OG_IMAGE = "/aboutus-hero-section.webp";
 export const CONTACT_OG_IMAGE = "/contact-us-hero-section.webp";
 export const BLOG_OG_IMAGE = "/blog-guides-social-og.webp";
-export const DOCTORS_OG_IMAGE = "/benefits-of-cannabies-section.webp";
+export const DOCTORS_OG_IMAGE =
+  "/woman-using-laptop-having-mmj-evaluation-with-her-doctor.webp";
 export const FAQ_OG_IMAGE = "/what-is-card-section.webp";
 export const CONTRIBUTORS_OG_IMAGE = "/contributors-team-social-og.webp";
 export const CONTRIBUTOR_ROBERT_OG_IMAGE =
@@ -312,7 +313,7 @@ const OG_IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   [CONTACT_OG_IMAGE]: { width: 500, height: 400 },
   [BLOG_OG_IMAGE]: { width: 1200, height: 630 },
   "/oklahoma-cannabis-laws.webp": { width: 1200, height: 800 },
-  [DOCTORS_OG_IMAGE]: { width: 1200, height: 800 },
+  [DOCTORS_OG_IMAGE]: { width: 1200, height: 630 },
   [FAQ_OG_IMAGE]: { width: 1200, height: 800 },
   [CONTRIBUTORS_OG_IMAGE]: { width: 1200, height: 630 },
   [CONTRIBUTOR_ROBERT_OG_IMAGE]: { width: 800, height: 800 },

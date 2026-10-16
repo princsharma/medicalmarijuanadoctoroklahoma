@@ -5,8 +5,10 @@ import {
   OKLAHOMA_HIGHWAY_SAFETY_OFFICE_PHRASE,
   OMMA_PATIENT_RIGHTS_URL,
   OMMA_PHRASE,
+  OKLAHOMA_CANNABIS_LAWS_PATH,
   linkMedicalMarijuanaCard,
   linkMedicalMarijuanaLegalInOklahoma,
+  linkPhrase,
   linkOmmaCurrentPatientRules,
   linkOmmaCurrentPermanentRules,
   linkPhrases,
@@ -28,8 +30,8 @@ export const isMarijuanaLegalInOklahoma = {
   image: "/is-marijuana-legal-in-oklahoma.webp",
   imageAlt:
     "Judge's gavel, cannabis leaf, and flower bud on a wooden table with scales of justice in a sunlit field, representing Oklahoma marijuana law",
-  publishedAt: "2024-06-19",
-  updatedAt: "2026-08-15",
+  publishedAt: "2026-10-01",
+  updatedAt: "2026-10-16",
   author: {
     name: "Robert D. Saint Laurent",
     credentials: "M.Ed.",
@@ -52,11 +54,13 @@ export const isMarijuanaLegalInOklahoma = {
     "New OMMA rules took effect on July 11, 2026, changing several requirements for patients, physicians, and businesses.",
   ],
   introduction: [
-    linkMedicalMarijuanaLegalInOklahoma(
-      "Marijuana laws in Oklahoma vary depending on the type and purpose of marijuana use. Medical marijuana is legal in Oklahoma for licensed patients, but recreational marijuana remains illegal statewide."
-    ),
+    "Marijuana laws in Oklahoma vary depending on the type and purpose of marijuana use. Medical marijuana is legal in Oklahoma for licensed patients, but recreational marijuana remains illegal statewide.",
     "However, licensed marijuana also comes with limitations. You cannot just go around purchasing, cultivating, consuming publicly, or handing it out to your friends. There are some limits, which you will find out about in detail, in this blog.",
-    "In addition, we'll discuss what type of marijuana is legal, and what has changed in Oklahoma Marijuana Laws in 2026, so you don't break any laws.",
+    linkPhrase(
+      "In addition, we'll discuss what type of marijuana is legal, and what has changed in Oklahoma Marijuana Laws in 2026, so you don't break any laws.",
+      "Oklahoma Marijuana Laws in 2026",
+      OKLAHOMA_CANNABIS_LAWS_PATH
+    ),
   ],
   sections: [
     {

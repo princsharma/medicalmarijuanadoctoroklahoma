@@ -5,7 +5,6 @@ import {
   OMMA_HOME_URL,
   OMMA_PATIENT_RIGHTS_PHRASE,
   OMMA_PATIENT_RIGHTS_URL,
-  OMMA_PHRASE,
   STATE_QUESTION_788_PDF_URL,
   STATE_QUESTION_788_SQ_PHRASE,
   linkMmjCard,
@@ -27,8 +26,8 @@ export const oklahomaCannabisLaws = {
   image: "/oklahoma-cannabis-laws.webp",
   imageAlt:
     "Medical marijuana flower and medicine beside a physician reviewing a patient file",
-  publishedAt: "2024-06-19",
-  updatedAt: "2026-08-15",
+  publishedAt: "2026-10-06",
+  updatedAt: "2026-10-16",
   author: {
     name: "Daalon B. Echols",
     credentials: "M.D.",
@@ -97,10 +96,7 @@ export const oklahomaCannabisLaws = {
       id: "omma-role",
       title: "What Is OMMA's Role in Oklahoma's Medical Marijuana Program?",
       paragraphs: [
-        linkPhrases(
-          "The OMMA is the state agency responsible for regulating Oklahoma's medical marijuana program. It became an independent state agency in 2022. OMMA's responsibilities include:",
-          [{ phrase: OMMA_PHRASE, href: OMMA_HOME_URL }]
-        ),
+        "The OMMA is the state agency responsible for regulating Oklahoma's medical marijuana program. It became an independent state agency in 2022. OMMA's responsibilities include:",
       ],
       bullets: [
         "Processing patient and commercial license applications",
