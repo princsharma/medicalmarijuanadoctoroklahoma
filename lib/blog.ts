@@ -141,7 +141,7 @@ export function articleSchema(post: BlogPost) {
       url: "https://medicalmarijuanadoctoroklahoma.com/",
       logo: {
         "@type": "ImageObject",
-        url: "https://medicalmarijuanadoctoroklahoma.com/media/logo.webp",
+        url: "https://medicalmarijuanadoctoroklahoma.com/logo.webp",
       },
     },
     mainEntityOfPage: {

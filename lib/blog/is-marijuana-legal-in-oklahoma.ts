@@ -34,7 +34,7 @@ export const isMarijuanaLegalInOklahoma = {
     name: "Robert D. Saint Laurent",
     credentials: "M.Ed.",
     slug: "robert-d-saint-laurent",
-    image: "/media/robert-saint-laurent-author-of-my-mmj-doctor.webp",
+    image: "/media/profile-image-of-robert-saint-laurent.webp",
     bio:
       "With over three decades of professional experience in health and medical writing, education, and clinical research communication, Robert translates complex Oklahoma cannabis regulations and medical sciences into clear, patient-centered guides.",
   },

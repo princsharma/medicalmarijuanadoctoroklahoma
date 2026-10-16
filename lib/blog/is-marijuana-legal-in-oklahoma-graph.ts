@@ -10,7 +10,7 @@ import {
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
-const ORG_LOGO_URL = absoluteOgImageUrl("/oklahoma-logo.webp");
+const ORG_LOGO_URL = absoluteOgImageUrl("/logo.webp");
 
 const OKLAHOMA_ADMIN_AREA = {
   "@type": "AdministrativeArea",

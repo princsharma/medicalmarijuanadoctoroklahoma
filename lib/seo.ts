@@ -3,17 +3,17 @@ import type { Metadata } from "next";
 export const SITE_URL = "https://medicalmarijuanadoctoroklahoma.com";
 export const SITE_NAME = "Medical Marijuana Doctor Oklahoma";
 export const SITE_TAGLINE = "Get Your Medical Marijuana Card Online in Oklahoma";
-export const DEFAULT_OG_IMAGE = "/media/hero-section.webp";
-export const ABOUT_OG_IMAGE = "/media/aboutus-hero-section.webp";
-export const CONTACT_OG_IMAGE = "/media/contact-us-hero-section.webp";
-export const BLOG_OG_IMAGE = "/media/blog-guides-social-og.webp";
-export const DOCTORS_OG_IMAGE = "/media/benefits-of-cannabies-section.webp";
-export const FAQ_OG_IMAGE = "/media/what-is-card-section.webp";
-export const CONTRIBUTORS_OG_IMAGE = "/media/contributors-team-social-og.webp";
-export const CONTRIBUTOR_DAALON_OG_IMAGE =
-  "/media/profile-image-of-daalon-echols.webp";
+/** Files live in `public/media/`; share URLs use root paths served by next.config rewrites. */
+export const DEFAULT_OG_IMAGE = "/hero-section.webp";
+export const ABOUT_OG_IMAGE = "/aboutus-hero-section.webp";
+export const CONTACT_OG_IMAGE = "/contact-us-hero-section.webp";
+export const BLOG_OG_IMAGE = "/blog-guides-social-og.webp";
+export const DOCTORS_OG_IMAGE = "/benefits-of-cannabies-section.webp";
+export const FAQ_OG_IMAGE = "/what-is-card-section.webp";
+export const CONTRIBUTORS_OG_IMAGE = "/contributors-team-social-og.webp";
+export const CONTRIBUTOR_DAALON_OG_IMAGE = "/profile-image-of-daalon-echols.webp";
 export const REVIEWS_OG_IMAGE = DEFAULT_OG_IMAGE;
-export const POLICY_OG_IMAGE = "/media/logo.webp";
+export const POLICY_OG_IMAGE = "/logo.webp";
 
 export type PageSeo = {
   path: string;
@@ -247,10 +247,23 @@ function ogImageOrigin() {
   return SITE_URL;
 }
 
+/**
+ * Social crawlers must hit root asset URLs (e.g. `/hero-section.webp`).
+ * Files are stored under `public/media/` and exposed via next.config rewrites.
+ */
+export function publicOgImagePath(path: string): string {
+  if (/^https?:\/\//i.test(path)) return path;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  if (normalized.startsWith("/media/")) {
+    return `/${normalized.slice("/media/".length)}`;
+  }
+  return normalized;
+}
+
 /** Absolute URL for Open Graph / Twitter images (no trailing slash on file paths). */
 export function absoluteOgImageUrl(path: string) {
   if (/^https?:\/\//i.test(path)) return path;
-  const pathname = path.startsWith("/") ? path : `/${path}`;
+  const pathname = publicOgImagePath(path);
   return new URL(pathname, ogImageOrigin()).toString();
 }
 
@@ -273,13 +286,13 @@ const OG_IMAGE_SIZES: Record<string, { width: number; height: number }> = {
   [ABOUT_OG_IMAGE]: { width: 600, height: 550 },
   [CONTACT_OG_IMAGE]: { width: 500, height: 400 },
   [BLOG_OG_IMAGE]: { width: 1200, height: 630 },
-  "/media/oklahoma-cannabis-laws.webp": { width: 1200, height: 800 },
+  "/oklahoma-cannabis-laws.webp": { width: 1200, height: 800 },
   [DOCTORS_OG_IMAGE]: { width: 1200, height: 800 },
   [FAQ_OG_IMAGE]: { width: 1200, height: 800 },
   [CONTRIBUTORS_OG_IMAGE]: { width: 1200, height: 630 },
   [CONTRIBUTOR_DAALON_OG_IMAGE]: { width: 800, height: 800 },
   [POLICY_OG_IMAGE]: { width: 800, height: 200 },
-  "/media/is-marijuana-legal-in-oklahoma.webp": { width: 1200, height: 800 },
+  "/is-marijuana-legal-in-oklahoma.webp": { width: 1200, height: 800 },
 };
 
 export function buildMetadata(page: PageSeo, extras?: Metadata): Metadata {
@@ -287,7 +300,7 @@ export function buildMetadata(page: PageSeo, extras?: Metadata): Metadata {
   const ogType = page.ogType ?? "website";
   const title = clampMetaTitle(page.title);
   const description = clampMetaDescription(page.description);
-  const ogImage = page.ogImage ?? DEFAULT_OG_IMAGE;
+  const ogImage = publicOgImagePath(page.ogImage ?? DEFAULT_OG_IMAGE);
   const ogImageUrl = absoluteOgImageUrl(ogImage);
   const size =
     OG_IMAGE_SIZES[ogImage] ??
@@ -375,8 +388,8 @@ export function organizationSchema() {
     "@type": ["MedicalBusiness", "Organization"],
     name: SITE_NAME,
     url: SITE_URL,
-    logo: absoluteUrl("/media/logo.webp"),
-    image: absoluteUrl(DEFAULT_OG_IMAGE),
+    logo: absoluteOgImageUrl("/logo.webp"),
+    image: absoluteOgImageUrl(DEFAULT_OG_IMAGE),
     description:
       "Technology platform connecting Oklahoma patients with licensed physicians for medical marijuana evaluations.",
     email: "contact@medicalmarijuanadoctoroklahoma.com",

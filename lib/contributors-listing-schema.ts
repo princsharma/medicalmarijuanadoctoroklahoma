@@ -13,8 +13,8 @@ import {
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
-const LOGO_ID = absoluteOgImageUrl("/oklahoma-logo.webp");
-const HERO_IMAGE_ID = absoluteOgImageUrl("/media/contributors-team-social-og.webp");
+const LOGO_ID = absoluteOgImageUrl("/logo.webp");
+const HERO_IMAGE_ID = absoluteOgImageUrl("/contributors-team-social-og.webp");
 const CONTRIBUTORS_PATH = pages.contributors.path;
 const PAGE_URL = absoluteUrl(CONTRIBUTORS_PATH);
 const WEBPAGE_ID = `${PAGE_URL}#webpage`;

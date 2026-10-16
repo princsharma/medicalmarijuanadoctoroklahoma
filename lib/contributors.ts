@@ -135,7 +135,7 @@ export const contributors: Contributor[] = [
     initials: "RS",
     accent: "#0E3B2E",
     bioCta: "View Robert's full bio",
-    image: "/media/robert-saint-laurent-author-of-my-mmj-doctor.webp",
+    image: "/media/profile-image-of-robert-saint-laurent.webp",
     schemaProfileImage: "/media/profile-image-of-robert-saint-laurent.webp",
     schemaHeadline:
       "Robert D. Saint Laurent, M.Ed. - Medical Content Writer & Editorial Specialist",

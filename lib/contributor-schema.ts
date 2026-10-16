@@ -10,7 +10,7 @@ import {
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
-const ORG_LOGO = absoluteOgImageUrl("/oklahoma-logo.webp");
+const ORG_LOGO = absoluteOgImageUrl("/logo.webp");
 
 const CONTRIBUTOR_PAGE_DATES = {
   datePublished: "2026-08-05T00:00:00+00:00",
