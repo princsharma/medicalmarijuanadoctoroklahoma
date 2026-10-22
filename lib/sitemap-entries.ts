@@ -1,4 +1,4 @@
-import { blogPosts } from "@/lib/blogs";
+import { blogPosts } from "@/lib/blog";
 import { contributors } from "@/lib/contributors";
 import { doctors } from "@/lib/doctors";
 import { absoluteUrl, pages, withTrailingSlash } from "@/lib/seo";
@@ -45,10 +45,10 @@ export function getSitemapEntries(): SitemapEntry[] {
   }));
 
   const blogEntries: SitemapEntry[] = blogPosts.map((post) => ({
-    url: absoluteUrl(withTrailingSlash(`/blog/${post.slug}`)),
-    lastModified: toIsoDate(post.dateModified),
-    changeFrequency: "weekly",
-    priority: 0.8,
+    url: absoluteUrl(post.path),
+    lastModified: toIsoDate(post.updatedAt),
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
 
   return [...staticEntries, ...doctorEntries, ...contributorEntries, ...blogEntries];
