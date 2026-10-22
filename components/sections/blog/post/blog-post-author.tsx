@@ -63,7 +63,7 @@ export function BlogPostAuthor({ author }: BlogPostAuthorProps) {
                 </span>
               </div>
               <p className="font-sans font-normal text-[14px] leading-[22px] text-[#FAF7F2]">
-                With over three decades of professional experience in health and medical writing, education, and clinical research communication, Robert translates complex Oklahoma cannabis regulations and medical sciences into clear, patient-centered guides.
+                {author.bio}
               </p>
             </div>
           </div>

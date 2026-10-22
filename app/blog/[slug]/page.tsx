@@ -1,110 +1,66 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { BlogPostHero } from "@/components/sections/blog/post/blog-post-hero";
-import { BlogPostTrustBar } from "@/components/sections/blog/post/blog-post-trust-bar";
-import { BlogPostToc } from "@/components/sections/blog/post/blog-post-toc";
-import { BlogPostContent } from "@/components/sections/blog/post/blog-post-content";
-import { BlogPostAuthor } from "@/components/sections/blog/post/blog-post-author";
-import { BlogPostRelated } from "@/components/sections/blog/post/blog-post-related";
-import { BlogPostCtaBanner } from "@/components/sections/blog/post/blog-post-cta-banner";
+import { SiteHeader } from "@/components/layout/site-header";
+import { PageBreadcrumb } from "@/components/layout/page-breadcrumb";
+import { BlogGoogleTrustToast } from "@/components/sections/blog/blog-google-trust";
+import { BlogPostPage } from "@/components/sections/blog/blog-post";
 import { JsonLd } from "@/components/seo/json-ld";
-import { blogPosts, getBlogPostBySlug, getRelatedBlogPosts } from "@/lib/blogs";
-import { blogArticleSchema } from "@/lib/blog-schema";
-import { SITE_NAME, SITE_URL, absoluteUrl, clampMetaDescription, clampMetaTitle } from "@/lib/seo";
+import {
+  blogJsonLdSchema,
+  blogPostUsesGraphSchema,
+  blogPosts,
+  blogPostSeo,
+  getBlogPost,
+} from "@/lib/blog";
+import { buildMetadata } from "@/lib/seo";
 
-type Props = {
+type BlogRouteProps = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  const slugs: { slug: string }[] = [];
-  for (const post of blogPosts) {
-    slugs.push({ slug: post.slug });
-    if (post.aliases) {
-      for (const alias of post.aliases) {
-        slugs.push({ slug: alias });
-      }
-    }
-  }
-  return slugs;
+  return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: BlogRouteProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const post = getBlogPost(slug);
+  if (!post) return {};
 
-  if (!post) {
-    return { title: "Article Not Found | Medical Marijuana Doctor Oklahoma" };
-  }
+  const base = buildMetadata(blogPostSeo(post), {
+    keywords: [post.focusKeyword, "Oklahoma medical marijuana laws", "OMMA rules"],
+    other: { "focus-keyword": post.focusKeyword },
+  });
 
-  const title = post.metaTitle || clampMetaTitle(`${post.title} ${post.titleSecondary ?? ""} | MMJ Doctor OK`);
-  const description = post.metaDescription || clampMetaDescription(post.subtitle);
-  const canonicalPath = `/blog/${post.slug}/`;
-  const url = absoluteUrl(canonicalPath);
-  const ogImage = post.coverImage.startsWith("http") ? post.coverImage : `${SITE_URL}${post.coverImage}`;
+  const description = post.metaDescription;
 
   return {
-    title: { absolute: title },
+    ...base,
     description,
-    alternates: {
-      canonical: canonicalPath,
-    },
-    openGraph: {
-      title,
-      description,
-      url,
-      siteName: SITE_NAME,
-      locale: "en_US",
-      type: "article",
-      publishedTime: post.datePublished,
-      modifiedTime: post.dateModified,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
+    openGraph: base.openGraph ? { ...base.openGraph, description } : undefined,
+    twitter: base.twitter ? { ...base.twitter, description } : undefined,
   };
 }
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function BlogArticleRoute({ params }: BlogRouteProps) {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
-
-  if (!post) {
-    notFound();
-  }
-
-  const relatedPosts = getRelatedBlogPosts(post);
-  const schemas = blogArticleSchema(post);
+  const post = getBlogPost(slug);
+  if (!post) notFound();
 
   return (
-    <div className="flex flex-col bg-[#FAF7F2]">
-      {schemas.map((schema, i) => (
-        <JsonLd key={i} data={schema} />
-      ))}
+    <div className="flex min-h-screen flex-col bg-[#F6F5F0]">
+      <JsonLd data={blogJsonLdSchema(post)} />
       <SiteHeader />
-      <main id="main-content">
-        <BlogPostHero post={post} />
-        <BlogPostTrustBar post={post} />
-        <div className="w-full relative flex flex-col lg:flex-row items-start justify-start mt-8 sm:mt-10 lg:mt-12 z-10">
-          <BlogPostToc sections={post.sections} />
-          <BlogPostContent post={post} />
-        </div>
-        <BlogPostAuthor author={post.author} />
-        <BlogPostRelated relatedPosts={relatedPosts} />
-        <BlogPostCtaBanner />
+      <PageBreadcrumb
+        page={post.title}
+        currentPath={post.path}
+        items={[{ label: "Blog & Guides", href: "/blog/" }]}
+        includeSchema={!blogPostUsesGraphSchema(post.slug)}
+      />
+      <BlogGoogleTrustToast />
+      <main id="main-content" className="flex-1">
+        <BlogPostPage post={post} />
       </main>
       <SiteFooter />
     </div>
