@@ -112,7 +112,7 @@ export const contributors: Contributor[] = [
       },
       {
         label: "Articles Published",
-        value: "55+",
+        value: "5+",
         detail: "Across MMJ educational sites",
       },
       {
@@ -148,8 +148,8 @@ export const contributors: Contributor[] = [
     initials: "RS",
     accent: "#0E3B2E",
     bioCta: "View Robert's full bio",
-    image: "/profile-image-of-robert-saint-laurent.webp",
-    schemaProfileImage: "/profile-image-of-robert-saint-laurent.webp",
+    image: "/media/profile-image-of-robert-saint-laurent.webp",
+    schemaProfileImage: "/media/profile-image-of-robert-saint-laurent.webp",
     schemaHeadline:
       "Robert D. Saint Laurent, M.Ed. - Medical Content Writer & Editorial Specialist",
     schemaPersonDescription:
@@ -211,7 +211,7 @@ export const contributors: Contributor[] = [
       },
       {
         label: "Articles Published",
-        value: "13+",
+        value: "3+",
         detail: "Across MMJ educational sites",
       },
       {
@@ -253,8 +253,8 @@ export const contributors: Contributor[] = [
     initials: "DE",
     accent: "#2F7A18",
     bioCta: "View Dr. Echols' full bio",
-    image: "/profile-image-of-daalon-echols.webp",
-    schemaProfileImage: "/profile-image-of-daalon-echols.webp",
+  image: "/media/profile-image-of-daalon-echols.webp",
+    schemaProfileImage: "/media/profile-image-of-daalon-echols.webp",
     schemaHeadline:
       "Dr. Daalon B. Echols, MD - Board-Certified Neurologist & Medical Reviewer",
     schemaPersonDescription:

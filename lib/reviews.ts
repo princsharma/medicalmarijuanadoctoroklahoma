@@ -58,14 +58,6 @@ export const reviews: Review[] = [
     avatarColor: "#46BDC6",
   },
   {
-    name: "James Madison",
-    rating: 5,
-    time: "6 years ago",
-    text: 'I went to the Redbud Medical Marijuana Dispensary looking for a job, because they are one of the closest dispensaries to where I live. When you first walk in it smells delicious, even in the waiting room. Christy the manager is very cordial and knows the product line well. When I asked about a recommendation for my arthritis pain she said "CBD Dream" would be best because it is a 50% CBD 50% THC mix. They also carry my favorite flavor, "Girl Scout Cookie". They have everything you could want, flower, pre-rolls, edibles, cartridges and even have a small selection of pipes, bongs and papers. It is a convenient location on the South side of Hwy 240, and there is a convenience store right next door so you can get munchies too.',
-    meta: "7 reviews · 1 photo",
-    avatarColor: "#F538A0",
-  },
-  {
     name: "Sherri Cable",
     rating: 5,
     time: "a year ago",

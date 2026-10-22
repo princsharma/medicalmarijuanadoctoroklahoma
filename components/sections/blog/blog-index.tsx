@@ -8,23 +8,12 @@ import { BlogCta } from "@/components/sections/blog/blog-cta";
 import { blogPosts } from "@/lib/blog";
 import { formatDisplayDate } from "@/lib/seo";
 
-const categories = [
-  "All",
-  "OMMA Guidelines",
-  "Qualifying Conditions",
-  "Card Renewal",
-  "Patient Rights",
-  "Dosage & Usage",
-];
-
 export function BlogIndex() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const searchTerm = searchQuery.trim().toLowerCase();
   const filteredPosts = useMemo(
     () =>
       blogPosts.filter((post) => {
-        const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
         const searchableText = [
           post.title,
           post.subtitle,
@@ -36,9 +25,9 @@ export function BlogIndex() {
           .join(" ")
           .toLowerCase();
 
-        return matchesCategory && (!searchTerm || searchableText.includes(searchTerm));
+        return !searchTerm || searchableText.includes(searchTerm);
       }),
-    [searchTerm, selectedCategory]
+    [searchTerm]
   );
 
   return (
@@ -97,27 +86,6 @@ export function BlogIndex() {
               />
             </label>
           </div>
-          <div className="mt-6 flex flex-wrap gap-2.5" aria-label="Filter guides by category">
-            {categories.map((category) => {
-              const isSelected = selectedCategory === category;
-
-              return (
-                <button
-                  key={category}
-                  type="button"
-                  aria-pressed={isSelected}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`inline-flex min-h-10 items-center justify-center rounded-full border px-4 py-2 text-sm font-medium transition ${
-                    isSelected
-                      ? "border-[#0E3B2E] bg-[#0E3B2E] text-white shadow-sm"
-                      : "border-[#0E3B2E]/15 bg-white text-[#0E3B2E]/85 hover:border-[#2F7A18]/45 hover:bg-[#EEF5E8]"
-                  }`}
-                >
-                  {category}
-                </button>
-              );
-            })}
-          </div>
           {filteredPosts.length > 0 ? (
             <div className="mt-8 grid auto-rows-fr gap-6">
               {filteredPosts.map((post) => (
@@ -126,7 +94,7 @@ export function BlogIndex() {
             </div>
           ) : (
             <p className="mt-8 rounded-2xl border border-[#0E3B2E]/10 bg-white px-5 py-8 text-center text-sm text-[#0E3B2E]/70">
-              No guides found. Try another search or choose a different category.
+              No guides found. Try another search.
             </p>
           )}
         </div>

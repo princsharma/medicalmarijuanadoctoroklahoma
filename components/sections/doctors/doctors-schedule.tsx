@@ -1,5 +1,6 @@
 import { ArrowRight, Mail, MessageCircle, Phone } from "lucide-react";
 import { BookingButton } from "@/components/booking-dialog";
+import { LiveChatLink } from "@/components/live-chat-link";
 
 export function DoctorsSchedule() {
   const options = [
@@ -19,7 +20,7 @@ export function DoctorsSchedule() {
       icon: MessageCircle,
       title: "Live Chat",
       description: "Connect with our support anytime.",
-      href: "/contact-us/",
+      liveChat: true,
     },
   ];
 
@@ -48,19 +49,29 @@ export function DoctorsSchedule() {
         </p>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
-          {options.map(({ icon: Icon, title, description, href }) => (
-            <a
-              key={title}
-              href={href}
-              className="flex flex-col items-center gap-2 rounded-2xl border border-[#0E3B2E]/10 bg-white/70 p-6 text-center transition-colors hover:bg-white"
-            >
-              <div className="flex size-11 items-center justify-center rounded-full bg-[#0E3B2E]/5 text-[#2F7A18]">
-                <Icon className="size-5" />
-              </div>
-              <p className="mt-2 text-sm font-semibold text-[#0E3B2E]">{title}</p>
-              <p className="text-xs leading-relaxed text-[#0E3B2E]/70">{description}</p>
-            </a>
-          ))}
+          {options.map(({ icon: Icon, title, description, href, liveChat }) => {
+            const className =
+              "flex flex-col items-center gap-2 rounded-2xl border border-[#0E3B2E]/10 bg-white/70 p-6 text-center transition-colors hover:bg-white";
+            const content = (
+              <>
+                <div className="flex size-11 items-center justify-center rounded-full bg-[#0E3B2E]/5 text-[#2F7A18]">
+                  <Icon className="size-5" />
+                </div>
+                <p className="mt-2 text-sm font-semibold text-[#0E3B2E]">{title}</p>
+                <p className="text-xs leading-relaxed text-[#0E3B2E]/70">{description}</p>
+              </>
+            );
+
+            return liveChat ? (
+              <LiveChatLink key={title} className={className}>
+                {content}
+              </LiveChatLink>
+            ) : (
+              <a key={title} href={href} className={className}>
+                {content}
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>

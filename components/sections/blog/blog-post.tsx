@@ -436,18 +436,26 @@ function TableOfContents({ post, className }: { post: BlogPost; className?: stri
       <summary className="cursor-pointer font-heading text-lg font-semibold text-white">
         Table of Contents
       </summary>
-      <div className="mt-3 border-t  border-white/20 pt-3">
-        <TableOfContentsContent post={post} />
+      <div className="mt-3">
+        <TableOfContentsContent post={post} showHeading={false} />
       </div>
     </details>
   );
 }
 
-function TableOfContentsContent({ post }: { post: BlogPost }) {
+function TableOfContentsContent({
+  post,
+  showHeading = true,
+}: {
+  post: BlogPost;
+  showHeading?: boolean;
+}) {
   return (
     <>
-      <h2 className="font-heading text-lg font-semibold text-inherit">Table of Contents</h2>
-      <nav aria-label="Table of contents" className="mt-3">
+      {showHeading ? (
+        <h2 className="font-heading text-lg font-semibold text-inherit">Table of Contents</h2>
+      ) : null}
+      <nav aria-label="Table of contents" className={showHeading ? "mt-3" : undefined}>
         <ul className="space-y-2 border-t border-white/20 pt-3 text-sm">
           <li>
             <a
@@ -473,17 +481,6 @@ function TableOfContentsContent({ post }: { post: BlogPost }) {
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href="#frequently-asked-questions"
-              className="block rounded-lg px-2 py-1.5 text-white/85 transition hover:bg-white/10 hover:text-[#B8E89A]"
-            >
-              <span className="mr-2 text-[#B8E89A]" aria-hidden="true">
-                •
-              </span>
-              Frequently Asked Questions
-            </a>
-          </li>
         </ul>
       </nav>
     </>

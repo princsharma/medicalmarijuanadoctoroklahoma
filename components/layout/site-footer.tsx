@@ -13,7 +13,6 @@ export function SiteFooter() {
     { label: "Blog & Guides", href: "/blog/" },
     { label: "About Us", href: "/about-us/" },
     { label: "Our Doctors", href: "/doctors/" },
-    { label: "Blog", href: "/blog/" },
     { label: "Contact Us", href: "/contact-us/" },
     { label: "Reviews", href: "/reviews/" },
     { label: "Contributors", href: "/contributors/" },

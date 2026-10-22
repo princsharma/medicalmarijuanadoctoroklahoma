@@ -4,8 +4,8 @@ import { BookingButton } from "@/components/booking-dialog";
 export function AboutAppointment() {
   const stats = [
     { value: "11523+", label: "HAPPY PATIENTS" },
-    { value: "10+", label: "QUALIFIED DOCTORS" },
-    { value: "84", label: "CLINIC ROOMS" },
+    { value: "5+", label: "QUALIFIED DOCTORS" },
+    { value: "100%", label: "ONLINE CARE" },
   ];
 
   return (

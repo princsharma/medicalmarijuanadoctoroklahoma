@@ -3,11 +3,8 @@ import {
   FEDERAL_MARIJUANA_RECLASSIFICATION_URL,
   OKLAHOMA_HIGHWAY_SAFETY_MARIJUANA_URL,
   OKLAHOMA_HIGHWAY_SAFETY_OFFICE_PHRASE,
-  OMMA_PATIENT_RIGHTS_URL,
-  OMMA_PHRASE,
   OKLAHOMA_CANNABIS_LAWS_PATH,
   linkMedicalMarijuanaCard,
-  linkMedicalMarijuanaLegalInOklahoma,
   linkPhrase,
   linkOmmaCurrentPatientRules,
   linkOmmaCurrentPermanentRules,
@@ -134,10 +131,7 @@ export const isMarijuanaLegalInOklahoma = {
         {
           title: "Public spaces",
           paragraphs: [
-            linkPhrases(
-              "Smoking and vaping medical marijuana are subject to the same state restrictions that apply to tobacco under Oklahoma's Smoking in Public Places and Indoor Workplaces Act. OMMA specifically states that smoking or vaping medical marijuana outdoors in public, or indoors at a workplace, is subject to these restrictions.",
-              [{ phrase: OMMA_PHRASE, href: OMMA_PATIENT_RIGHTS_URL }]
-            ),
+            "Smoking and vaping medical marijuana are subject to the same state restrictions that apply to tobacco under Oklahoma's Smoking in Public Places and Indoor Workplaces Act. OMMA specifically states that smoking or vaping medical marijuana outdoors in public, or indoors at a workplace, is subject to these restrictions.",
           ],
         },
         {
@@ -231,9 +225,8 @@ export const isMarijuanaLegalInOklahoma = {
     },
     {
       question: "Is weed legal in Oklahoma in 2026?",
-      answer: linkMedicalMarijuanaLegalInOklahoma(
-        "Medical marijuana is legal in Oklahoma for authorized patients, but Oklahoma has not legalized recreational adult-use marijuana statewide. The state continues to regulate cannabis primarily through its medical marijuana program."
-      ),
+      answer:
+        "Medical marijuana is legal in Oklahoma for authorized patients, but Oklahoma has not legalized recreational adult-use marijuana statewide. The state continues to regulate cannabis primarily through its medical marijuana program.",
     },
     {
       question: "Do you need a medical marijuana card in Oklahoma?",

@@ -57,15 +57,25 @@ function ReviewCard({ review, i }: { review: Review; i: number }) {
   );
 }
 
+/** Each half of the loop must be taller than the 640px column, or a gap shows before it resets. */
+const MIN_CARDS_PER_LOOP = 6;
+
 function MarqueeColumn({
   items,
   direction,
-  duration,
+  secondsPerPass,
 }: {
   items: Review[];
   direction: "up" | "down";
-  duration: string;
+  /** Time to scroll past `items` once; scaled by repeats so speed stays the same. */
+  secondsPerPass: number;
 }) {
+  if (items.length === 0) return null;
+
+  const repeat = Math.ceil(MIN_CARDS_PER_LOOP / items.length);
+  const loop = Array.from({ length: repeat }, () => items).flat();
+  const duration = `${secondsPerPass * repeat}s`;
+
   return (
     <div className="relative h-[640px] overflow-hidden">
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-[#F6F5F0] to-transparent" />
@@ -77,8 +87,8 @@ function MarqueeColumn({
           animation: `${direction === "up" ? "marquee-up" : "marquee-down"} ${duration} linear infinite`,
         }}
       >
-        {[...items, ...items].map((review, i) => (
-          <ReviewCard key={`${review.name}-${i}`} review={review} i={i} />
+        {[...loop, ...loop].map((review, i) => (
+          <ReviewCard key={`${review.name}-${i}`} review={review} i={i % items.length} />
         ))}
       </div>
     </div>
@@ -130,10 +140,10 @@ export function ReviewsMarqueeSection({
         <div
           className={`${showHeading ? "mt-14" : "mt-2"} hidden gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-3`}
         >
-          <MarqueeColumn items={col1} direction="up" duration="38s" />
-          <MarqueeColumn items={col2} direction="down" duration="44s" />
+          <MarqueeColumn items={col1} direction="up" secondsPerPass={38} />
+          <MarqueeColumn items={col2} direction="down" secondsPerPass={44} />
           <div className="hidden lg:block">
-            <MarqueeColumn items={col3} direction="up" duration="32s" />
+            <MarqueeColumn items={col3} direction="up" secondsPerPass={32} />
           </div>
         </div>
 
