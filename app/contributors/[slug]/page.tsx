@@ -61,7 +61,7 @@ export default async function ContributorBioPage({ params }: PageProps) {
         page={person.name}
         currentPath={withTrailingSlash(`/contributors/${person.slug}`)}
         items={[{ label: "Contributors", href: pages.contributors.path }]}
-        includeJsonLd={false}
+        includeSchema={false}
       />
       <main id="main-content">
         <ContributorBio person={person} />

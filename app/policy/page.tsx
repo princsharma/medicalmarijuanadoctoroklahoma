@@ -8,14 +8,14 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { legalPages } from "@/lib/legal-pages";
 import { buildMetadata, pages, webPageSchema } from "@/lib/seo";
 
-export const metadata: Metadata = buildMetadata(pages.legal);
+export const metadata: Metadata = buildMetadata(pages.policy);
 
 export default function PolicyHubPage() {
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd data={webPageSchema(pages.legal)} />
+      <JsonLd data={webPageSchema(pages.policy)} />
       <SiteHeader />
-      <PageBreadcrumb page="Legal Policies" currentPath={pages.legal.path} />
+      <PageBreadcrumb page="Legal Policies" currentPath={pages.policy.path} />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">
           <div className="mx-auto max-w-6xl">

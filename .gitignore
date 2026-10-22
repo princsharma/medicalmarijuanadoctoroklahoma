@@ -47,3 +47,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Lighthouse audit reports & test result files (local benchmarking only)
+/lh-results/
+/lh-score-report/
+lh-*.json
+scratch-*.json
+
+# AI agent instruction files (local only)
+AGENTS.md
+CLAUDE.md
+
+# Local audit/helper scripts (not needed in production repo)
+/scripts/
+/lh_logs/

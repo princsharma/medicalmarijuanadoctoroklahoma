@@ -204,7 +204,7 @@ export default function HipaaCompliancePage() {
       <PageBreadcrumb
         page="HIPAA Compliance"
         currentPath={pages.hipaa.path}
-        items={[{ label: "Legal Policies", href: pages.legal.path }]}
+        items={[{ label: "Legal Policies", href: pages.policy.path }]}
       />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">
@@ -285,7 +285,7 @@ export default function HipaaCompliancePage() {
 
             <div className="mt-4">
               <Link
-                href="/consent-for-telehealth/"
+                href="/policy/consent-for-telehealth/"
                 className="flex items-center justify-between rounded-2xl border border-black/5 bg-white p-6 transition-colors hover:bg-black/[0.02]"
               >
                 <div>

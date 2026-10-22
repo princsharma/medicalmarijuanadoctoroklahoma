@@ -30,7 +30,7 @@ export function ContributorPortrait({
     >
       <Image
         src={person.image}
-        alt={`${person.name}, ${person.credentials} — ${person.role}`}
+        alt={`${person.name}, ${person.credentials}   ${person.role}`}
         fill
         sizes={
           isCircle

@@ -15,6 +15,14 @@ const legacyMediaRewrites = fs.existsSync(mediaDir)
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  compress: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
+  },
+  experimental: {
+    optimizePackageImports: ["lucide-react", "@base-ui/react", "embla-carousel-react"],
+  },
   async rewrites() {
     return legacyMediaRewrites;
   },
@@ -61,24 +69,24 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/policy/terms",
-        destination: "/policy/terms-of-use/",
+        source: "/policy/terms-of-use",
+        destination: "/policy/terms/",
         statusCode: 301,
       },
       {
-        source: "/policy/terms/",
-        destination: "/policy/terms-of-use/",
+        source: "/policy/terms-of-use/",
+        destination: "/policy/terms/",
         statusCode: 301,
       },
       ...legacyPolicyPaths.flatMap((slug) => [
         {
           source: `/${slug}`,
-          destination: `/policy/${slug}/`,
+          destination: slug === "terms-of-use" ? "/policy/terms/" : `/policy/${slug}/`,
           permanent: true,
         },
         {
           source: `/${slug}/`,
-          destination: `/policy/${slug}/`,
+          destination: slug === "terms-of-use" ? "/policy/terms/" : `/policy/${slug}/`,
           permanent: true,
         },
       ]),

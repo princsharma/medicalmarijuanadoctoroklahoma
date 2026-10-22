@@ -50,16 +50,19 @@ export function DoctorsTeam() {
           {filtered.map((doctor) => (
             <div
               key={doctor.name}
-              className="flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm"
+              className="flex flex-col rounded-2xl border border-black/5 bg-white shadow-sm"
             >
-              <div className="relative aspect-[4/3] w-full shrink-0 bg-[#EAF1EA]">
-                <Image
-                  src={doctor.image}
-                  alt={`${doctor.name}, ${doctor.credentials}`}
-                  fill
-                  sizes="(min-width: 640px) 50vw, 100vw"
-                  className="object-cover object-top"
-                />
+              <div className="px-5 pt-5">
+                <div className="relative aspect-[11/12] w-full overflow-hidden bg-[#EAF1EA]">
+                  <Image
+                    src={doctor.image}
+                    alt={`${doctor.name}, ${doctor.credentials}`}
+                    fill
+                    sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
+                    quality={75}
+                    className="object-cover object-top"
+                  />
+                </div>
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-heading text-lg font-medium text-[#0E3B2E]">{doctor.name}</h3>

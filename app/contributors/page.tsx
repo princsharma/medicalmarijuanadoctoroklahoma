@@ -20,7 +20,7 @@ export default function ContributorsPage() {
       <PageBreadcrumb
         page="Contributors"
         currentPath={pages.contributors.path}
-        includeJsonLd={false}
+        includeSchema={false}
       />
       <main id="main-content">
         <section className="px-6 pt-16 pb-10 sm:pt-20 sm:pb-12">
@@ -33,7 +33,7 @@ export default function ContributorsPage() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#0E3B2E]/85 sm:text-lg">
               Every article on Medical Marijuana Doctor Oklahoma is written and reviewed by real
-              people with real credentials—not generated automatically. A medical writer drafts
+              people with real credentials not generated automatically. A medical writer drafts
               clear patient-focused content, then a board-certified physician reviews it for
               clinical accuracy before publication.
             </p>

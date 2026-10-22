@@ -90,7 +90,7 @@ export default function RefundPolicyPage() {
       <PageBreadcrumb
         page="Refund Policy"
         currentPath={pages.refund.path}
-        items={[{ label: "Legal Policies", href: pages.legal.path }]}
+        items={[{ label: "Legal Policies", href: pages.policy.path }]}
       />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">

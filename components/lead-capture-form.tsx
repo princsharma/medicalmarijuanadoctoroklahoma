@@ -53,10 +53,11 @@ type LeadErrors = {
   email?: string;
   phone?: string;
   termsAccepted?: string;
+  
 };
 
 const fieldClassName =
-  "h-12 w-full min-w-0 rounded-xl border-[#0E3B2E]/10 bg-[#F3F6F0] px-3.5 text-base text-[#0E3B2E] shadow-none placeholder:text-[#0E3B2E]/40 transition-[border-color,box-shadow,background-color] focus-visible:border-[#4C9A2A] focus-visible:bg-white focus-visible:ring-2 focus-visible:ring-[#8FD66B]/45 md:text-base";
+  "h-12 w-full min-w-0 rounded-xl border-[#0E3B2E]/10 bg-[#F3F6F0] px-3.5 text-base text-[#0E3B2E] shadow-none placeholder:text-[#0E3B2E]/80 transition-[border-color,box-shadow,background-color] focus-visible:border-[#4C9A2A] focus-visible:bg-white focus-visible:ring-2 focus-visible:ring-[#8FD66B]/45 md:text-base";
 
 export function LeadCaptureForm() {
   const [name, setName] = useState("");
@@ -215,7 +216,7 @@ export function LeadCaptureForm() {
           >
             I accept the{" "}
             <Link
-              href="/terms-of-use/"
+              href="/policy/terms/"
               className="font-medium underline underline-offset-2 decoration-[#0E3B2E]/35 transition hover:decoration-[#0E3B2E]"
               onClick={(e) => e.stopPropagation()}
             >

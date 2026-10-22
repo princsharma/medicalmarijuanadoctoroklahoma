@@ -9,16 +9,21 @@ import { AboutAppointment } from "@/components/sections/about/about-appointment"
 import { AboutInfo } from "@/components/sections/about/about-info";
 import { AboutCta } from "@/components/sections/about/about-cta";
 import { JsonLd } from "@/components/seo/json-ld";
-import { buildMetadata, pages, webPageSchema } from "@/lib/seo";
+import { aboutPageSchema } from "@/lib/about-schema";
+import { buildMetadata, pages } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata(pages.about);
 
 export default function AboutUsPage() {
   return (
     <div className="flex flex-col bg-[#F6F5F0]">
-      <JsonLd data={webPageSchema(pages.about)} />
+      <JsonLd data={aboutPageSchema()} />
       <SiteHeader />
-      <PageBreadcrumb page="About Us" currentPath={pages.about.path} />
+      <PageBreadcrumb
+        page="About Us"
+        currentPath={pages.about.path}
+        includeSchema={false}
+      />
       <main id="main-content">
         <AboutHero />
         <AboutValues />

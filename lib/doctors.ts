@@ -128,7 +128,7 @@ export const doctors: Doctor[] = [
       "HIV/AIDS",
       "Severe Nausea",
     ],
-    headline: "General Practice Physician — Medical Cannabis Evaluations",
+    headline: "General Practice Physician   Medical Cannabis Evaluations",
     npi: "1235623372",
     education: "Columbia University Vagelos College of Physicians and Surgeons (2018)",
     residency: "Orthopaedic Surgery, Washington University/B-JH/SLCH Consortium (2018–2020)",
@@ -185,7 +185,7 @@ export const doctors: Doctor[] = [
       {
         question: "Do I need medical records?",
         answer:
-          "Medical documentation may help but isn't always required — Dr. Miller will let you know during your consultation if anything additional is needed.",
+          "Medical documentation may help but isn't always required   Dr. Miller will let you know during your consultation if anything additional is needed.",
       },
     ],
   },
@@ -297,7 +297,7 @@ export const doctors: Doctor[] = [
     ],
     roleParagraphs: [
       "As a physician working with Medical Marijuana Doctor Oklahoma, I conduct secure online medical evaluations using a HIPAA-compliant telehealth platform designed to make access simple and convenient for patients. My approach emphasizes personalized consultations that prioritize patient comfort and evidence-based care in a fully virtual environment.",
-      "During consultations, I carefully review each patient's medical history, discuss individual health concerns, and determine whether appropriate treatment options may support their medical needs — with the goal of a straightforward telehealth experience that maintains high standards of care.",
+      "During consultations, I carefully review each patient's medical history, discuss individual health concerns, and determine whether appropriate treatment options may support their medical needs   with the goal of a straightforward telehealth experience that maintains high standards of care.",
     ],
     conditionsIntro:
       "Dr. Jassey evaluates patients for the medical conditions recognized under Oklahoma's medical marijuana program. Final eligibility is determined during your consultation per Oklahoma's qualifying-condition list.",
@@ -321,7 +321,7 @@ export const doctors: Doctor[] = [
       {
         question: "How long does an evaluation with Dr. Jassey take?",
         answer:
-          "Evaluations are typically brief and efficient — most consultations are completed within 15–30 minutes via secure video call.",
+          "Evaluations are typically brief and efficient   most consultations are completed within 15–30 minutes via secure video call.",
       },
       {
         question: "Is the video consultation private?",

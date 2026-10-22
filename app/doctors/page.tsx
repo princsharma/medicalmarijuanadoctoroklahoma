@@ -22,7 +22,7 @@ export default function DoctorsPage() {
       <PageBreadcrumb
         page="Our Doctors"
         currentPath={pages.doctors.path}
-        includeJsonLd={false}
+        includeSchema={false}
       />
       <main id="main-content">
         <DoctorsHero />

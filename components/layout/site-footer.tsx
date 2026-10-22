@@ -6,72 +6,67 @@ import { GoogleIcon } from "@/components/icons/google-icon";
 import { InstagramIcon } from "@/components/icons/instagram-icon";
 import { LinkedinIcon } from "@/components/icons/linkedin-icon";
 import { legalPages } from "@/lib/legal-pages";
-import { pages } from "@/lib/seo";
+import { SOCIAL_LINKS } from "@/lib/seo";
 
 export function SiteFooter() {
   const resources = [
     { label: "Blog & Guides", href: "/blog/" },
     { label: "About Us", href: "/about-us/" },
+    { label: "Our Doctors", href: "/doctors/" },
+    { label: "Blog", href: "/blog/" },
     { label: "Contact Us", href: "/contact-us/" },
     { label: "Reviews", href: "/reviews/" },
     { label: "Contributors", href: "/contributors/" },
     { label: "FAQs", href: "/faq/" },
-    { label: "Legal Policies", href: "/legal/" },
+    { label: "Legal Policies", href: "/policy/" },
   ];
   const trustBadges = [
     "HIPAA Compliant Practice",
     "Board Certified Physicians",
     "State Authorized Evaluators",
   ];
-
+  const socialLinks = [
+    { label: "Facebook", href: SOCIAL_LINKS.facebook, icon: FacebookIcon },
+    { label: "Google", href: SOCIAL_LINKS.googleMaps, icon: GoogleIcon },
+    { label: "Instagram", href: SOCIAL_LINKS.instagram, icon: InstagramIcon },
+    { label: "LinkedIn", href: SOCIAL_LINKS.linkedin, icon: LinkedinIcon },
+  ];
 
   return (
     <footer id="contact" className="bg-[#0E3B2E] px-6 pt-20 pb-10" aria-label="Site footer">
       <div className="mx-auto grid max-w-6xl gap-12 sm:grid-cols-2 lg:grid-cols-[1.1fr_0.85fr_0.95fr_1fr]">
         <div>
-          <Image
-            src="/media/logo.webp"
-            alt="Medical Marijuana Doctor Oklahoma"
-            width={200}
-            height={50}
-            className="h-11 w-auto brightness-0 invert"
-            style={{ width: "auto" }}
-          />
+          <Link
+            href="/"
+            className="inline-block"
+            aria-label="Medical Marijuana Doctor Oklahoma home"
+          >
+            <Image
+              src="/oklahoma-logo.webp"
+              alt="Medical Marijuana Doctor Oklahoma"
+              width={200}
+              height={50}
+              style={{ width: "auto" }}
+              className="h-11 w-auto brightness-0 invert"
+            />
+          </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/80">
             Oklahoma&apos;s most trusted platform for medical marijuana card approvals. Licensed
             doctors, instant approval, legal protection.
           </p>
           <div className="mt-6 flex items-center gap-3" aria-label="Social media">
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-            >
-              <FacebookIcon className="size-5" />
-            </a>
-            <a
-              href="https://maps.app.goo.gl/8HTa3Scrh8eU3Wfi7"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Google"
-              className="flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-            >
-              <GoogleIcon className="size-5" />
-            </a>
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-            >
-              <InstagramIcon className="size-5" />
-            </a>
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-            >
-              <LinkedinIcon className="size-5" />
-            </a>
+            {socialLinks.map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              >
+                <Icon className="size-5" />
+              </a>
+            ))}
           </div>
         </div>
 
@@ -80,7 +75,11 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-3">
             {resources.map((link) => (
               <li key={link.label}>
-                <Link href={link.href} className="text-sm text-white/80 transition-colors hover:text-white">
+                <Link
+                  href={link.href}
+                  prefetch={false}
+                  className="text-sm text-white/80 transition-colors hover:text-white"
+                >
                   {link.label}
                 </Link>
               </li>
@@ -101,7 +100,7 @@ export function SiteFooter() {
               <Mail className="mt-0.5 size-5 shrink-0 text-[#B8E89A]" aria-hidden="true" />
               <a
                 href="mailto:contact@medicalmarijuanadoctoroklahoma.com"
-                className="transition-colors hover:text-white"
+                className="break-all transition-colors hover:text-white"
               >
                 contact@medicalmarijuanadoctoroklahoma.com
               </a>
@@ -118,17 +117,17 @@ export function SiteFooter() {
         </div>
 
         <nav aria-label="Legal, compliance, and editorial">
-          <Link
-            href="/legal/"
-            className="whitespace-nowrap text-xs font-semibold tracking-[0.15em] text-[#B8E89A] transition-colors hover:text-white"
-          >
-            LEGAL, COMPLIANCE &amp; EDITORIAL
-          </Link>
+          <p className="whitespace-nowrap text-xs font-semibold tracking-[0.15em] text-[#B8E89A]">
+            <Link href="/policy/" prefetch={false} className="transition-colors hover:text-white">
+              LEGAL, COMPLIANCE &amp; EDITORIAL
+            </Link>
+          </p>
           <ul className="mt-5 space-y-3">
             {legalPages.map(({ label, href, icon: Icon }) => (
               <li key={label}>
                 <Link
                   href={href}
+                  prefetch={false}
                   className="flex items-center gap-2.5 text-sm text-white/80 transition-colors hover:text-white"
                 >
                   <Icon className="size-5 shrink-0 text-[#B8E89A]" aria-hidden="true" />

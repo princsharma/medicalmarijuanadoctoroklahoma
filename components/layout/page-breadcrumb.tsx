@@ -23,15 +23,15 @@ type PageBreadcrumbProps = {
   currentPath?: string;
   /** Optional middle crumbs, e.g. [{ label: "Doctors", href: "/doctors/" }] */
   items?: Crumb[];
-  /** When false, skip BreadcrumbList JSON-LD (e.g. page supplies its own @graph). */
-  includeJsonLd?: boolean;
+  /** Set false when the page provides its own BreadcrumbList JSON-LD. */
+  includeSchema?: boolean;
 };
 
 export function PageBreadcrumb({
   page,
   currentPath,
   items = [],
-  includeJsonLd = true,
+  includeSchema = true,
 }: PageBreadcrumbProps) {
   const crumbs: Crumb[] = [{ label: "Home", href: "/" }, ...items, { label: page }];
 
@@ -49,7 +49,7 @@ export function PageBreadcrumb({
 
   return (
     <div className="relative overflow-hidden border-b border-[#0E3B2E]/8 bg-gradient-to-r from-[#EEF5E8] via-[#F6F5F0] to-[#F6F5F0]">
-      {includeJsonLd ? <JsonLd data={schema} /> : null}
+      {includeSchema ? <JsonLd data={schema} /> : null}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-10 right-8 h-28 w-28 rounded-full bg-[#8FD66B]/20 blur-2xl"
@@ -90,7 +90,7 @@ export function PageBreadcrumb({
                     )}
                   </BreadcrumbItem>
                   {isLast ? null : (
-                    <BreadcrumbSeparator className="text-[#0E3B2E]/35 [&>svg]:size-3.5" />
+                    <BreadcrumbSeparator className="text-[#0E3B2E]/80 [&>svg]:size-3.5" />
                   )}
                 </Fragment>
               );

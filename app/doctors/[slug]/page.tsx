@@ -14,7 +14,7 @@ import {
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageBreadcrumb } from "@/components/layout/page-breadcrumb";
-import { Button } from "@/components/ui/button";
+import { BookingButton } from "@/components/booking-dialog";
 import {
   Accordion,
   AccordionContent,
@@ -70,7 +70,7 @@ export default async function DoctorProfilePage({ params }: Props) {
         page={doctor.name}
         currentPath={profilePath}
         items={[{ label: "Our Doctors", href: "/doctors/" }]}
-        includeJsonLd={false}
+        includeSchema={false}
       />
       <main id="main-content">
         <section className="px-6 pt-14 pb-16 sm:pt-20">
@@ -89,7 +89,8 @@ export default async function DoctorProfilePage({ params }: Props) {
                   src={doctor.image}
                   alt={`${doctor.name}, ${doctor.credentials}`}
                   fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  sizes="(min-width: 1024px) 420px, 90vw"
+                  quality={75}
                   className="object-cover object-top"
                   priority
                 />
@@ -116,12 +117,9 @@ export default async function DoctorProfilePage({ params }: Props) {
                   {doctor.description ?? doctor.bio}
                 </p>
 
-                <Button
-                  render={<a href="#apply" />}
-                  className="mt-9 h-auto gap-2 rounded-full bg-[#0E3B2E] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#0E3B2E]/20 transition-all hover:-translate-y-0.5 hover:bg-[#0E3B2E]/90"
-                >
+                <BookingButton className="mt-9 h-auto gap-2 rounded-full bg-[#0E3B2E] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#0E3B2E]/20 transition-all hover:-translate-y-0.5 hover:bg-[#0E3B2E]/90">
                   Book a Consultation with Dr. {lastName} <ArrowRight className="size-4" />
-                </Button>
+                </BookingButton>
               </div>
             </div>
 
@@ -142,13 +140,13 @@ export default async function DoctorProfilePage({ params }: Props) {
                 </p>
                 <div className="mt-6 grid gap-3 sm:grid-cols-3">
                   <div className="rounded-xl bg-[#F6F5F0] px-4 py-3.5">
-                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/50">
+                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/80">
                       NPI NUMBER
                     </p>
                     <p className="mt-1 text-sm font-semibold text-[#0E3B2E]">{doctor.npi}</p>
                   </div>
                   <div className="rounded-xl bg-[#F6F5F0] px-4 py-3.5">
-                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/50">
+                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/80">
                       STATUS
                     </p>
                     <p className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-[#2F7A18]">
@@ -156,7 +154,7 @@ export default async function DoctorProfilePage({ params }: Props) {
                     </p>
                   </div>
                   <div className="rounded-xl bg-[#F6F5F0] px-4 py-3.5">
-                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/50">
+                    <p className="text-[10px] font-semibold tracking-[0.15em] text-[#0E3B2E]/80">
                       LICENSED STATE
                     </p>
                     <p className="mt-1 text-sm font-semibold text-[#0E3B2E]">Oklahoma</p>
@@ -187,7 +185,7 @@ export default async function DoctorProfilePage({ params }: Props) {
                       className="rounded-xl border border-black/5 bg-white p-4 transition-shadow hover:shadow-md"
                     >
                       <p className="text-sm font-semibold text-[#0E3B2E]">{entry.institution}</p>
-                      <p className="mt-0.5 text-sm text-[#0E3B2E]/65">{entry.detail}</p>
+                      <p className="mt-0.5 text-sm text-[#0E3B2E]/80">{entry.detail}</p>
                     </div>
                   ))}
                 </div>
@@ -285,7 +283,7 @@ export default async function DoctorProfilePage({ params }: Props) {
                     <p className="text-sm text-white/80">{doctor.trust.platformText}</p>
                   </div>
                 </div>
-                <p className="mt-5 text-xs text-white/50">{doctor.trust.lastVerified}</p>
+                <p className="mt-5 text-xs text-white/70">{doctor.trust.lastVerified}</p>
               </div>
             ) : null}
 
@@ -295,7 +293,7 @@ export default async function DoctorProfilePage({ params }: Props) {
                 <h2 className="font-heading text-xl font-medium text-[#0E3B2E]">
                   Frequently Asked Questions
                 </h2>
-                <p className="mt-2 text-sm text-[#0E3B2E]/60">
+                <p className="mt-2 text-sm text-[#0E3B2E]/80">
                   Specific to consultations with Dr. {lastName}. For general questions, see our
                   main FAQ.
                 </p>
@@ -331,12 +329,9 @@ export default async function DoctorProfilePage({ params }: Props) {
                 certification if approved.
               </p>
               <div className="mt-1 flex flex-wrap items-center justify-center gap-3">
-                <Button
-                  render={<a href="#apply" />}
-                  className="h-auto gap-2 rounded-full bg-[#0E3B2E] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#0E3B2E]/20 transition-all hover:-translate-y-0.5 hover:bg-[#0E3B2E]/90"
-                >
+                <BookingButton className="h-auto gap-2 rounded-full bg-[#0E3B2E] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#0E3B2E]/20 transition-all hover:-translate-y-0.5 hover:bg-[#0E3B2E]/90">
                   Book a Consultation <ArrowRight className="size-4" />
-                </Button>
+                </BookingButton>
                 <Link
                   href="/doctors/"
                   className="text-sm font-medium text-[#0E3B2E]/70 underline underline-offset-4 hover:text-[#0E3B2E]"

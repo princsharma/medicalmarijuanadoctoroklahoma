@@ -18,6 +18,13 @@ export const CONTRIBUTOR_DAALON_OG_IMAGE = "/profile-image-of-daalon-echols.webp
 export const REVIEWS_OG_IMAGE = DEFAULT_OG_IMAGE;
 export const POLICY_OG_IMAGE = "/logo.webp";
 
+export const SOCIAL_LINKS = {
+  facebook: "https://www.facebook.com/mmjdoctoroklahoma/",
+  googleMaps: "https://maps.app.goo.gl/93bMfCu8LaZ78Eb8A",
+  instagram: "https://www.instagram.com/mmjdoctorsoklahoma/",
+  linkedin: "https://www.linkedin.com/company/107855441",
+} as const;
+
 export type PageSeo = {
   path: string;
   title: string;
@@ -49,11 +56,11 @@ export function withTrailingSlash(path: string) {
 export const pages = {
   home: {
     path: "/",
-    title: "Medical Marijuana Doctor Oklahoma | MMJ Card",
+    title: "How to Apply for an Oklahoma Medical Marijuana Card Online",
     description:
-      "Oklahoma telehealth for medical marijuana evaluations. Licensed OK doctors, fast online visits, and clear OMMA card guidance for patients.",
+      "See how Oklahoma residents can apply for a medical marijuana card, including eligibility, physician evaluation, and OMMA steps.",
     datePublished: "2024-01-01",
-    dateModified: "2026-08-05",
+    dateModified: "2026-08-10",
     changeFrequency: "weekly",
     priority: 1,
     ogImage: DEFAULT_OG_IMAGE,
@@ -75,7 +82,7 @@ export const pages = {
     description:
       "Questions about your Oklahoma MMJ card? Contact us by phone, email, or office visit. Real staff respond quickly to help you.",
     datePublished: "2024-01-01",
-    dateModified: "2026-08-05",
+    dateModified: "2026-08-11",
     changeFrequency: "monthly",
     priority: 0.8,
     ogImage: CONTACT_OG_IMAGE,
@@ -95,12 +102,22 @@ export const pages = {
     path: "/faq/",
     title: "FAQ | Medical Marijuana Doctor Oklahoma",
     description:
-      "Answers about Oklahoma medical marijuana cards, telehealth evaluations, eligibility, OMMA applications, and renewals.",
+      "Answers to common questions asked by Oklahoma patients about getting and maintaining a Medical Marijuana Card.",
     datePublished: "2024-01-01",
-    dateModified: "2026-08-05",
+    dateModified: "2026-08-13",
     changeFrequency: "monthly",
     priority: 0.7,
     ogImage: FAQ_OG_IMAGE,
+  },
+  blog: {
+    path: "/blog/",
+    title: "Oklahoma Medical Marijuana Guides & Articles | MMJ Doctor OK",
+    description:
+      "Explore expert medical marijuana guides, OMMA compliance rules, qualifying conditions, and state cannabis regulations for Oklahoma patients.",
+    datePublished: "2024-06-01",
+    dateModified: "2026-08-15",
+    changeFrequency: "weekly",
+    priority: 0.8,
   },
   reviews: {
     path: "/reviews/",
@@ -125,7 +142,7 @@ export const pages = {
     ogType: "article",
   },
   terms: {
-    path: "/policy/terms-of-use/",
+    path: "/policy/terms/",
     title: "Terms of Use | Medical Marijuana Doctor Oklahoma",
     description:
       "Read Terms of Use covering eligibility, telehealth consent, physician relationships, liability, and Oklahoma law.",
@@ -201,7 +218,7 @@ export const pages = {
     priority: 0.3,
     ogType: "article",
   },
-  legal: {
+  policy: {
     path: "/policy/",
     title: "Legal Policies | Medical Marijuana Doctor OK",
     description:
@@ -293,7 +310,7 @@ export function absoluteOgImageUrl(path: string) {
   return new URL(pathname, ogImageOrigin()).toString();
 }
 
-export function clampMetaTitle(title: string, max = 55) {
+export function clampMetaTitle(title: string, max = 60) {
   if (title.length <= max) return title;
   const cut = title.slice(0, max);
   const at = cut.lastIndexOf(" ");
@@ -411,16 +428,20 @@ export function doctorMetadata(input: {
   });
 }
 
+const LOGO_ID = `${SITE_URL}/oklahoma-logo.webp`;
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["MedicalBusiness", "Organization"],
+    "@type": ["MedicalOrganization", "MedicalBusiness"],
+    "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
-    url: SITE_URL,
-    logo: absoluteOgImageUrl("/logo.webp"),
-    image: absoluteOgImageUrl(DEFAULT_OG_IMAGE),
+    url: `${SITE_URL}/`,
+    logo: { "@id": LOGO_ID },
+    image: { "@id": LOGO_ID },
     description:
-      "Technology platform connecting Oklahoma patients with licensed physicians for medical marijuana evaluations.",
+      "Medical Marijuana Doctor Oklahoma is a telehealth platform connecting Oklahoma patients with licensed physicians for OMMA-compliant medical marijuana evaluations via secure, HIPAA-compliant video consultations.",
+    knowsAbout: ["Cannabis Medicine", "Telemedicine"],
     email: "contact@medicalmarijuanadoctoroklahoma.com",
     telephone: "+1-405-445-1637",
     address: {
@@ -430,11 +451,6 @@ export function organizationSchema() {
       addressRegion: "OK",
       postalCode: "73139",
       addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 35.3907522,
-      longitude: -97.5349792,
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -450,11 +466,55 @@ export function organizationSchema() {
       opens: "09:00",
       closes: "22:00",
     },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+1-405-445-1637",
+        contactType: "customer service",
+        areaServed: "US-OK",
+        availableLanguage: ["English"],
+      },
+      {
+        "@type": "ContactPoint",
+        email: "contact@medicalmarijuanadoctoroklahoma.com",
+        contactType: "customer support",
+        areaServed: "US-OK",
+        availableLanguage: ["English"],
+      },
+    ],
     areaServed: {
       "@type": "State",
       name: "Oklahoma",
     },
-    sameAs: [],
+    sameAs: ["https://maps.app.goo.gl/8HTa3Scrh8eU3Wfi7"],
+    publishingPrinciples: absoluteUrl(pages.editorial.path),
+  };
+}
+
+export function logoSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": LOGO_ID,
+    url: LOGO_ID,
+    contentUrl: LOGO_ID,
+    caption: "Medical Marijuana Doctor Oklahoma logo",
+  };
+}
+
+/** Site-level identity / publisher schema for GEO and Knowledge Graph signals. */
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: SITE_NAME,
+    description: pages.home.description,
+    inLanguage: "en-US",
+    publisher: {
+      "@id": `${SITE_URL}/#organization`,
+    },
   };
 }
 

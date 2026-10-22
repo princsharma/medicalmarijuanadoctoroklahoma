@@ -15,22 +15,22 @@ export function Hero() {
     <section className="relative overflow-hidden px-6 pt-14 pb-20 sm:pt-20 sm:pb-28">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-[#BFE7B0] opacity-40 blur-3xl"
+        className="pointer-events-none absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgba(191,231,176,0.4)_0%,transparent_70%)]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-40 -left-32 h-96 w-96 rounded-full bg-[#0E3B2E]/10 blur-3xl"
+        className="pointer-events-none absolute top-40 -left-32 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(14,59,46,0.1)_0%,transparent_70%)]"
       />
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
         <div>
           <h1 className="font-heading text-4xl leading-[1.1] font-medium tracking-tight text-[#0E3B2E] sm:text-5xl">
-            Get Approved by an Oklahoma Medical Marijuana Doctor and Receive Your{" "}
-            <span className="italic text-[#2F7A18]">Digital Card in Minutes!</span>
+            Apply for an Oklahoma Medical Marijuana Card Online with a Licensed{" "}
+            <span className="italic text-[#2F7A18]">MMJ Doctor</span>
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-[#0E3B2E]/85">
-            Easy online application, instant approval, and same-day access to legal cannabis in
-            Oklahoma.
+            Easy online application, physician evaluation, and clear OMMA steps   with same-day
+            access to legal medical marijuana in Oklahoma.
           </p>
 
           <div className="mt-9 flex flex-nowrap items-center gap-3 sm:gap-4">
@@ -64,11 +64,13 @@ export function Hero() {
         <div className="relative">
           <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#0E3B2E]/15">
             <Image
-              src="/media/hero-section.webp"
-              alt="Patient meeting with a physician over telemedicine video call"
+              src="/hero-section.webp"
+              alt="Oklahoma medical marijuana doctor telehealth visit for an online MMJ card evaluation"
               width={800}
               height={560}
               priority
+              quality={70}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 550px"
               className="h-[420px] w-full object-cover sm:h-[480px]"
             />
           </div>

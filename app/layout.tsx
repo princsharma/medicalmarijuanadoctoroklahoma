@@ -1,33 +1,38 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
-import { Geist_Mono, Inter, Fraunces } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ConsultQueryOpener } from "@/components/booking-dialog";
-import { JsonLd } from "@/components/seo/json-ld";
+import { SiteJsonLd } from "@/components/seo/site-json-ld";
+import { AnalyticsLoader } from "@/components/analytics-loader";
 import {
   absoluteOgImageUrl,
   DEFAULT_OG_IMAGE,
   deploymentOrigin,
   SITE_NAME,
   SITE_URL,
-  organizationSchema,
   pages,
 } from "@/lib/seo";
 
 const defaultOgImageUrl = absoluteOgImageUrl(DEFAULT_OG_IMAGE);
+const GTM_ID = "GTM-5MP4Q35";
+const GA_MEASUREMENT_ID = "G-580S6PQZ8K";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans",
+  display: "swap",
+  preload: true,
+});
 
 const fraunces = Fraunces({
   subsets: ["latin"],
+  weight: ["500"],
   variable: "--font-display",
-  axes: ["opsz", "SOFT"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -86,6 +91,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  verification: {
+    google: "fVbtcYhbhtfufdSVaP5v9gtp1kJoYVYBNBQlxxUTJ6I",
+  },
   icons: {
     icon: [
       { url: "/media/favicon.webp", sizes: "any", type: "image/webp" },
@@ -116,14 +124,22 @@ export default function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
-        geistMono.variable,
         "font-sans",
         inter.variable,
         fraunces.variable
       )}
     >
       <body className="flex min-h-full flex-col">
-        <JsonLd data={organizationSchema()} />
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            className="hidden"
+            title="Google Tag Manager"
+          />
+        </noscript>
+        <SiteJsonLd />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-[#0E3B2E] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
@@ -134,6 +150,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <ConsultQueryOpener />
         </Suspense>
+        <AnalyticsLoader gtmId={GTM_ID} gaId={GA_MEASUREMENT_ID} />
       </body>
     </html>
   );

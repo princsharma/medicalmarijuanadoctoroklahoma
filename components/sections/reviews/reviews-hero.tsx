@@ -10,7 +10,7 @@ export function ReviewsHero() {
         </h1>
         <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-[#0E3B2E]/85">
           Verified Google feedback from Oklahoma patients who completed secure, compliant
-          evaluations with our licensed physicians—fast, affordable, and fully online.
+          evaluations with our licensed physicians fast, affordable, and fully online.
         </p>
       </div>
     </section>

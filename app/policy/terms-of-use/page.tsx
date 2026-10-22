@@ -83,7 +83,7 @@ const sections: Section[] = [
     body: [
       "Your use of the website and services is also governed by our Privacy Policy, which describes how we collect, use, disclose, and safeguard your personal information, including information submitted during medical evaluations. All personal health information is collected, transmitted, and stored in compliance with HIPAA privacy and security standards.",
     ],
-    note: "By accessing or using the website, you acknowledge that you have read and agree to those terms.",
+    note: "By accessing or using the website, you acknowledge that you have read and agree to the terms of our Privacy Policy.",
     links: [{ text: "Privacy Policy", href: pages.privacy.path }],
   },
   {
@@ -261,7 +261,7 @@ export default function TermsOfUsePage() {
       <PageBreadcrumb
         page="Terms of Use"
         currentPath={pages.terms.path}
-        items={[{ label: "Legal Policies", href: pages.legal.path }]}
+        items={[{ label: "Legal Policies", href: pages.policy.path }]}
       />
       <main id="main-content">
         <section className="px-6 py-16 sm:py-20">
