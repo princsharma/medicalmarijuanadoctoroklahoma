@@ -111,13 +111,14 @@ export const pages = {
   },
   blog: {
     path: "/blog/",
-    title: "Oklahoma Medical Marijuana Guides & Articles | MMJ Doctor OK",
+    title: "Oklahoma Medical Marijuana Blog | Guides & Updates",
     description:
-      "Explore expert medical marijuana guides, OMMA compliance rules, qualifying conditions, and state cannabis regulations for Oklahoma patients.",
-    datePublished: "2024-06-01",
+      "Explore clear, practical guides to Oklahoma medical marijuana laws, OMMA rules, patient eligibility, card applications, and cannabis use.",
+    datePublished: "2026-08-15",
     dateModified: "2026-08-15",
     changeFrequency: "weekly",
     priority: 0.8,
+    ogImage: BLOG_OG_IMAGE,
   },
   reviews: {
     path: "/reviews/",
@@ -239,17 +240,6 @@ export const pages = {
     changeFrequency: "monthly",
     priority: 0.7,
     ogImage: CONTRIBUTORS_OG_IMAGE,
-  },
-  blog: {
-    path: "/blog/",
-    title: "Oklahoma Medical Marijuana Blog | Guides & Updates",
-    description:
-      "Explore clear, practical guides to Oklahoma medical marijuana laws, OMMA rules, patient eligibility, card applications, and cannabis use.",
-    datePublished: "2026-08-15",
-    dateModified: "2026-08-15",
-    changeFrequency: "weekly",
-    priority: 0.8,
-    ogImage: BLOG_OG_IMAGE,
   },
 } as const satisfies Record<string, PageSeo>;
 
