@@ -113,7 +113,7 @@ export const pages = {
     path: "/blog/",
     title: "Oklahoma Medical Marijuana Blog | Guides & Updates",
     description:
-      "Explore clear, practical guides to Oklahoma medical marijuana laws, OMMA rules, patient eligibility, card applications, and cannabis use.",
+      "Explore Oklahoma medical marijuana laws, OMMA rules, patient eligibility, card applications, renewals, and essential resources.",
     datePublished: "2026-08-15",
     dateModified: "2026-08-15",
     changeFrequency: "weekly",

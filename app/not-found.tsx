@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+
+export const metadata: Metadata = {
+  title: { absolute: "Page not found - Medical Marijuana Doctor Oklahoma" },
+  description: "",
+  alternates: { canonical: null },
+  robots: { index: false, follow: true },
+  openGraph: null,
+  twitter: null,
+};
 
 export default function NotFound() {
   return (

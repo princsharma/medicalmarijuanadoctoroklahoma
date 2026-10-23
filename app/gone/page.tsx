@@ -9,8 +9,10 @@ export const metadata: Metadata = {
     follow: false,
   },
   alternates: {
-    canonical: "/gone/",
+    canonical: null,
   },
+  openGraph: null,
+  twitter: null,
 };
 
 export default function GonePage() {

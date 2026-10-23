@@ -29,7 +29,6 @@ const LIVE_PATHS = new Set([
   "/contributors/daalon-b-echols/",
   "/blog/is-marijuana-legal-in-oklahoma/",
   "/blog/oklahoma-cannabis-laws/",
-  "/gone/",
 ]);
 
 /** Existing permanent redirects. These must reach Next.js instead of the 410 page. */
@@ -68,6 +67,10 @@ function goneResponse(request: NextRequest) {
 
 export function middleware(request: NextRequest) {
   const pathname = withTrailingSlash(request.nextUrl.pathname);
+
+  if (pathname === "/gone/") {
+    return goneResponse(request);
+  }
 
   if (LIVE_PATHS.has(pathname) || REDIRECT_PATHS.has(pathname)) {
     if (isGoneRequest(pathname, request.nextUrl.searchParams) && pathname === "/") {
