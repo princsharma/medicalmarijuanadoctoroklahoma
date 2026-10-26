@@ -30,7 +30,6 @@ const nextConfig: NextConfig = {
     const homepageRedirects = [
       "services-and-benefits",
       "medical-marijuana-card",
-      "how-easy-is-it-to-get-a-medical-card-in-oklahoma",
       "our-locations",
       "oklahoma-medical-marijuana-card-renewal-online",
     ];
@@ -76,6 +75,26 @@ const nextConfig: NextConfig = {
       {
         source: "/policy/terms-of-use/",
         destination: "/policy/terms/",
+        statusCode: 301,
+      },
+      {
+        source: "/policy/privacy-policy/-0",
+        destination: "/policy/privacy-policy/",
+        statusCode: 301,
+      },
+      {
+        source: "/policy/privacy-policy/-0/",
+        destination: "/policy/privacy-policy/",
+        statusCode: 301,
+      },
+      {
+        source: "/policy/refund-policy/-0",
+        destination: "/policy/refund-policy/",
+        statusCode: 301,
+      },
+      {
+        source: "/policy/refund-policy/-0/",
+        destination: "/policy/refund-policy/",
         statusCode: 301,
       },
       ...legacyPolicyPaths.flatMap((slug) => [

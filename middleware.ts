@@ -43,9 +43,10 @@ const REDIRECT_PATHS = new Set([
   "/editorial-policy/",
   "/disclaimer/",
   "/policy/terms-of-use/",
+  "/policy/privacy-policy/-0/",
+  "/policy/refund-policy/-0/",
   "/services-and-benefits/",
   "/medical-marijuana-card/",
-  "/how-easy-is-it-to-get-a-medical-card-in-oklahoma/",
   "/our-locations/",
   "/oklahoma-medical-marijuana-card-renewal-online/",
 ]);
