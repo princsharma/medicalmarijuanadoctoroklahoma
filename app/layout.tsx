@@ -94,6 +94,9 @@ export const metadata: Metadata = {
   verification: {
     google: "fVbtcYhbhtfufdSVaP5v9gtp1kJoYVYBNBQlxxUTJ6I",
   },
+  other: {
+    "trustpilot-one-time-domain-verification-id": "06db99e4-b1d1-4da7-84eb-3327491e9525",
+  },
   icons: {
     icon: [
       { url: "/media/favicon.webp", sizes: "any", type: "image/webp" },
