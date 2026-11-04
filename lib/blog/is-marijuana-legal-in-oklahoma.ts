@@ -14,7 +14,7 @@ import {
 
 export const isMarijuanaLegalInOklahoma = {
   slug: "is-marijuana-legal-in-oklahoma",
-  path: "/blog/is-marijuana-legal-in-oklahoma/",
+  path: "/blog/omma-guidelines/is-marijuana-legal-in-oklahoma/",
   title: "Is Marijuana Legal in Oklahoma in 2026?",
   subtitle: "All You Need to Know",
   excerpt:

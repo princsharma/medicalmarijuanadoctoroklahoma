@@ -97,6 +97,26 @@ const nextConfig: NextConfig = {
         destination: "/policy/refund-policy/",
         statusCode: 301,
       },
+      {
+        source: "/blog/is-marijuana-legal-in-oklahoma",
+        destination: "/blog/omma-guidelines/is-marijuana-legal-in-oklahoma/",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/is-marijuana-legal-in-oklahoma/",
+        destination: "/blog/omma-guidelines/is-marijuana-legal-in-oklahoma/",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/oklahoma-cannabis-laws",
+        destination: "/blog/omma-guidelines/oklahoma-cannabis-laws/",
+        statusCode: 301,
+      },
+      {
+        source: "/blog/oklahoma-cannabis-laws/",
+        destination: "/blog/omma-guidelines/oklahoma-cannabis-laws/",
+        statusCode: 301,
+      },
       ...legacyPolicyPaths.flatMap((slug) => [
         {
           source: `/${slug}`,

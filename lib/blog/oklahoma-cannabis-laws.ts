@@ -13,7 +13,7 @@ import {
 
 export const oklahomaCannabisLaws = {
   slug: "oklahoma-cannabis-laws",
-  path: "/blog/oklahoma-cannabis-laws/",
+  path: "/blog/omma-guidelines/oklahoma-cannabis-laws/",
   title: "Oklahoma Cannabis Laws Explained",
   subtitle: "Medical Marijuana Rules for 2026",
   excerpt:

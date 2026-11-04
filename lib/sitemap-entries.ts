@@ -1,3 +1,4 @@
+import { blogCategories } from "@/lib/blog-categories";
 import { blogPosts } from "@/lib/blog";
 import { contributors } from "@/lib/contributors";
 import { doctors } from "@/lib/doctors";
@@ -51,7 +52,20 @@ export function getSitemapEntries(): SitemapEntry[] {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...doctorEntries, ...contributorEntries, ...blogEntries];
+  const blogCategoryEntries: SitemapEntry[] = blogCategories.map((category) => ({
+    url: absoluteUrl(category.path),
+    lastModified: toIsoDate("2026-11-03"),
+    changeFrequency: "weekly",
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticEntries,
+    ...doctorEntries,
+    ...contributorEntries,
+    ...blogEntries,
+    ...blogCategoryEntries,
+  ];
 }
 
 function escapeXml(value: string) {

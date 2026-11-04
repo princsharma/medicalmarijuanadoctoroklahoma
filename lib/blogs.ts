@@ -69,7 +69,16 @@ export type BlogPost = {
   title: string;
   titleSecondary?: string;
   subtitle: string;
-  category: "OMMA Guidelines" | "Qualifying Conditions" | "Card Renewal" | "Patient Rights" | "Dosage & Usage" | "General";
+  category:
+    | "OMMA Guidelines"
+    | "Application Guide"
+    | "Online Evaluations"
+    | "Dosage & Usage"
+    | "Patient Rights"
+    | "License Types"
+    | "Card Renewal"
+    | "Qualifying Conditions"
+    | "General";
   readTime: string;
   datePublished: string;
   dateModified: string;
@@ -411,7 +420,7 @@ export const blogPosts: BlogPost[] = [
         id: "is-cannabis-legal",
         title: "Is Cannabis Legal in Oklahoma?",
         content: [
-          "Yes, [medical marijuana is legal in Oklahoma](/blog/is-marijuana-legal-in-oklahoma/). Voters approved [State Question 788 (SQ 788)](https://oklahoma.gov/content/dam/ok/en/omma/docs/sq_788_1.pdf) on June 26, 2018, legalizing medical marijuana for eligible patients and establishing a state-regulated medical marijuana program.",
+          "Yes, [medical marijuana is legal in Oklahoma](/blog/omma-guidelines/is-marijuana-legal-in-oklahoma/). Voters approved [State Question 788 (SQ 788)](https://oklahoma.gov/content/dam/ok/en/omma/docs/sq_788_1.pdf) on June 26, 2018, legalizing medical marijuana for eligible patients and establishing a state-regulated medical marijuana program.",
           "Under SQ 788, patients can access medical marijuana with a recommendation from a licensed physician. Oklahoma does not restrict medical marijuana eligibility to a fixed list of qualifying conditions. Instead, physicians can recommend medical marijuana when they believe it may benefit a patient.",
           "The [Oklahoma Medical Marijuana Authority (OMMA)](https://oklahoma.gov/omma/) regulates the state's medical marijuana program. Although medical marijuana is legal, recreational marijuana remains illegal in Oklahoma. Patients must meet the program's requirements to obtain a medical marijuana license and receive the legal protections provided under state law.",
         ],

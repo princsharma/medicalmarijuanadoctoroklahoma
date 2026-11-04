@@ -4,31 +4,75 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight, BookOpen, Clock3, Search } from "lucide-react";
+import { BlogCategoryFilters } from "@/components/sections/blog/blog-category-filters";
 import { BlogCta } from "@/components/sections/blog/blog-cta";
+import { getBlogCategory } from "@/lib/blog-categories";
 import { blogPosts } from "@/lib/blog";
 import { formatDisplayDate } from "@/lib/seo";
 
-export function BlogIndex() {
+type BlogIndexProps = {
+  categorySlug?: string;
+};
+
+type ListingCard = {
+  key: string;
+  path: string;
+  title: string;
+  subtitle: string;
+  excerpt: string;
+  category: string;
+  image: string;
+  imageAlt: string;
+  authorName: string;
+  updatedAt: string;
+};
+
+function toLiveCard(post: (typeof blogPosts)[number]): ListingCard {
+  return {
+    key: post.slug,
+    path: post.path,
+    title: post.title,
+    subtitle: post.subtitle,
+    excerpt: post.excerpt,
+    category: post.category,
+    image: post.image,
+    imageAlt: post.imageAlt,
+    authorName: post.author.name,
+    updatedAt: post.updatedAt,
+  };
+}
+
+export function BlogIndex({ categorySlug }: BlogIndexProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const searchTerm = searchQuery.trim().toLowerCase();
-  const filteredPosts = useMemo(
-    () =>
-      blogPosts.filter((post) => {
-        const searchableText = [
-          post.title,
-          post.subtitle,
-          post.excerpt,
-          post.category,
-          post.focusKeyword,
-          post.author.name,
-        ]
-          .join(" ")
-          .toLowerCase();
+  const activeCategory = categorySlug ? getBlogCategory(categorySlug) : null;
+  const filteredPosts = useMemo(() => {
+    const liveCards = blogPosts
+      .filter((post) => !activeCategory || post.category === activeCategory.label)
+      .map(toLiveCard);
 
-        return !searchTerm || searchableText.includes(searchTerm);
-      }),
-    [searchTerm]
-  );
+    const categoryCards =
+      activeCategory?.articles.map((article) => ({
+        key: article.path,
+        path: article.path,
+        title: article.title,
+        subtitle: activeCategory.label,
+        excerpt: article.excerpt,
+        category: activeCategory.label,
+        image: "/is-marijuana-legal-in-oklahoma.webp",
+        imageAlt: article.title,
+        authorName: "Medical Marijuana Doctor Oklahoma",
+        updatedAt: "2026-11-03",
+      })) ?? [];
+
+    return [...liveCards, ...categoryCards].filter((post) => {
+      const searchableText = [post.title, post.subtitle, post.excerpt, post.category, post.authorName]
+        .join(" ")
+        .toLowerCase();
+
+      return !searchTerm || searchableText.includes(searchTerm);
+    });
+  }, [activeCategory, searchTerm]);
 
   return (
     <>
@@ -86,10 +130,11 @@ export function BlogIndex() {
               />
             </label>
           </div>
+          <BlogCategoryFilters activeSlug={activeCategory?.slug} />
           {filteredPosts.length > 0 ? (
             <div className="mt-8 grid auto-rows-fr gap-6">
               {filteredPosts.map((post) => (
-                <BlogCard key={post.slug} post={post} />
+                <BlogCard key={post.key} post={post} />
               ))}
             </div>
           ) : (
@@ -104,7 +149,7 @@ export function BlogIndex() {
   );
 }
 
-function BlogCard({ post }: { post: (typeof blogPosts)[number] }) {
+function BlogCard({ post }: { post: ListingCard }) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#0E3B2E]/12 bg-white shadow-[0_12px_35px_-28px_rgba(14,59,46,0.45)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(14,59,46,0.35)] md:flex-row">
       <Link
@@ -125,7 +170,7 @@ function BlogCard({ post }: { post: (typeof blogPosts)[number] }) {
       </Link>
       <div className="flex flex-1 flex-col p-5 sm:p-7">
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[#0E3B2E]/60 sm:text-sm">
-          <span>by {post.author.name}</span>
+          <span>by {post.authorName}</span>
           <span aria-hidden="true">|</span>
           <time dateTime={post.updatedAt}>{formatDisplayDate(post.updatedAt)}</time>
           <span aria-hidden="true">|</span>

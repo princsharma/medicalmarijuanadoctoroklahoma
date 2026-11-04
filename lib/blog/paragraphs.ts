@@ -4,8 +4,9 @@ export type BlogTextPart =
 
 export type BlogParagraph = string | BlogTextPart[];
 
-export const IS_MARIJUANA_LEGAL_IN_OKLAHOMA_PATH = "/blog/is-marijuana-legal-in-oklahoma/";
-export const OKLAHOMA_CANNABIS_LAWS_PATH = "/blog/oklahoma-cannabis-laws/";
+export const IS_MARIJUANA_LEGAL_IN_OKLAHOMA_PATH =
+  "/blog/omma-guidelines/is-marijuana-legal-in-oklahoma/";
+export const OKLAHOMA_CANNABIS_LAWS_PATH = "/blog/omma-guidelines/oklahoma-cannabis-laws/";
 export const GET_OK_MMJ_CARD_PATH = "/#apply";
 
 export const MEDICAL_MARIJUANA_LEGAL_IN_OKLAHOMA_PHRASE = "Medical marijuana is legal in Oklahoma";

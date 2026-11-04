@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { PageBreadcrumb } from "@/components/layout/page-breadcrumb";
@@ -47,6 +47,9 @@ export default async function BlogArticleRoute({ params }: BlogRouteProps) {
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) notFound();
+  if (post.path !== `/blog/${slug}/`) {
+    redirect(post.path);
+  }
 
   return (
     <div className="flex min-h-screen flex-col bg-[#F6F5F0]">

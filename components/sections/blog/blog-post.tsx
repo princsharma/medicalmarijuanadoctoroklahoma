@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Check } from "lucide-react";
@@ -422,7 +423,14 @@ function AboutAuthor({
           <p className="mt-4 text-sm leading-7 text-[#0E3B2E]/75 sm:text-base">
             {author.bio}
           </p>
+          <Link
+            href={`/${author.profileKind ?? "contributors"}/${author.slug}/`}
+            className="m-8 inline-flex h-11 items-center gap-2 rounded-full bg-[#0E382E] px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0E382E]/90"
+          >
+            View Author Profile
+          </Link>
         </div>
+        
       </div>
     </section>
   );

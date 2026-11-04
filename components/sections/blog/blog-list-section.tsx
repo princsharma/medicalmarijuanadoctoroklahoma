@@ -4,24 +4,18 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock, Search } from "lucide-react";
+import { BlogCategoryFilters } from "@/components/sections/blog/blog-category-filters";
+import { blogCategories } from "@/lib/blog-categories";
 import { BlogPost } from "@/lib/blogs";
 
 interface BlogListSectionProps {
   posts: BlogPost[];
 }
 
-const categories = [
-  "All",
-  "OMMA Guidelines",
-  "Qualifying Conditions",
-  "Card Renewal",
-  "Patient Rights",
-  "Dosage & Usage",
-];
-
 export function BlogListSection({ posts }: BlogListSectionProps) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const activeSlug = blogCategories.find((category) => category.label === activeCategory)?.slug;
 
   const filteredPosts = posts.filter((post) => {
     const matchesCategory =
@@ -62,23 +56,7 @@ export function BlogListSection({ posts }: BlogListSectionProps) {
           </div>
         </div>
 
-        {/* Category Filters */}
-        <div className="mt-6 flex flex-wrap gap-2 overflow-x-auto pb-2">
-          {categories.map((category) => (
-            <button
-              key={category}
-              type="button"
-              onClick={() => setActiveCategory(category)}
-              className={`rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all ${
-                activeCategory === category
-                  ? "bg-[#0E3B2E] text-white shadow-xs"
-                  : "border border-[#0E3B2E]/15 bg-white text-[#0E3B2E]/80 hover:bg-[#0E3B2E]/5"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+        <BlogCategoryFilters activeSlug={activeSlug} />
 
         {/* Blog Grid */}
         {filteredPosts.length > 0 ? (

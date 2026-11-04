@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { blogCategoryLivePaths } from "@/lib/blog-categories";
 import { isGoneRequest } from "@/lib/gone";
 
 const LIVE_PATHS = new Set([
@@ -27,8 +28,9 @@ const LIVE_PATHS = new Set([
   "/doctors/lewis-jassey/",
   "/contributors/robert-d-saint-laurent/",
   "/contributors/daalon-b-echols/",
-  "/blog/is-marijuana-legal-in-oklahoma/",
-  "/blog/oklahoma-cannabis-laws/",
+  "/blog/omma-guidelines/is-marijuana-legal-in-oklahoma/",
+  "/blog/omma-guidelines/oklahoma-cannabis-laws/",
+  ...blogCategoryLivePaths,
 ]);
 
 /** Existing permanent redirects. These must reach Next.js instead of the 410 page. */
@@ -49,6 +51,8 @@ const REDIRECT_PATHS = new Set([
   "/medical-marijuana-card/",
   "/our-locations/",
   "/oklahoma-medical-marijuana-card-renewal-online/",
+  "/blog/is-marijuana-legal-in-oklahoma/",
+  "/blog/oklahoma-cannabis-laws/",
 ]);
 
 function withTrailingSlash(pathname: string) {
@@ -89,6 +93,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|media/|favicon.ico|site.webmanifest|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js|map|txt|xml|woff2?)$).*)",
+    "/((?!_next/static|_next/image|media/|favicon.ico|site.webmanifest|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js|map|txt|xml|html|woff2?)$).*)",
   ],
 };
